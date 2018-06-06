@@ -2,14 +2,25 @@
   "name": "benvolio",
   "version": "1.0.0",
   "description": "node.js capstone project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "mocha --exit"
   },
   "author": "Erica Garcia",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
     "nodemon": "^1.17.5"
-  }
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
 }
