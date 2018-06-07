@@ -1,74 +1,52 @@
 
+function getStartedButton(){
+  $('#landing-div').on('submit', $('get-started-button'), function(event) {
+    event.preventDefault();
+    $('#landing-div').hide();
+    $('#sign-up-form').show();
+    $('#login-form').show();
+  });
+}
 
 function chooseSignUp() {
   $('#sign-up-form').on('submit', $('#sign-up-button'), function(event) {
     event.preventDefault();
-    hideElementOnSubmit('#sign-up-login-div');
-    insertSignUp();
+    $('#sign-up-form').hide();
+    $('#login-form').hide();
+    $('#sign-up-form2').show();
   });
 }
 
 function chooseLogin() {
   $('#login-form').on('submit', $('#login-button'), function(event) {
     event.preventDefault();
-    hideElementOnSubmit('#sign-up-login-div');
-    insertLogin();
+    $('#sign-up-form').hide();
+    $('#login-form').hide();
+    $('#login-form2').show();
   });
 }
 
 function submitLogin() {
-  $('#main-div').on('submit', function(event) {
+  $('#login-form2').on('submit', $('submit-login2'), function(event) {
     event.preventDefault();
-    hideElementOnSubmit('#login-form2');
-    hideElementOnSubmit('#title1');
-    showElementOnSubmit('#nav-bar');
+    $('#nav-bar').show();
+    $('#login-form2').hide();
+    $('#logo').hide();
   });
 }
 
 function submitSignUp() {
-  $('#main-div').on('submit', function(event) {
+  $('#sign-up-form2').on('submit',  $('submit-new-user'), function(event) {
     event.preventDefault();
-    hideElementOnSubmit('#sign-up-form2');
-    hideElementOnSubmit('#title1');
-    showElementOnSubmit('#nav-bar');
+    $('#nav-bar').show();
+    $('#sign-up-form2').hide();
+    $('#logo').hide();
   });
 }
 
-function insertLogin() {
-  let html = `<form id="login-form2">
-    <fieldset>
-      <legend>
-        <input id="login-email-input" class="sign-up-input" type="text" required="required" value="email@email.com" aria-label="email">
-        <input id="login-password-input" class="sign-up-input" type="text" required="required" value="password123" aria-label="password">
-          <input id="submit-login" type="submit" value="Login" aria-label="submit-login">
-      </legend>
-    </fieldset>
-  </form>`;
-  $('#main-div').html(html);
-}
-
-function insertSignUp() {
-  let html = `<form id="sign-up-form2">
-    <fieldset>
-      <legend>
-        <input id="sign-up-email-input" class="sign-up-input" type="text" required="required" value="email@email.com" aria-label="email">
-        <input id="sign-up-password-input" class="sign-up-input" type="text" required="required" value="password123" aria-label="password">
-          <input id="submit-new-user" type="submit" value="Sign Up" aria-label="submit-sign-up">
-      </legend>
-    </fieldset>
-  </form>`;
-  $('#main-div').html(html);
-}
-
-function hideElementOnSubmit(elementToHide) {
-  $(elementToHide).hide();
-}
-
-function showElementOnSubmit(elementToShow) {
-  $(elementToShow).show();
-}
 
 $(document).ready(function() {
+  getStartedButton();
   chooseSignUp();
   chooseLogin();
   submitLogin();

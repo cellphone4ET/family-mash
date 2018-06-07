@@ -8,10 +8,12 @@
     <link href="reset.css" rel="stylesheet" type="text/css">
   	<link href="main.css" rel="stylesheet" type="text/css">
   </head>
+
   <body>
     <header role="banner"><h1>Ben.Volio</h1></header>
     <main role="main">
-<!-- landing page elements in a div -->
+
+<!-- elements on load-->
       <div id="nav-bar" hidden>
         <form id="menu-form">
           <legend>
@@ -22,32 +24,59 @@
         </form>
       </div>
 
-      <div id="start-page-div">
+      <div id="logo"><h1>Ben.volio</h1></div>
 
-        <h1 id="title1">Ben.volio</h1>
-            <div id="sign-up-login-div">
-            <p>Building family relationships, one helpful reminder at a time.</p>
+<div id="main-div">
 
-              <form id="sign-up-form">
-                <legend>
-                  <fieldset>
-                    <input id="sign-up-button" type="submit" value="Sign Up" aria-label="sign-up-button">
-                  </fieldset>
-                <legend>
-              </form>
+  <form id="login-form2" hidden>
+      <fieldset>
+        <legend>
+          <input id="login-email-input" class="sign-up-input" type="text" required="required" value="email@email.com" aria-label="email">
+          <input id="login-password-input" class="sign-up-input" type="text" required="required" value="password123" aria-label="password">
+            <input id="submit-login" type="submit" value="Login" aria-label="submit-login">
+        </legend>
+      </fieldset>
+    </form>
 
-              <form id="login-form">
-                <legend>
-                  <fieldset>
-                    <input id="login-button" type="submit" value="Login" aria-label="login-button">
-                  </fieldset>
-                <legend>
-              </form>
-            </div>
+  <form id="sign-up-form2" hidden>
+      <fieldset>
+        <legend>
+          <input id="sign-up-email-input" class="sign-up-input" type="text" required="required" value="email@email.com" aria-label="email">
+          <input id="sign-up-password-input" class="sign-up-input" type="text" required="required" value="password123" aria-label="password">
+            <input id="submit-new-user" type="submit" value="Sign Up" aria-label="submit-sign-up">
+        </legend>
+      </fieldset>
+    </form>
+
+      <div id="landing-div">
+        <p>Building family relationships, one helpful reminder at a time.</p>
+        <p>Add your family members information and get reminders for important dates in their lives.</p>
+          <form id="get-started-form">
+            <legend>
+              <fieldset>
+                <input id="get-started-button" type="submit" value="Get Started" aria-label="get-started-button">
+              </fieldset>
+          <legend>
+        </form>
       </div>
 
-<!-- catch-all div -->
-      <div id="main-div"> </div>
+        <form id="sign-up-form" hidden>
+          <legend>
+            <fieldset>
+              <input id="sign-up-button" type="submit" value="Sign Up" aria-label="sign-up-button">
+            </fieldset>
+          <legend>
+        </form>
+
+        <form id="login-form" hidden>
+          <legend>
+            <fieldset>
+              <input id="login-button" type="submit" value="Login" aria-label="login-button">
+            </fieldset>
+          <legend>
+        </form>
+
+</div>
 
 
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

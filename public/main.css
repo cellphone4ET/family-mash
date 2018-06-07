@@ -6,6 +6,10 @@ header {
   display: none;
 }
 
+#logo {
+  text-align: center;
+}
+
 #start-page-div {
   text-align: center;
 }
@@ -45,6 +49,7 @@ header {
   width: 100%;
 }
 
-#start-page-div{
+#landing-div{
   margin-top: 50px;
+  text-align: center;
 }
