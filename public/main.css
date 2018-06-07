@@ -1,0 +1,16 @@
+#main-fieldset {
+  border: 0px;
+}
+
+header {
+  display: none;
+}
+
+#start-page-div {
+  text-align: center;
+}
+
+#login {
+  font-style: italic;
+  font-size: 15px
+}

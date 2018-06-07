@@ -1,17 +1,25 @@
 
 
 function submitSignUp() {
-  $('#sign-up-form').on('submit', function(event) {
-    console.log('submitSignUp ran');
+  $('#sign-up-div').on('submit', function(event) {
     event.preventDefault();
-    hideShowElementsOnSubmit();
+    hideElementOnSubmit('#sign-up-div');
+    insertSignUp();
   });
 }
 
-// function hideShowElementsOnSubmit() {
-//   $)
-// }
+function insertSignUp() {
+  let html = `<p>hi</p>`;
+  $('#main-div').html(html);
+}
 
+function hideElementOnSubmit(elementToHide) {
+  $(elementToHide).hide();
+}
+
+function showElementOnSubmit(elementToShow) {
+  $(elementToShow).show();
+}
 
 $(document).ready(function() {
   submitSignUp();
