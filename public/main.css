@@ -1,4 +1,4 @@
-#main-fieldset {
+fieldset {
   border: 0px;
 }
 
@@ -13,4 +13,19 @@ header {
 #login {
   font-style: italic;
   font-size: 15px
+}
+
+#main-div {
+  text-align: center;
+}
+
+.sign-up-input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.landing-page-submit {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
 }
