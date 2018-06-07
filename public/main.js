@@ -1,6 +1,6 @@
 
 
-function submitSignUp() {
+function chooseSignUp() {
   $('#sign-up-form').on('submit', $('#sign-up-button'), function(event) {
     event.preventDefault();
     hideElementOnSubmit('#sign-up-login-div');
@@ -8,7 +8,7 @@ function submitSignUp() {
   });
 }
 
-function submitLogin() {
+function chooseLogin() {
   $('#login-form').on('submit', $('#login-button'), function(event) {
     event.preventDefault();
     hideElementOnSubmit('#sign-up-login-div');
@@ -16,9 +16,24 @@ function submitLogin() {
   });
 }
 
+function submitLogin() {
+  $('#main-div').on('submit', function(event) {
+    event.preventDefault();
+    hideElementOnSubmit('#login-form2');
+    hideElementOnSubmit('#title1');
+  });
+}
+
+function submitSignUp() {
+  $('#main-div').on('submit', function(event) {
+    event.preventDefault();
+    hideElementOnSubmit('#sign-up-form2');
+    hideElementOnSubmit('#title1');
+  });
+}
+
 function insertLogin() {
-  console.log('login')
-  let html = `<form>
+  let html = `<form id="login-form2">
     <fieldset>
       <legend>
         <input id="login-email-input" class="sign-up-input" type="text" required="required" value="email@email.com" aria-label="email">
@@ -30,10 +45,8 @@ function insertLogin() {
   $('#main-div').html(html);
 }
 
-
 function insertSignUp() {
-  console.log('sin')
-  let html = `<form>
+  let html = `<form id="sign-up-form2">
     <fieldset>
       <legend>
         <input id="sign-up-email-input" class="sign-up-input" type="text" required="required" value="email@email.com" aria-label="email">
@@ -54,6 +67,8 @@ function showElementOnSubmit(elementToShow) {
 }
 
 $(document).ready(function() {
+  chooseSignUp();
+  chooseLogin();
+  submitLogin();
   submitSignUp();
-  submitLogin()
 })
