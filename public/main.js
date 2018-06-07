@@ -21,6 +21,7 @@ function submitLogin() {
     event.preventDefault();
     hideElementOnSubmit('#login-form2');
     hideElementOnSubmit('#title1');
+    showElementOnSubmit('#nav-bar');
   });
 }
 
@@ -29,6 +30,7 @@ function submitSignUp() {
     event.preventDefault();
     hideElementOnSubmit('#sign-up-form2');
     hideElementOnSubmit('#title1');
+    showElementOnSubmit('#nav-bar');
   });
 }
 

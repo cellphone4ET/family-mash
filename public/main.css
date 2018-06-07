@@ -29,3 +29,22 @@ header {
   margin: auto;
   margin-top: 10px;
 }
+
+#fixed-header {
+  position: fixed;
+  border-color: black;
+  border-width: 1px;
+  height: 50px;
+}
+
+#nav-bar {
+  overflow: hidden;
+  background-color: grey;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#start-page-div{
+  margin-top: 50px;
+}
