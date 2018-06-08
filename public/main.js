@@ -41,7 +41,85 @@ function submitSignUp() {
     $('#nav-bar').show();
     $('#sign-up-form2').hide();
     $('#logo').hide();
+    insertPhotos();
   });
+}
+
+function insertPhotos() {
+let html = `<div class="row">
+    <div class="col-12">
+      <h1>Star Wars Characters</h1>
+      <p>Incomplete list</p>
+    </div>
+  </div>
+</header>
+
+<div class="row">
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="juliet.jpg" />
+      <div class="card-content">
+        <h3>Rey</h3>
+        <p>Protagonist, from Jakku</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="juliet.jpg" />
+      <div class="card-content">
+        <h3>Finn</h3>
+        <p>Stormtrooper, befriends Rey</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="juliet.jpg" />
+      <div class="card-content">
+        <h3>Kylo Ren</h3>
+        <p>Main villain, or is he?</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="juliet.jpg" />
+      <div class="card-content">
+        <h3>Poe</h3>
+        <p>Pilot for the resistance</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="juliet.jpg" />
+      <div class="card-content">
+        <h3>Chewbacca</h3>
+        <p>A great first mate</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="juliet.jpg" />
+      <div class="card-content">
+        <h3>Yoda</h3>
+        <p>Wise old Jedi master</p>
+      </div>
+    </div>
+  </div>
+</div>`
+$('#main-div').html(html);
 }
 
 

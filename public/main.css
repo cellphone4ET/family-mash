@@ -53,3 +53,25 @@ header {
   margin-top: 50px;
   text-align: center;
 }
+
+.card {
+  border: 1px solid #E5E5E5;
+  margin-bottom: 20px;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card-content p {
+  margin: 0.5em 0;
+}
