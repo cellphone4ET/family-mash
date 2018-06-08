@@ -46,6 +46,7 @@ function submitSignUp() {
   });
 }
 
+// for display only: this will need to be reformatted to account for data
 function insertPhotos() {
 let html = `
 <div class="row">
@@ -54,28 +55,28 @@ let html = `
     <div class="card">
       <img class="card-image" src="juliet.jpg" />
       <div class="card-content">
-        <h3>Juliet Capulet</h3>
-        <p>Child Bride</p>
+        <h3><a href="#family-member-info">Juliet Capulet</a></h3>
+        <p>Wife</p>
       </div>
     </div>
   </div>
 
   <div class="col-4">
     <div class="card">
-      <img class="card-image" src="juliet.jpg" />
+      <img class="card-image" src="benvolio.jpg" />
       <div class="card-content">
-        <h3>Juliet Capulet</h3>
-        <p>Child Bride</p>
+        <h3>Benvolio</h3>
+        <p>Cousin</p>
       </div>
     </div>
   </div>
 
   <div class="col-4">
     <div class="card">
-      <img class="card-image" src="juliet.jpg" />
+      <img class="card-image" src="lordmontague.jpg" />
       <div class="card-content">
-        <h3>Juliet Capulet</h3>
-        <p>Child Bride</p>
+        <h3>Lord Montague</h3>
+        <p>Father</p>
       </div>
     </div>
   </div>
@@ -83,35 +84,7 @@ let html = `
 </div>
 <div class="row">
 
-<div class="col-4">
-  <div class="card">
-    <img class="card-image" src="juliet.jpg" />
-    <div class="card-content">
-      <h3>Juliet Capulet</h3>
-      <p>Child Bride</p>
-    </div>
-  </div>
-</div>
-
-<div class="col-4">
-  <div class="card">
-    <img class="card-image" src="juliet.jpg" />
-    <div class="card-content">
-      <h3>Juliet Capulet</h3>
-      <p>Child Bride</p>
-    </div>
-  </div>
-</div>
-
-<div class="col-4">
-  <div class="card">
-    <img class="card-image" src="juliet.jpg" />
-    <div class="card-content">
-      <h3>Juliet Capulet</h3>
-      <p>Child Bride</p>
-    </div>
-  </div>
-</div>`
+`
 
 $('#main-div').html(html);
 }
