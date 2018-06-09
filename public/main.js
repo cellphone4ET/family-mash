@@ -1,6 +1,6 @@
 
 function getStartedButton(){
-  $('#landing-div').on('submit', $('get-started-button'), function(event) {
+  $('#landing-div').on('click', $('get-started-button'), function(event) {
     event.preventDefault();
     $('#landing-div').hide();
     $('#sign-up-form').show();
@@ -33,6 +33,8 @@ function submitLogin() {
     $('#login-form2').hide();
     $('#logo').hide();
     insertPhotos();
+    document.body.style.backgroundColor = "white";
+    document.body.style.marginTop = "0px";
   });
 }
 
@@ -43,6 +45,37 @@ function submitSignUp() {
     $('#sign-up-form2').hide();
     $('#logo').hide();
     insertPhotos();
+    document.body.style.backgroundColor = "white";
+    document.body.style.marginTop = "0px";
+  });
+}
+
+function clickMenu() {
+  $('.main-nav').on('click', $('#menu-link'), function(event) {
+    $('.row').hide();
+    $('.add-fam-member').show();
+    $('.sign-out').show();
+  });
+}
+
+function signOut() {
+  $('.menu-elements').on('click', $('#sign-out'), function(event) {
+    console.log('signout ran');
+    $('#nav-bar').hide();
+    $('#logo').show();
+    $('.add-fam-member').hide();
+    $('.sign-out').hide();
+    $('#landing-div').show();
+    document.body.style.backgroundColor = "#DCD0C0";
+    document.body.style.marginTop = "150px";
+  });
+}
+
+function createPerson() {
+  $('.menu-elements2').on('click', $('#createperson'), function(event) {
+    console.log('createperson ran');
+    $('.add-fam-member').hide();
+    $('.sign-out').hide();
   });
 }
 
@@ -82,15 +115,15 @@ let html = `
   </div>
 
 </div>
-<div class="row">
-
-`
+<div class="row">`
 
 $('#main-div').html(html);
 }
 
 
 $(document).ready(function() {
+  signOut();
+  clickMenu();
   getStartedButton();
   chooseSignUp();
   chooseLogin();
