@@ -93,30 +93,30 @@ let html = `
 
   <div class="col-4">
     <div class="card">
-      <img class="card-image" src="juliet.jpg" />
+      <img class="card-image" src="morticia.jpg" />
       <div class="card-content">
-        <h3><a href="#family-member-info">Juliet Capulet</a></h3>
-        <p>Wife</p>
+        <h3><a href="#family-member-info">Morticia Addams</a></h3>
+        <p>Mother</p>
       </div>
     </div>
   </div>
 
   <div class="col-4">
     <div class="card">
-      <img class="card-image" src="benvolio.jpg" />
+      <img class="card-image" src="gomez.jpg" />
       <div class="card-content">
-        <h3>Benvolio</h3>
-        <p>Cousin</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-4">
-    <div class="card">
-      <img class="card-image" src="lordmontague.jpg" />
-      <div class="card-content">
-        <h3>Lord Montague</h3>
+        <h3>Gomez Addams</h3>
         <p>Father</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <img class="card-image" src="uncle-fester.jpg" />
+      <div class="card-content">
+        <h3>Uncle Fester</h3>
+        <p>Uncle</p>
       </div>
     </div>
   </div>
