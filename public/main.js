@@ -79,6 +79,14 @@ function createPerson() {
   });
 }
 
+function submitPerson() {
+  $('.create-person').on('submit', $('#submit-person'), function(event) {
+    event.preventDefault();
+    $('.create-person-form').hide();
+    insertPhotos();
+  });
+}
+
 // function returnToMainScreen() {
 //   $('.main-nav2').on('click', $('#mainpage'), function(event) {
 //     console.log('returnToMainScreen ran');
@@ -88,6 +96,38 @@ function createPerson() {
 //   });
 // }
 
+
+
+function moreInfoLink() {
+  $('#photo-div').on('click', $('#family-member-info'), function(event) {
+    $('.row').hide();
+    insertPersonInfo();
+  });
+}
+
+
+// for display only: this will need to be reformatted to account for data
+function insertPersonInfo() {
+let html = `<div class="info-bloc">
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <img alt="family-member" class="card-image" src="morticia.jpg" />
+          <div class="card-content">
+            <h3>Morticia Addams</h3>
+            <p>Mother</p>
+            <ul>
+              <li>DO</li>
+              <li>RE</li>
+              <li>MI</li>
+            <ul>
+          </div>
+        </div>
+      </div>
+    </div>`
+  $('.person-info').html(html);
+}
+
 // for display only: this will need to be reformatted to account for data
 function insertPhotos() {
 let html = `
@@ -95,7 +135,7 @@ let html = `
 
   <div class="col-4">
     <div class="card">
-      <img class="card-image" src="morticia.jpg" />
+      <img alt="family-member" class="card-image" src="morticia.jpg" />
       <div class="card-content">
         <h3><a href="#family-member-info">Morticia Addams</a></h3>
         <p>Mother</p>
@@ -131,6 +171,8 @@ $('#photo-div').html(html);
 
 
 $(document).ready(function() {
+  moreInfoLink();
+  submitPerson();
   createPerson();
   signOut();
   clickMenu();

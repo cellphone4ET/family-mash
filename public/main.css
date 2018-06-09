@@ -55,10 +55,6 @@ header {
   height: 80px;
 }
 
-label {
-  display: block;
-  border: 1px;
-}
 #get-started-button {
   margin-bottom: 30px;
 }
@@ -92,7 +88,7 @@ label {
 
 .card-content {
   padding: 20px;
-  background-color: #F4F4F
+  background-color: #F4F4F4;
 }
 
 .card-content h3 {
@@ -132,7 +128,21 @@ label {
 
 .add-person-form {
   display: inline-block;
-  width: 200px;
+  width: 300px;
   margin: auto;
+}
+
+label {
+  display: block;
   text-align: left;
+  margin-bottom: 2px;
+}
+
+.person-input {
+  background-color: #F4F4F4;
+  border: none;
+  margin-bottom: 8px;
+  width: 250px;
+  text-align: left;
+  font-style: italic;
 }

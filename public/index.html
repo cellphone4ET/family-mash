@@ -24,7 +24,6 @@
             <a href="#mainpage" class="mainpage">family. mash</a>
           </div>
         </div>
-
         <div id="logo"><h1>family. mash</h1></div>
 
         <div class="landing-elements">
@@ -72,8 +71,6 @@
               </fieldset>
             </form>
           </div>
-
-        <div id="photo-div"></div>
         <div class="menu-elements2">
           <div class="add-fam-member" hidden>
             <a href="#createperson" id="createperson">Add a Family Member</a>
@@ -89,19 +86,21 @@
             <form class="add-person-form">
               <fieldset>
                 <legend>
-                  <label for="name">Name:<br></label>
-                    <input type="text" name="name" />
-                  <label>Relation:<br><input type="text" name="relation" /></label>
-                  <label>Age:<br><input type="text" name="age" /></label>
-                  <label>Birthday:<br><input type="text" name="birthday" /></label>
-                  <label>Significant Other:<br><input type="text" name="" /></label>
-                  <label>Anniversary:<br><input type="text" name="anniversary" /></label>
-                  <label>Notes:<br><input type="text" name="notes" /></label>
-                  <input type="submit" value="Submit">
+                  <label for="name">Name:<br><input class="person-input" type="text" name="name" /></label>
+                  <label>Relation:<br><input class="person-input" type="text" name="relation" /></label>
+                  <label>Age:<br><input class="person-input" type="text" name="age" /></label>
+                  <label>Birthday:<br><input class="person-input" type="text" name="birthday" /></label>
+                  <label>Significant Other:<br><input class="person-input" type="text" name="" /></label>
+                  <label>Anniversary:<br><input class="person-input" type="text" name="anniversary" /></label>
+                  <label>Notes:<br><input class="person-input" type="text" name="notes" /></label>
+                  <input type="submit" value="Submit" id="submit-person">
           </div>
         </div>
 
-        </div>
+        <div id="photo-div"></div>
+        <div class="person-info"></div>
+
+      </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="main.js"></script>
       </main>
