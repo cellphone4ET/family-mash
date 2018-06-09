@@ -1,0 +1,31 @@
+a:link    {
+  text-decoration:  none;
+  font-weight:      none;
+  background-color: none;
+  color:            black;
+  }
+
+a:visited {
+  text-decoration:  none;
+  font-weight:      none;
+  background-color: none;
+  color:            black;
+  }
+
+a:hover   {
+  text-decoration:  none
+  font-weight:      bold;
+  background-color: none;
+  color:            #C0B283;
+  }
+
+  .menu-link, a:hover {
+    color: black;
+  }
+
+a:active  {
+  text-decoration:  none;
+  font-weight:      bold;
+  background-color: none;
+  color: black;
+  }

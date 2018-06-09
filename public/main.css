@@ -14,7 +14,7 @@ header {
   display: none;
 }
 
-main {
+.main {
   background-color: white;
 }
 
@@ -37,7 +37,7 @@ main {
 }
 
 .landing-elements {
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .landing-page-submit {
@@ -60,7 +60,6 @@ main {
   top: 0;
   width: 100%;
   height: 80px;
-  margin-bottom: 30px;
 }
 
 .main-landing-div {
@@ -68,7 +67,6 @@ main {
   text-align: center;
   margin-top: 100px;
   background-color: white;
-  width: 300px;
 }
 
 #logo {
@@ -92,11 +90,12 @@ main {
 
 .card-image {
   width: 100%;
-  height: 400px;
+  height: 350px;
 }
 
 .card-content {
   padding: 20px;
+  background-color: #F4F4F
 }
 
 .card-content h3 {
@@ -116,10 +115,11 @@ main {
   display: inline-block;
   float:right;
   font-size: 40px;
-  margin-bottom: 5px;
+  margin-top: 15px;
+  margin-right: 15px;
 }
 
-.logo2 {
+.mainpage{
   font-family: 'Arvo', serif;
   font-size: 40px;
   display: inline-block;

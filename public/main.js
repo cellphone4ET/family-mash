@@ -60,7 +60,6 @@ function clickMenu() {
 
 function signOut() {
   $('.menu-elements').on('click', $('#sign-out'), function(event) {
-    console.log('signout ran');
     $('#nav-bar').hide();
     $('#logo').show();
     $('.add-fam-member').hide();
@@ -73,11 +72,19 @@ function signOut() {
 
 function createPerson() {
   $('.menu-elements2').on('click', $('#createperson'), function(event) {
-    console.log('createperson ran');
     $('.add-fam-member').hide();
     $('.sign-out').hide();
   });
 }
+
+// function returnToMainScreen() {
+//   $('.main-nav2').on('click', $('#mainpage'), function(event) {
+//     console.log('returnToMainScreen ran');
+//     $('.add-fam-member').hide();
+//     $('.sign-out').hide();
+//     insertPhotos();
+//   });
+// }
 
 // for display only: this will need to be reformatted to account for data
 function insertPhotos() {
@@ -122,6 +129,7 @@ $('#main-div').html(html);
 
 
 $(document).ready(function() {
+  createPerson();
   signOut();
   clickMenu();
   getStartedButton();
