@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="family.mash">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Family.counsel</title>
+    <title>family.mash</title>
     <link href="reset.css" rel="stylesheet" type="text/css">
   	<link href="main.css" rel="stylesheet" type="text/css">
     <link href="links.css" rel="stylesheet" type="text/css">
@@ -14,18 +14,18 @@
 
   <body>
     <header role="banner">family.mash</header>
-    <main role="main" class="main">
+    <main role="main">
 
-      <div class="main">
+        <div id="main-div">
 
         <div class="main-nav">
           <div id="nav-bar" hidden>
             <a href="#menu-link" class="menu-link">☰</a>
-            <a href="#mainpage" class="mainpage">family.mash</a>
+            <a href="#mainpage" class="mainpage">family. mash</a>
           </div>
         </div>
 
-        <div id="logo"><h1>family.mash</h1></div>
+        <div id="logo"><h1>family. mash</h1></div>
 
         <div class="landing-elements">
           <div id="landing-div">
@@ -34,7 +34,6 @@
             <input id="get-started-button" type="button" value="Get Started" aria-label="get-started-button">
           </div>
         </div>
-
         <div class="sign-up-login">
           <form id="sign-up-form" hidden>
             <legend>
@@ -52,7 +51,6 @@
             <legend>
           </form>
         </div>
-
         <div class="signup-login2">
           <form id="login-form2" hidden>
               <fieldset>
@@ -75,11 +73,7 @@
             </form>
           </div>
 
-
-          <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      		<script type="text/javascript" src="main.js"></script>
-
-        <div id="main-div"></div>
+        <div id="photo-div"></div>
         <div class="menu-elements2">
           <div class="add-fam-member" hidden>
             <a href="#createperson" id="createperson">Add a Family Member</a>
@@ -90,8 +84,26 @@
             <a href="#sign-out">Sign Out</a>
           </div>
         </div>
+        <div class="create-person">
+          <div class="create-person-form" hidden>
+            <form class="add-person-form">
+              <fieldset>
+                <legend>
+                  <label for="name">Name:<br></label>
+                    <input type="text" name="name" />
+                  <label>Relation:<br><input type="text" name="relation" /></label>
+                  <label>Age:<br><input type="text" name="age" /></label>
+                  <label>Birthday:<br><input type="text" name="birthday" /></label>
+                  <label>Significant Other:<br><input type="text" name="" /></label>
+                  <label>Anniversary:<br><input type="text" name="anniversary" /></label>
+                  <label>Notes:<br><input type="text" name="notes" /></label>
+                  <input type="submit" value="Submit">
+          </div>
+        </div>
 
-      </div>
-    </main>
+        </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+      </main>
   </body>
 </html>

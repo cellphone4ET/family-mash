@@ -34,7 +34,7 @@ function submitLogin() {
     $('#logo').hide();
     insertPhotos();
     document.body.style.backgroundColor = "white";
-    document.body.style.marginTop = "0px";
+    // document.body.style.marginTop = "0px";
   });
 }
 
@@ -46,7 +46,7 @@ function submitSignUp() {
     $('#logo').hide();
     insertPhotos();
     document.body.style.backgroundColor = "white";
-    document.body.style.marginTop = "0px";
+    // document.body.style.marginTop = "0px";
   });
 }
 
@@ -55,6 +55,7 @@ function clickMenu() {
     $('.row').hide();
     $('.add-fam-member').show();
     $('.sign-out').show();
+    $('.create-person-form').hide();
   });
 }
 
@@ -74,6 +75,7 @@ function createPerson() {
   $('.menu-elements2').on('click', $('#createperson'), function(event) {
     $('.add-fam-member').hide();
     $('.sign-out').hide();
+    $('.create-person-form').show();
   });
 }
 
@@ -124,7 +126,7 @@ let html = `
 </div>
 <div class="row">`
 
-$('#main-div').html(html);
+$('#photo-div').html(html);
 }
 
 

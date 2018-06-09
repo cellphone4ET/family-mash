@@ -14,10 +14,6 @@ header {
   display: none;
 }
 
-.main {
-  background-color: white;
-}
-
 #start-page-div {
   text-align: center;
 }
@@ -28,16 +24,13 @@ header {
 }
 
 #main-div {
-  text-align: center;
+  background-color: white;
+  margin-top: -50px;
 }
 
 .sign-up-input {
   display: block;
-  margin-bottom: 10px;
-}
-
-.landing-elements {
-  padding-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .landing-page-submit {
@@ -62,24 +55,28 @@ header {
   height: 80px;
 }
 
-.main-landing-div {
+label {
   display: block;
-  text-align: center;
-  margin-top: 100px;
-  background-color: white;
+  border: 1px;
+}
+#get-started-button {
+  margin-bottom: 30px;
 }
 
 #logo {
   display: block;
   text-align: center;
   padding-top: 30px;
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  letter-spacing: -4px;
 }
 
 #landing-div{
   text-align: center;
 }
 
-.landing-elements, .sign-up-login, .signup-login2, .menu-elements, .menu-elements2, .main-landing-div {
+.landing-elements, .sign-up-login, .signup-login2, .menu-elements, .menu-elements2 {
   text-align: center;
 }
 
@@ -126,4 +123,16 @@ header {
   margin-bottom: 5px;
   margin-left: 10px;
   margin-top: 14px;
+  letter-spacing: -5px;
+}
+
+.create-person-form {
+  text-align: center;
+}
+
+.add-person-form {
+  display: inline-block;
+  width: 200px;
+  margin: auto;
+  text-align: left;
 }
