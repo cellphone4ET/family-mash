@@ -25,7 +25,6 @@ header {
 
 #main-div {
   background-color: white;
-  margin-top: -50px;
 }
 
 .sign-up-input {
@@ -100,16 +99,21 @@ header {
   margin: 0.5em 0;
 }
 
-#main-div {
-  margin-top: 100px;
-}
-
 .menu-link {
-  display: inline-block;
+  display: inline;
   float:right;
   font-size: 40px;
   margin-top: 15px;
   margin-right: 15px;
+}
+
+.add-fam-member , .sign-out {
+  font-size: 25px;
+  font-weight: 100;
+  border: 1px;
+  border-color: black;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .mainpage{
@@ -145,4 +149,8 @@ label {
   width: 250px;
   text-align: left;
   font-style: italic;
+}
+
+.content-field {
+  font-weight: bold;
 }

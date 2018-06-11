@@ -14,14 +14,10 @@ a:visited {
 
 a:hover   {
   text-decoration:  none
-  font-weight:      bold;
   background-color: none;
-  color:            #C0B283;
+  color:            black;
   }
 
-  .menu-link, a:hover {
-    color: black;
-  }
 
 a:active  {
   text-decoration:  none;
