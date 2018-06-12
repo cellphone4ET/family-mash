@@ -38,19 +38,28 @@ function showMain(event) {
   document.body.style.backgroundColor = "white";
 }
 
-function clickMenu() {
-  $(".main-nav").on("click", ".menu-link", function(event) {
-    console.log("dropdown menu");
+// function clickMenu() {
+//   $(".main-nav").on("click", ".menu-link", function(event) {
+//     console.log("dropdown menu");
+//   });
+// }
+
+function createPerson() {
+  $("#nav-bar").on("click", "#createperson", function(event) {
+    console.log('createperson');
+    $('.row').hide();
+    $('.create-person-form').show();
   });
 }
 
 function signOut() {
-  $("#nav-bar").on("click", function(event) {
+  $("#nav-bar").on("click", "#sign-out", function(event) {
     console.log("Sign out");
     $("#nav-bar").hide();
     $("#family-members-page").hide();
     $(".landing-page").show();
     $('.row').hide();
+    $('.create-person-form').hide();
     document.body.style.backgroundColor = "#dcd0c0";
   });
 }
@@ -58,27 +67,19 @@ function signOut() {
 function returnToMainScreen() {
   $("#nav-bar").on("click", "#mainpage", function(event) {
     console.log("returnToMainScreen ran");
-    //   $(".add-fam-member").hide();
-    //   $(".sign-out").hide();
-    //   $(".create-person-form").hide();
-    //   insertPhotos();
-  });
-}
-
-function createPerson() {
-  $("#nav-bar").on("click", ".create-person-page", function(event) {
-    console.log('createperson');
-    $("#logged-in-links").hide();
-    $('.create-person-form').show();
+    $(".create-person-form").hide();
+    $(".row").show();
+    $(".person-info").empty();
+  insertPhotos();
   });
 }
 
 function submitPerson() {
   $("#nav-bar").on("submit", "#submit-person", function(event) {
     console.log('submitPerson');
-    //   event.preventDefault();
-    //   $(".create-person-form").hide();
-    //   insertPhotos();
+      event.preventDefault();
+      $(".create-person-form").hide();
+      insertPhotos();
   });
 }
 
@@ -110,7 +111,7 @@ function insertPersonInfo() {
   </div>
   </div>
   </div>`;
-  $(".person-info").html(html);
+  $(".person-info").append(html);
 }
 
 // FOR DISPLAY ONLY: this will need to be reformatted to account for data
@@ -169,7 +170,7 @@ $(document).ready(function() {
   submitPerson();
   createPerson();
   signOut();
-  clickMenu();
+  // clickMenu();
   chooseSignUp();
   chooseLogin();
   submitLogin();

@@ -16,7 +16,10 @@ fieldset {
   border: 0px;
 }
 
-button {
+button,
+#submit-login2,
+#submit-new-user,
+#submit-person {
   background-color: #C0B283;
   border-radius: 4px;
 }
@@ -199,7 +202,9 @@ label {
   #createperson, #sign-out {
     display: none;
   }
-}
+  #family-members-page {
+    padding: 20px 0;
+  }
 
 @media screen and (max-width: 640px) {
   .main-nav.responsive {position: relative;}
@@ -212,5 +217,6 @@ label {
     float: none;
     display: inline-block;
     text-align: left;
+
   }
 }
