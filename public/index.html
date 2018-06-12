@@ -10,18 +10,19 @@
   <link href="links.css" rel="stylesheet" type="text/css">
   <link href="float-grid.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
 </head>
 
 <body>
-  <div class="main-nav">
+  <div class="main-nav" id="myMainNav">
     <div id="nav-bar" hidden>
-      <!-- <a href="#menu-link" id="menu-link">☰</a> -->
       <a href="#mainpage" id="mainpage">family. mash</a>
 
-      <span id="logged-in-links">
-        <a href="#createperson" id="createperson">Add a Family Member</a>
-        <a href="#sign-out" id="sign-out">Sign Out</a>
-      </span>
+      <div id="logged-in-links">
+        <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()"><i class="fa fa-bars"></i> </a>
+        <a href="#createperson" id="createperson" class="logged-in-links">Add a Family Member</a>
+        <a href="#sign-out" id="sign-out" class="logged-in-links"><img src="sign-out.jpg" alt="sign-out" class="sign-out-icon"></a>
+      </div>
 
     </div>
   </div>
@@ -33,10 +34,11 @@
     <div class="landing-page page">
       <div id="logo"><h1>family. mash</h1></div>
       <div id="landing-div">
-        <p>Building family relationships, one helpful reminder at a time.</p>
-        <p>write something snarky and informative here</p>
-        <button id="sign-up-button" type="submit" aria-label="sign-up-button">Sign Up</button>
-        <button id="login-button" type="submit" aria-label="login-button">Login</button>
+        <p>Grow your family relationships, one helpful reminder at a time.</p>
+        <p>Upload your loved one's basic info and recieve timely email
+        reminders before their birthdays and anniversaries.</p>
+        <button id="sign-up-button" type="submit" aria-label="sign-up-button" class="landing-page-buttons">Sign Up</button>
+        <button id="login-button" type="submit" aria-label="login-button" class="landing-page-buttons">Login</button>
       </div>
     </div>
 
@@ -45,8 +47,8 @@
       <form id="login-form" hidden>
         <fieldset>
           <legend>
-            <input id="login-email-input" class="sign-up-input" type="text" required="required" value="wednesday@addamsfamily.com" aria-label="email">
-            <input id="login-password-input" class="sign-up-input" type="text" required="required" value="pugslysux" aria-label="password">
+            <input id="login-email-input" class="sign-up-input" type="text" required="required" value="abc" aria-label="email">
+            <input id="login-password-input" class="sign-up-input" type="text" required="required" value="abc" aria-label="password">
             <input id="submit-login2" type="submit" value="Login" aria-label="submit-login">
           </legend>
         </fieldset>
@@ -54,8 +56,8 @@
       <form id="sign-up-form" hidden>
         <fieldset>
           <legend>
-            <input id="sign-up-email-input" class="sign-up-input" type="text" required="required" value="wednesday@addamsfamily.com" aria-label="email">
-            <input id="sign-up-password-input" class="sign-up-input" type="text" required="required" value="pugslysux" aria-label="password">
+            <input id="sign-up-email-input" class="sign-up-input" type="text" required="required"  value="abc" aria-label="email">
+            <input id="sign-up-password-input" class="sign-up-input" type="text" required="required"  value="abc" aria-label="password">
             <input id="submit-new-user" type="submit" value="Sign Up" aria-label="submit-sign-up">
           </legend>
         </fieldset>

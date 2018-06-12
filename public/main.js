@@ -1,52 +1,57 @@
 function chooseSignUp() {
   $("#sign-up-button").on("click", function(event) {
+    console.log('chooseSignUp')
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#sign-up-form").show();
+    $("#login-form").hide();
   });
 }
 
 function chooseLogin() {
   $("#login-button").on("click", function(event) {
+    console.log('chooseLogin');
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#login-form").show();
+    $("#sign-up-form").hide();
   });
 }
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
+  console.log('submitLogin')
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
+  console.log('submitSignUp');
 }
 
 function showMain(event) {
   event.preventDefault();
+  console.log('showmain ran');
   $("#nav-bar").show();
   $("#family-members-page").show();
   $(".signup-login-page").hide();
   insertPhotos();
+  document.body.style.backgroundColor = "white";
 }
 
 function clickMenu() {
   $(".main-nav").on("click", ".menu-link", function(event) {
-    // $(".row").hide();
-    // $(".add-fam-member").show();
-    // $(".sign-out").show();
-    // $(".create-person-form").hide();
-
     console.log("dropdown menu");
   });
 }
 
 function signOut() {
-  $("#nav-bar").on("click", "#sign-out", function(event) {
+  $("#nav-bar").on("click", function(event) {
     console.log("Sign out");
     $("#nav-bar").hide();
     $("#family-members-page").hide();
     $(".landing-page").show();
+    $('.row').hide();
+    document.body.style.backgroundColor = "#dcd0c0";
   });
 }
 
@@ -61,15 +66,16 @@ function returnToMainScreen() {
 }
 
 function createPerson() {
-  $("#nav-bar").on("click", "#createperson", function(event) {
-    //   $(".add-fam-member").hide();
-    //   $(".sign-out").hide();
-    //   $(".create-person-form").show();
+  $("#nav-bar").on("click", ".create-person-page", function(event) {
+    console.log('createperson');
+    $("#logged-in-links").hide();
+    $('.create-person-form').show();
   });
 }
 
 function submitPerson() {
   $("#nav-bar").on("submit", "#submit-person", function(event) {
+    console.log('submitPerson');
     //   event.preventDefault();
     //   $(".create-person-form").hide();
     //   insertPhotos();
@@ -77,9 +83,10 @@ function submitPerson() {
 }
 
 function moreInfoLink() {
-  $("#family-members-page").on("click", "#family-member-info", function() {
-    // $(".row").hide();
-    // insertPersonInfo();
+  $("#family-members-page").on("click", ".person-info", function() {
+    console.log('moreInfoLink');
+    $(".row").hide();
+    insertPersonInfo();
   });
 }
 
@@ -110,17 +117,17 @@ function insertPersonInfo() {
 function insertPhotos() {
   let html = `
   <div class="row">
-  
+
   <div class="col-4">
   <div class="card">
   <img alt="family-member" class="card-image" src="morticia.jpg" />
   <div class="card-content">
-  <h3><a href="#family-member-info">Morticia Addams</a></h3>
+  <h3><a href="#family-member-info" class="person-info">Morticia Addams</a></h3>
   <p>Mother</p>
   </div>
   </div>
   </div>
-  
+
   <div class="col-4">
   <div class="card">
   <img class="card-image" src="gomez.jpg" />
@@ -130,7 +137,7 @@ function insertPhotos() {
   </div>
   </div>
   </div>
-  
+
   <div class="col-4">
   <div class="card">
   <img class="card-image" src="uncle-fester.jpg" />
@@ -140,11 +147,20 @@ function insertPhotos() {
   </div>
   </div>
   </div>
-  
+
   </div>
   <div class="row">`;
 
   $("#family-members-page").html(html);
+}
+
+function responsiveMenu() {
+    var nav = document.getElementById("myMainNav");
+    if (nav.className === "topnav") {
+        nav.className += " responsive";
+    } else {
+        nav.className = "topnav";
+    }
 }
 
 $(document).ready(function() {
