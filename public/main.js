@@ -20,33 +20,29 @@ function chooseLogin() {
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
-  console.log('submitLogin')
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
-  console.log('submitSignUp');
 }
 
 function showMain(event) {
   event.preventDefault();
-  console.log('showmain ran');
   $("#nav-bar").show();
   $("#family-members-page").show();
   $(".signup-login-page").hide();
-  insertPhotos();
   document.body.style.backgroundColor = "white";
+  insertPhotos();
 }
 
 // function clickMenu() {
-//   $(".main-nav").on("click", ".menu-link", function(event) {
+//   $("#nav-bar").on("click", ".menu-link", function(event) {
 //     console.log("dropdown menu");
 //   });
 // }
 
 function createPerson() {
   $("#nav-bar").on("click", "#createperson", function(event) {
-    console.log('createperson');
     $('.row').hide();
     $('.create-person-form').show();
   });
@@ -75,11 +71,11 @@ function returnToMainScreen() {
 }
 
 function submitPerson() {
-  $("#nav-bar").on("submit", "#submit-person", function(event) {
+  $(".add-person-form").on("submit", "#submit-person", function(event) {
+    event.preventDefault();
     console.log('submitPerson');
-      event.preventDefault();
-      $(".create-person-form").hide();
-      insertPhotos();
+    $(".create-person-form").hide();
+    insertPhotos();
   });
 }
 
@@ -92,7 +88,6 @@ function moreInfoLink() {
 }
 
 // FOR DISPLAY ONLY: this will need to be reformatted to account for data
-
 function insertPersonInfo() {
   let html = `<div class="info-bloc">
   <div class="row">
@@ -155,14 +150,6 @@ function insertPhotos() {
   $("#family-members-page").html(html);
 }
 
-function responsiveMenu() {
-    var nav = document.getElementById("myMainNav");
-    if (nav.className === "topnav") {
-        nav.className += " responsive";
-    } else {
-        nav.className = "topnav";
-    }
-}
 
 $(document).ready(function() {
   returnToMainScreen();
@@ -170,7 +157,6 @@ $(document).ready(function() {
   submitPerson();
   createPerson();
   signOut();
-  // clickMenu();
   chooseSignUp();
   chooseLogin();
   submitLogin();

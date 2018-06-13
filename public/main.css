@@ -1,3 +1,21 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @cellphone4ET Sign out
+1
+0 0 cellphone4ET/benvolio
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+benvolio/public/main.css
+d96d3a3  2 days ago
+@cellphone4ET cellphone4ET bugs fixed from refactor: bckgrnd color, menu options, landing page
+@cellphone4ET @sbastidasr
+
+217 lines (179 sloc)  2.82 KB
 html,
 body,
 main {
@@ -16,10 +34,7 @@ fieldset {
   border: 0px;
 }
 
-button,
-#submit-login2,
-#submit-new-user,
-#submit-person {
+button {
   background-color: #C0B283;
   border-radius: 4px;
 }
@@ -186,37 +201,4 @@ label {
 
 .sign-out-icon {
   width: 25px;
-}
-
-.main-nav .icon {
-    display: none;
-}
-
-
-@media only screen and (max-width: 640px) {
-  .main-nav a:not(:first-child) {display: none;}
-  .main-nav a.icon {
-    float: right;
-    display: block;
-  }
-  #createperson, #sign-out {
-    display: none;
-  }
-  #family-members-page {
-    padding: 20px 0;
-  }
-
-@media screen and (max-width: 640px) {
-  .main-nav.responsive {position: relative;}
-  .main-nav.responsive a.icon {
-    position: absolute;
-    right: 5;
-    top: 10;
-  }
-  .main-nav.responsive a {
-    float: none;
-    display: inline-block;
-    text-align: left;
-
-  }
 }

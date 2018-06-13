@@ -10,22 +10,22 @@
   <link href="links.css" rel="stylesheet" type="text/css">
   <link href="float-grid.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
   <div class="main-nav" id="myMainNav">
-    <div id="nav-bar" hidden>
-      <a href="#mainpage" id="mainpage">family. mash</a>
+<div class="" id="nav-bar" hidden>
+  <a href="#mainpage" id="mainpage">family. mash</a>
 
-      <div id="logged-in-links">
-        <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()"><i class="fa fa-bars"></i> </a>
-        <a href="#createperson" id="createperson" class="logged-in-links">Add a Family Member</a>
-        <a href="#sign-out" id="sign-out" class="logged-in-links"><img src="sign-out.jpg" alt="sign-out" class="sign-out-icon"></a>
-      </div>
-
-    </div>
+  <div id="logged-in-links">
+    <a href="#createperson" id="createperson" class="logged-in-links">Add a Family Member</a>
+    <a href="#sign-out" id="sign-out" class="logged-in-links"><img src="sign-out.jpg" alt="sign-out" class="sign-out-icon"></a>
   </div>
+
+</div>
+</div>
 
 
   <main role="main">
@@ -83,7 +83,7 @@
             <label>Significant Other:<br><input class="person-input" type="text" name="" /></label>
             <label>Anniversary:<br><input class="person-input" type="text" name="anniversary" /></label>
             <label>Notes:<br><input class="person-input" type="text" name="notes" /></label>
-            <label>Photo URL:<br><input class="photo-URL" type="text" name="photo-URL" /></label>
+            <label>Photo URL:<br><input class="person-input" type="text" name="photo-URL" /></label>
             <input type="submit" value="Submit" id="submit-person">
           </fieldset>
         </form>
