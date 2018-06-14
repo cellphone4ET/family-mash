@@ -1,6 +1,6 @@
 function chooseSignUp() {
   $("#sign-up-button").on("click", function(event) {
-    console.log('chooseSignUp')
+    console.log("chooseSignUp");
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#sign-up-form").show();
@@ -10,7 +10,7 @@ function chooseSignUp() {
 
 function chooseLogin() {
   $("#login-button").on("click", function(event) {
-    console.log('chooseLogin');
+    console.log("chooseLogin");
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#login-form").show();
@@ -20,31 +20,35 @@ function chooseLogin() {
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
+  console.log("submitLogin");
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
+  console.log("submitSignUp");
 }
 
 function showMain(event) {
   event.preventDefault();
+  console.log("showmain ran");
   $("#nav-bar").show();
   $("#family-members-page").show();
   $(".signup-login-page").hide();
-  document.body.style.backgroundColor = "white";
   insertPhotos();
+  document.body.style.backgroundColor = "white";
 }
 
 // function clickMenu() {
-//   $("#nav-bar").on("click", ".menu-link", function(event) {
+//   $(".main-nav").on("click", ".menu-link", function(event) {
 //     console.log("dropdown menu");
 //   });
 // }
 
 function createPerson() {
   $("#nav-bar").on("click", "#createperson", function(event) {
-    $('.row').hide();
-    $('.create-person-form').show();
+    console.log("createperson");
+    $(".row").hide();
+    $(".create-person-form").show();
   });
 }
 
@@ -54,8 +58,8 @@ function signOut() {
     $("#nav-bar").hide();
     $("#family-members-page").hide();
     $(".landing-page").show();
-    $('.row').hide();
-    $('.create-person-form').hide();
+    $(".row").hide();
+    $(".create-person-form").hide();
     document.body.style.backgroundColor = "#dcd0c0";
   });
 }
@@ -66,14 +70,14 @@ function returnToMainScreen() {
     $(".create-person-form").hide();
     $(".row").show();
     $(".person-info").empty();
-  insertPhotos();
+    insertPhotos();
   });
 }
 
 function submitPerson() {
-  $(".add-person-form").on("submit", "#submit-person", function(event) {
+  $("#nav-bar").on("submit", "#submit-person", function(event) {
+    console.log("submitPerson");
     event.preventDefault();
-    console.log('submitPerson');
     $(".create-person-form").hide();
     insertPhotos();
   });
@@ -81,13 +85,14 @@ function submitPerson() {
 
 function moreInfoLink() {
   $("#family-members-page").on("click", ".person-info", function() {
-    console.log('moreInfoLink');
+    console.log("moreInfoLink");
     $(".row").hide();
     insertPersonInfo();
   });
 }
 
 // FOR DISPLAY ONLY: this will need to be reformatted to account for data
+
 function insertPersonInfo() {
   let html = `<div class="info-bloc">
   <div class="row">
@@ -113,7 +118,6 @@ function insertPersonInfo() {
 function insertPhotos() {
   let html = `
   <div class="row">
-
   <div class="col-4">
   <div class="card">
   <img alt="family-member" class="card-image" src="morticia.jpg" />
@@ -123,7 +127,6 @@ function insertPhotos() {
   </div>
   </div>
   </div>
-
   <div class="col-4">
   <div class="card">
   <img class="card-image" src="gomez.jpg" />
@@ -133,7 +136,6 @@ function insertPhotos() {
   </div>
   </div>
   </div>
-
   <div class="col-4">
   <div class="card">
   <img class="card-image" src="uncle-fester.jpg" />
@@ -143,13 +145,25 @@ function insertPhotos() {
   </div>
   </div>
   </div>
-
   </div>
   <div class="row">`;
 
   $("#family-members-page").html(html);
 }
 
+// function responsiveMenu() {
+//   var nav = document.getElementById("myMainNav");
+//   if (nav.className === "topnav") {
+//     nav.className += " responsive";
+//   } else {
+//     nav.className = "topnav";
+//   }
+// }
+
+$(".menu-toggle").click(function() {
+  $("ul").toggleClass("opening");
+  $(this).toggleClass("open");
+});
 
 $(document).ready(function() {
   returnToMainScreen();
@@ -157,6 +171,7 @@ $(document).ready(function() {
   submitPerson();
   createPerson();
   signOut();
+  // clickMenu();
   chooseSignUp();
   chooseLogin();
   submitLogin();
