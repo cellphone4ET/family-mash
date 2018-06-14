@@ -31,21 +31,15 @@ function submitSignUp() {
 function showMain(event) {
   event.preventDefault();
   console.log("showmain ran");
-  $("#nav-bar").show();
+  $(".site-nav").show();
   $("#family-members-page").show();
   $(".signup-login-page").hide();
   insertPhotos();
   document.body.style.backgroundColor = "white";
 }
 
-// function clickMenu() {
-//   $(".main-nav").on("click", ".menu-link", function(event) {
-//     console.log("dropdown menu");
-//   });
-// }
-
 function createPerson() {
-  $("#nav-bar").on("click", "#createperson", function(event) {
+  $(".site-nav").on("click", "#createperson", function(event) {
     console.log("createperson");
     $(".row").hide();
     $(".create-person-form").show();
@@ -53,9 +47,9 @@ function createPerson() {
 }
 
 function signOut() {
-  $("#nav-bar").on("click", "#sign-out", function(event) {
+  $(".site-nav").on("click", "#sign-out", function(event) {
     console.log("Sign out");
-    $("#nav-bar").hide();
+    $(".site-nav").hide();
     $("#family-members-page").hide();
     $(".landing-page").show();
     $(".row").hide();
@@ -65,7 +59,7 @@ function signOut() {
 }
 
 function returnToMainScreen() {
-  $("#nav-bar").on("click", "#mainpage", function(event) {
+  $(".site-nav").on("click", "#mainpage", function(event) {
     console.log("returnToMainScreen ran");
     $(".create-person-form").hide();
     $(".row").show();
@@ -75,7 +69,7 @@ function returnToMainScreen() {
 }
 
 function submitPerson() {
-  $("#nav-bar").on("submit", "#submit-person", function(event) {
+  $(".site-nav").on("submit", "#submit-person", function(event) {
     console.log("submitPerson");
     event.preventDefault();
     $(".create-person-form").hide();
@@ -151,15 +145,6 @@ function insertPhotos() {
   $("#family-members-page").html(html);
 }
 
-// function responsiveMenu() {
-//   var nav = document.getElementById("myMainNav");
-//   if (nav.className === "topnav") {
-//     nav.className += " responsive";
-//   } else {
-//     nav.className = "topnav";
-//   }
-// }
-
 $(".menu-toggle").click(function() {
   $("ul").toggleClass("opening");
   $(this).toggleClass("open");
@@ -171,7 +156,6 @@ $(document).ready(function() {
   submitPerson();
   createPerson();
   signOut();
-  // clickMenu();
   chooseSignUp();
   chooseLogin();
   submitLogin();

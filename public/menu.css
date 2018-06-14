@@ -5,7 +5,7 @@ nav {
   right: 0;
   left: 0;
   position: fixed;
-  background-color: #f04343;
+  background-color: #dcd0c0;
 }
 
 nav ul {
@@ -23,16 +23,20 @@ nav ul.opening {
 }
 
 nav li {
-  border-bottom: 1px solid #f6f4e2;
+  border-bottom: 1px solid black;
 }
 
 nav li:last-child {
   border-bottom: none;
 }
 
+/* nav li:first-child {
+  border-top: 1px solid black;
+} */
+
 nav a {
   color: #ebebd3;
-  background: #e7a119;
+  background: #f4f4f4;
   display: block;
   padding: 1.5em 4em 1.5em 3em;
   text-transform: uppercase;
@@ -41,7 +45,7 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  background: #e4b363;
+  background: #C0B283;
 }
 
 .site-nav--icon {
@@ -65,7 +69,7 @@ nav a:focus {
 .hamburger::after {
   content: "";
   display: block;
-  background: #ebebd3;
+  background: black;
   height: 3px;
   width: 2em;
   border-radius: 3px;
@@ -117,7 +121,7 @@ nav a:focus {
     padding: 1.5em 1.3em 1.5em 1.3em;
     margin: 0;
     border: none;
-    background-color: #f04343;
+    background-color: #dcd0c0;
   }
 
   nav a:hover,
@@ -136,6 +140,6 @@ nav a:focus {
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    background-color: #f04343;
+    background-color: #dcd0c0;
   }
 }

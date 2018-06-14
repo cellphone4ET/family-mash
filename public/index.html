@@ -27,7 +27,7 @@
     </div>
   </div> -->
 
-  <nav class="site-nav">
+  <nav class="site-nav" hidden>
   <h1 class="logo">family. mash</h1>
   <div class="menu-toggle">
     <div class="hamburger">
@@ -36,11 +36,9 @@
   </div>
 
   <ul class="open desktop">
-    <li><a href="#!">Home</a></li>
-    <li><a href="#!">Latest News</a></li>
-    <li><a href="#!">About us</a></li>
-    <li><a href="#!">Download Plugin</a></li>
-    <li><a href="#!">Contact us</a></li>
+    <li><a href="#mainpage" id="mainpage">Home</a></li>
+    <li><a href="#createperson" id="createperson">Add a Family Member</a></li>
+    <li><a href="#sign-out" id="sign-out">Sign Out</a></li>
 
   </ul>
 </nav>
@@ -66,8 +64,8 @@
       <form id="login-form" hidden>
         <fieldset>
           <legend>
-            <input id="login-email-input" class="sign-up-input" type="text" required="required" value="abc" aria-label="email">
-            <input id="login-password-input" class="sign-up-input" type="text" required="required" value="abc" aria-label="password">
+            <input id="login-email-input" class="sign-up-input" type="text" required="required" value="wednesday@afamily.com" aria-label="email">
+            <input id="login-password-input" class="sign-up-input" type="text" required="required" value="password" aria-label="password">
             <input id="submit-login2" type="submit" value="Login" aria-label="submit-login">
           </legend>
         </fieldset>
@@ -75,8 +73,8 @@
       <form id="sign-up-form" hidden>
         <fieldset>
           <legend>
-            <input id="sign-up-email-input" class="sign-up-input" type="text" required="required"  value="abc" aria-label="email">
-            <input id="sign-up-password-input" class="sign-up-input" type="text" required="required"  value="abc" aria-label="password">
+            <input id="sign-up-email-input" class="sign-up-input" type="text" required="required"  value="wednesday@afamily.com" aria-label="email">
+            <input id="sign-up-password-input" class="sign-up-input" type="text" required="required"  value="password" aria-label="password">
             <input id="submit-new-user" type="submit" value="Sign Up" aria-label="submit-sign-up">
           </legend>
         </fieldset>
