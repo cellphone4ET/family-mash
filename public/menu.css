@@ -9,7 +9,6 @@ nav {
 }
 
 nav ul {
-  display: flex;
   flex-direction: column;
   list-style-type: none;
   padding: 0;
@@ -18,7 +17,7 @@ nav ul {
 }
 
 nav ul.opening {
-  display: block;
+  display: flex;
   height: 30px;
 }
 
@@ -30,9 +29,17 @@ nav li:last-child {
   border-bottom: none;
 }
 
-/* nav li:first-child {
-  border-top: 1px solid black;
-} */
+.logo {
+  display: inline-flex;
+  font-size: 30px;
+  /* flex: 0 0 200px; */
+  margin: 0;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "Arvo", serif;
+  letter-spacing: -4px;
+}
 
 nav a {
   color: #ebebd3;
@@ -130,7 +137,6 @@ nav a:focus {
   }
 
   .logo {
-    flex: 0 0 200px;
     margin: 0;
     padding-left: 20px;
   }
