@@ -1,0 +1,141 @@
+nav {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  background-color: #f04343;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+nav ul.opening {
+  display: block;
+  height: 30px;
+}
+
+nav li {
+  border-bottom: 1px solid #f6f4e2;
+}
+
+nav li:last-child {
+  border-bottom: none;
+}
+
+nav a {
+  color: #ebebd3;
+  background: #e7a119;
+  display: block;
+  padding: 1.5em 4em 1.5em 3em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+  background: #e4b363;
+}
+
+.site-nav--icon {
+  font-size: 1.4em;
+  margin-right: 1em;
+  width: 1.1em;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.menu-toggle {
+  position: absolute;
+  padding: 0.8em;
+  top: 1em;
+  right: 0.5em;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  background: #ebebd3;
+  height: 3px;
+  width: 2em;
+  border-radius: 3px;
+  -webkit-transition: all ease-in-out 350ms;
+  transition: all ease-in-out 350ms;
+}
+
+.hamburger::before {
+  -webkit-transform: translateY(-7px);
+  transform: translateY(-7px);
+}
+
+.hamburger::after {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
+.open .hamburger {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+  display: none;
+}
+
+.open .hamburger::after {
+  -webkit-transform: translateY(-1px) rotate(-90deg);
+  transform: translateY(-1px) rotate(-90deg);
+}
+
+@media (min-width: 900px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  nav li {
+    flex: 1 1 auto;
+    border: none;
+  }
+
+  nav li a {
+    padding: 1.5em 1.3em 1.5em 1.3em;
+    margin: 0;
+    border: none;
+    background-color: #f04343;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .logo {
+    flex: 0 0 200px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #f04343;
+  }
+}

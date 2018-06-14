@@ -1,6 +1,6 @@
 function chooseSignUp() {
   $("#sign-up-button").on("click", function(event) {
-    console.log('chooseSignUp')
+    console.log("chooseSignUp");
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#sign-up-form").show();
@@ -10,7 +10,7 @@ function chooseSignUp() {
 
 function chooseLogin() {
   $("#login-button").on("click", function(event) {
-    console.log('chooseLogin');
+    console.log("chooseLogin");
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#login-form").show();
@@ -20,17 +20,17 @@ function chooseLogin() {
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
-  console.log('submitLogin')
+  console.log("submitLogin");
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
-  console.log('submitSignUp');
+  console.log("submitSignUp");
 }
 
 function showMain(event) {
   event.preventDefault();
-  console.log('showmain ran');
+  console.log("showmain ran");
   $("#nav-bar").show();
   $("#family-members-page").show();
   $(".signup-login-page").hide();
@@ -46,9 +46,9 @@ function showMain(event) {
 
 function createPerson() {
   $("#nav-bar").on("click", "#createperson", function(event) {
-    console.log('createperson');
-    $('.row').hide();
-    $('.create-person-form').show();
+    console.log("createperson");
+    $(".row").hide();
+    $(".create-person-form").show();
   });
 }
 
@@ -58,8 +58,8 @@ function signOut() {
     $("#nav-bar").hide();
     $("#family-members-page").hide();
     $(".landing-page").show();
-    $('.row').hide();
-    $('.create-person-form').hide();
+    $(".row").hide();
+    $(".create-person-form").hide();
     document.body.style.backgroundColor = "#dcd0c0";
   });
 }
@@ -70,22 +70,22 @@ function returnToMainScreen() {
     $(".create-person-form").hide();
     $(".row").show();
     $(".person-info").empty();
-  insertPhotos();
+    insertPhotos();
   });
 }
 
 function submitPerson() {
   $("#nav-bar").on("submit", "#submit-person", function(event) {
-    console.log('submitPerson');
-      event.preventDefault();
-      $(".create-person-form").hide();
-      insertPhotos();
+    console.log("submitPerson");
+    event.preventDefault();
+    $(".create-person-form").hide();
+    insertPhotos();
   });
 }
 
 function moreInfoLink() {
   $("#family-members-page").on("click", ".person-info", function() {
-    console.log('moreInfoLink');
+    console.log("moreInfoLink");
     $(".row").hide();
     insertPersonInfo();
   });
@@ -155,14 +155,19 @@ function insertPhotos() {
   $("#family-members-page").html(html);
 }
 
-function responsiveMenu() {
-    var nav = document.getElementById("myMainNav");
-    if (nav.className === "topnav") {
-        nav.className += " responsive";
-    } else {
-        nav.className = "topnav";
-    }
-}
+// function responsiveMenu() {
+//   var nav = document.getElementById("myMainNav");
+//   if (nav.className === "topnav") {
+//     nav.className += " responsive";
+//   } else {
+//     nav.className = "topnav";
+//   }
+// }
+
+$(".menu-toggle").click(function() {
+  $("ul").toggleClass("opening");
+  $(this).toggleClass("open");
+});
 
 $(document).ready(function() {
   returnToMainScreen();
