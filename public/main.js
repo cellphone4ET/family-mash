@@ -91,9 +91,9 @@ function insertPersonInfo() {
   let html = `<div class="info-bloc">
   <div class="row">
   <div class="col-4">
-  <div class="card">
   <img alt="family-member" class="card-image" src="morticia.jpg" />
   <div class="card-content">
+  <div class="fam-member-info">
   <h3>Morticia Addams</h3>
   <p><span class="content-field">Relation</span>: mother</p>
   <p><span class="content-field">Age</span>: immortal</p>
@@ -101,7 +101,6 @@ function insertPersonInfo() {
   <p><span class="content-field">Significant Other</span>: Gomes Addams</p>
   <p><span class="content-field">Anniversary</span>: 02/14/1666</p>
   <p><span class="content-field">Notes</span>: needs vitamin D</p>
-  </div>
   </div>
   </div>
   </div>`;
