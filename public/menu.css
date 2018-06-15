@@ -114,25 +114,12 @@ nav a:focus {
     display: none;
   }
 
-  .logo {
-    float: left;
-    display: inline-flex;
-    font-size: 30px;
-    margin: 0;
-    padding-left: 20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: "Arvo", serif;
-    letter-spacing: -4px;
-  }
-
   nav ul {
     float: right;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
   }
-
 
   nav li {
     flex: 1 1 auto;
@@ -146,15 +133,19 @@ nav a:focus {
     background-color: #dcd0c0;
   }
 
+  .logo {
+    float: left;
+    display: inline-flex;
+    font-size: 30px;
+    margin: 0;
+    flex: 0 0 200px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
   nav a:hover,
   nav a:focus {
     background-color: #C0B283;
-  }
-
-  .logo {
-    flex: 0 0 200px
-    margin: 0;
-    padding-left: 20px;
   }
 
   nav {
