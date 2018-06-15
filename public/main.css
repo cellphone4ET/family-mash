@@ -40,13 +40,15 @@ header {
 
 .sign-up-input {
   display: block;
+  margin: auto;
+  width: 100%;
   margin-bottom: 20px;
 }
 
 .page {
   margin-top: 10px;
   background-color: white;
-  width: 55%;
+  width: 73%;
   margin: 0 auto;
   padding: 30px;
   padding-bottom: 50px;
@@ -135,7 +137,7 @@ label {
 
 .card-info-bloc {}
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: 720px) {
       .row-info-bloc {
         max-width: 1000px;
         padding-left: 20px;
@@ -152,5 +154,7 @@ label {
         border: 1px solid #e5e5e5;
         margin-bottom: 20px;
       }
-
+    .page {
+      width: 55%;
+    }
 }
