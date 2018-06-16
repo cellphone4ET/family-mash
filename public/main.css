@@ -131,12 +131,6 @@ label {
   position; relative;
 }
 
-.row-info-bloc {}
-
-.col-4-info-bloc {}
-
-.card-info-bloc {}
-
   @media only screen and (min-width: 720px) {
       .row-info-bloc {
         max-width: 1000px;
@@ -144,11 +138,11 @@ label {
         padding-right: 20px;
         margin: 0 auto;
       }
-      /* .col-4-info-bloc {
+      .col-4-info-bloc {
         float: left;
         padding-left: 1.04166666%;
         padding-right: 1.04166666%;
-      } */
+      }
 
       .card-info-bloc {
         border: 1px solid #e5e5e5;
