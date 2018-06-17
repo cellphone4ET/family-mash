@@ -131,6 +131,10 @@ label {
   position; relative;
 }
 
+.active {
+  color: blue;
+}
+
   @media only screen and (min-width: 720px) {
       .row-info-bloc {
         max-width: 1000px;
@@ -151,4 +155,5 @@ label {
     .page {
       width: 55%;
     }
+
 }

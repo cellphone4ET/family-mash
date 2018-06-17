@@ -82,13 +82,15 @@ function moreInfoLink() {
     console.log("moreInfoLink");
     $(".row").hide();
     insertPersonInfo();
+    document.querySelector(".person-info").classList.toggle(".active");
   });
 }
 
 // FOR DISPLAY ONLY: this will need to be reformatted to account for data
 
 function insertPersonInfo() {
-  let html = `<div class="info-bloc">
+  console.log('insertPersonInfo ran');
+  let html = `<div class="info-bloc active">
   <div class="row">
   <div class="col-4">
   <img alt="family-member" class="card-image" src="morticia.jpg" />
