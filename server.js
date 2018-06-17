@@ -17,11 +17,32 @@ app.use(morgan('common'));
 app.use(express.json());
 
 
-// start/close server
-if (require.main === module) {
-  app.listen(process.env.PORT || 8080, function () {
-    console.info(`App listening on ${this.address().port}`);
+// start server
+let server;
+
+function runServer(TEST_DATABASE_URL, port=PORT) {
+  return new Promise((resolve, reject) => {
+    mongoose.connect(TEST_DATABASE_URL, err => {
+      if (err) {
+        return reject(err);
+      }
+
+      server = app.listen(port, () => {
+        console.log(`Your app is listening on port ${port}`);
+        resolve();
+      })
+      .on('error', err => {
+        mongoose.disconnect();
+        reject(err);
+      });
+    });
   });
 }
+
+// `closeServer` function is here in original code
+
+if (require.main === module) {
+  runServer(TEST_DATABASE_URL).catch(err => console.error(err));
+};
 
 module.exports = app;

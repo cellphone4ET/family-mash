@@ -14,7 +14,7 @@ const familyMemberSchema = mongoose.Schema({
     notes: {type: String, required: false},
     photo_url: {type: String, required: true}
   }
-})
+)
 
 familyMemberSchema.methods.serialize = function() {
   return {
