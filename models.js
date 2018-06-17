@@ -10,8 +10,8 @@ const familyMemberSchema = mongoose.Schema({
     age: {type: Number, required: true},
     birthday: {type: Date, required: true},
     significant_other: {type: String, required: false},
-    anniversary: {type: Date, required: true},
-    notes: {type: String, required: true},
+    anniversary: {type: Date, required: false},
+    notes: {type: String, required: false},
     photo_url: {type: String, required: true}
   }
 })
@@ -30,6 +30,6 @@ familyMemberSchema.methods.serialize = function() {
   }
 }
 
-const FamilyMember =  mongoose.model('FamilyMember', familyMemberSchema);
+const FamilyMembers =  mongoose.model('FamilyMember', familyMemberSchema);
 
-module.exports = {FamilyMember};
+module.exports = {FamilyMembers};
