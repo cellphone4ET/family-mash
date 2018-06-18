@@ -30,6 +30,6 @@ familyMemberSchema.methods.serialize = function() {
   }
 }
 
-const FamilyMembers =  mongoose.model('FamilyMember', familyMemberSchema);
+const FamilyMember =  mongoose.model('FamilyMember', familyMemberSchema);
 
-module.exports = {FamilyMembers};
+module.exports = {FamilyMember};
