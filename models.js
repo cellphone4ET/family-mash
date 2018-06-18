@@ -7,7 +7,6 @@ mongoose.Promise = global.Promise;
 const familyMemberSchema = mongoose.Schema({
     name: {type: String, required: true},
     relation: {type: String, required: true},
-    age: {type: Number, required: true},
     birthday: {type: Date, required: true},
     significant_other: {type: String, required: false},
     anniversary: {type: Date, required: false},
@@ -15,6 +14,8 @@ const familyMemberSchema = mongoose.Schema({
     photo_url: {type: String, required: true}
   }
 )
+
+//virtual property for Age
 
 familyMemberSchema.methods.serialize = function() {
   return {

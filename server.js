@@ -15,6 +15,11 @@ app.use(express.static('public'));
 //morgan middleware
 app.use(morgan('common'));
 app.use(express.json());
+app.use('/api/family-members', familyMemberRouter)
+
+app.use('*', function (req, res) {
+  res.status(404).json({ message: 'Not Found' });
+});
 
 
 // start server

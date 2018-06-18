@@ -4,11 +4,11 @@ const router = express.Router();
 const {FamilyMember} = require('./models');
 
 
-router.get('/family-members', (req, res) => {
+router.get('/', (req, res) => {
   FamilyMember
     .find()
-    .then(posts => {
-      res.json(posts.map(post => post.serialize()));
+    .then(familyMembers => {
+      res.json(familyMembers.map(familyMember => familyMember.serialize()));
     })
     .catch(err => {
       console.error(err);
@@ -17,10 +17,10 @@ router.get('/family-members', (req, res) => {
 });
 
 
-router.get('/family-members/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   FamilyMember
     .findById(req.params.id)
-    .then(post => res.json(post.serialize()))
+    .then(familyMember => res.json(familyMember.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: 'something went wrong' });
@@ -28,7 +28,7 @@ router.get('/family-members/:id', (req, res) => {
 });
 
 // edit to insert photo URL of default icon (TBA) if no photo provided)
-router.post('/create-family-member', (req, res) => {
+router.post('/', (req, res) => {
   const requiredFields = ['name', 'relation', 'age', 'birthday', 'photo_url'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -56,7 +56,7 @@ router.post('/create-family-member', (req, res) => {
 });
 
 
-router.delete('/family-members/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   FamilyMember
     .findByIdAndRemove(req.params.id)
     .then(() => {
@@ -69,7 +69,7 @@ router.delete('/family-members/:id', (req, res) => {
 });
 
 
-router.put('/edit-family-members/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -86,23 +86,9 @@ router.put('/edit-family-members/:id', (req, res) => {
 
   FamilyMember
     .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-    .then(updatedPost => res.status(204).end())
+    .then(updatedFamilyMember => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
-
-router.delete('/:id', (req, res) => {
-  BlogPost
-    .findByIdAndRemove(req.params.id)
-    .then(() => {
-      console.log(`Deleted family member with id \`${req.params.id}\``);
-      res.status(204).end();
-    });
-});
-
-
-router.use('*', function (req, res) {
-  res.status(404).json({ message: 'Not Found' });
-});
 
 module.exports = router;
