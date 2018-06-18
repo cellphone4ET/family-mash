@@ -27,7 +27,8 @@ router.get('/family-members/:id', (req, res) => {
     });
 });
 
-app.post('/create-family-member', (req, res) => {
+// edit to insert photo URL of default icon (TBA) if no photo provided)
+router.post('/create-family-member', (req, res) => {
   const requiredFields = ['name', 'relation', 'age', 'birthday', 'photo_url'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -55,7 +56,7 @@ app.post('/create-family-member', (req, res) => {
 });
 
 
-app.delete('/family-members/:id', (req, res) => {
+router.delete('/family-members/:id', (req, res) => {
   FamilyMember
     .findByIdAndRemove(req.params.id)
     .then(() => {
@@ -68,7 +69,7 @@ app.delete('/family-members/:id', (req, res) => {
 });
 
 
-app.put('/edit-family-members/:id', (req, res) => {
+router.put('/edit-family-members/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -90,7 +91,7 @@ app.put('/edit-family-members/:id', (req, res) => {
 });
 
 
-app.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   BlogPost
     .findByIdAndRemove(req.params.id)
     .then(() => {
@@ -100,7 +101,7 @@ app.delete('/:id', (req, res) => {
 });
 
 
-app.use('*', function (req, res) {
+router.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });
 });
 
