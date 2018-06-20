@@ -1,6 +1,5 @@
 function chooseSignUp() {
   $("#sign-up-button").on("click", function(event) {
-    console.log("chooseSignUp");
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#sign-up-form").show();
@@ -10,7 +9,6 @@ function chooseSignUp() {
 
 function chooseLogin() {
   $("#login-button").on("click", function(event) {
-    console.log("chooseLogin");
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#login-form").show();
@@ -20,27 +18,25 @@ function chooseLogin() {
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
-  console.log("submitLogin");
+
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
-  console.log("submitSignUp");
 }
 
 function showMain(event) {
   event.preventDefault();
-  console.log("showmain ran");
-  $(".site-nav").show();
-  $("#family-members-page").show();
-  $(".signup-login-page").hide();
-  insertPhotos();
-  document.body.style.backgroundColor = "white";
+    $(".site-nav").show();
+    $("#family-members-page").show();
+    $(".signup-login-page").hide();
+    insertPhotos();
+    document.body.style.backgroundColor = "white";
 }
 
 function createPerson() {
   $(".site-nav").on("click", "#createperson", function(event) {
-    console.log("createperson");
+    clearPersonInfo();
     $(".row").hide();
     $(".create-person-form").show();
   });
@@ -48,9 +44,8 @@ function createPerson() {
 
 function signOut() {
   $(".site-nav").on("click", "#sign-out", function(event) {
-    console.log("Sign out");
     $(".site-nav").hide();
-    $("#family-members-page").hide();
+    clearPersonInfo();
     $(".landing-page").show();
     $(".row").hide();
     $(".create-person-form").hide();
@@ -60,17 +55,22 @@ function signOut() {
 
 function returnToMainScreen() {
   $(".site-nav").on("click", "#mainpage", function(event) {
-    console.log("returnToMainScreen ran");
     $(".create-person-form").hide();
+    clearPersonInfo();
     $(".row").show();
-    $(".person-info").empty();
     insertPhotos();
+
   });
+}
+
+function clearPersonInfo() {
+  $(".person-info-div").empty();
+  $(".person-photo").empty();
+  $(".person-name").empty();
 }
 
 function submitPerson() {
   $(".site-nav").on("submit", "#submit-person", function(event) {
-    console.log("submitPerson");
     event.preventDefault();
     $(".create-person-form").hide();
     insertPhotos();
@@ -79,24 +79,21 @@ function submitPerson() {
 
 function moreInfoLink() {
   $("#family-members-page").on("click", ".person-info", function() {
-    console.log("moreInfoLink");
     $(".row").hide();
     insertPersonInfo();
-    document.querySelector(".person-info").classList.toggle(".active");
   });
 }
 
 // FOR DISPLAY ONLY: this will need to be reformatted to account for data
 
 function insertPersonInfo() {
-  console.log('insertPersonInfo ran');
-  let html = `<div class="info-bloc active">
-  <div class="row">
-  <div class="col-4">
-  <img alt="family-member" class="card-image" src="morticia.jpg" />
-  <div class="card-content">
+
+  let html1 = `<img alt="family-member" class="card-image-active" src="morticia.jpg" />`
+  $(".person-photo").append(html1);
+
+  let html2 = `
   <div class="fam-member-info">
-  <h3>Morticia Addams</h3>
+  <h4>Morticia Addams</h4>
   <p><span class="content-field">Relation</span>: mother</p>
   <p><span class="content-field">Age</span>: immortal</p>
   <p><span class="content-field">Birthday</span>: 01/01/1300</p>
@@ -104,9 +101,8 @@ function insertPersonInfo() {
   <p><span class="content-field">Anniversary</span>: 02/14/1666</p>
   <p><span class="content-field">Notes</span>: needs vitamin D</p>
   </div>
-  </div>
-  </div>`;
-  $(".person-info").append(html);
+  `;
+  $(".person-info-div").append(html2);
 }
 
 // FOR DISPLAY ONLY: this will need to be reformatted to account for data

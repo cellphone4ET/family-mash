@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   FamilyMember
     .find()
     .then(familyMembers => {
+      console.log(familyMembers);
       res.json(familyMembers.map(familyMember => familyMember.serialize()));
     })
     .catch(err => {
@@ -29,7 +30,7 @@ router.get('/:id', (req, res) => {
 
 // edit to insert photo URL of default icon (TBA) if no photo provided)
 router.post('/', (req, res) => {
-  const requiredFields = ['name', 'relation', 'age', 'birthday', 'photo_url'];
+  const requiredFields = ['name', 'relation', 'birthday', 'photo_url'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {

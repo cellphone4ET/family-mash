@@ -44,9 +44,11 @@
         <p>Grow your family relationships, one helpful reminder at a time.</p>
         <p>Upload your loved one's basic info and receive timely email
         reminders before their birthdays and anniversaries.</p>
-        <div class="steps step-1"></div>
-        <div class="steps step-2"></div>
-        <div class="steps step-3"></div>
+        <div class="all-steps">
+          <div class="steps step-1">Step 1</div>
+          <div class="steps step-2">Step 2</div>
+          <div class="steps step-3">Step 3</div>
+        </div>
 
         <button id="sign-up-button" type="submit" aria-label="sign-up-button" class="landing-page-buttons">Sign Up</button>
         <button id="login-button" type="submit" aria-label="login-button" class="landing-page-buttons">Login</button>
@@ -77,15 +79,18 @@
 
 
     <div id="family-members-page" hidden></div>
-    <div class="person-info"></div>
-
+    <div class="info-bloc">
+      <div class="person-name"></div>
+      <div class="person-photo"></div>
+      <div class="person-info-div"></div>
+    </div>
 
 
 
     <div class="create-person-page">
       <div class="create-person-form" hidden>
         <form class="add-person-form">
-          <legend> Create A Family Member </legend>
+          <legend id="create-fam-legend"> Create A Family Member </legend>
           <fieldset>
             <label for="name">Name:<br><input class="person-input" type="text" name="name" /></label>
             <label>Relation:<br><input class="person-input" type="text" name="relation" /></label>
@@ -93,7 +98,7 @@
             <label>Significant Other:<br><input class="person-input" type="text" name="" /></label>
             <label>Anniversary:<br><input class="person-input" type="text" name="anniversary" /></label>
             <label>Notes:<br><input class="person-input" type="text" name="notes" /></label>
-            <label>Photo URL:<br><input class="photo-URL" type="text" name="photo-URL" /></label>
+            <label>Photo URL:<br><input class="person-input" type="text" name="photo-URL" /></label>
             <input type="submit" value="Submit" id="submit-person">
           </fieldset>
         </form>

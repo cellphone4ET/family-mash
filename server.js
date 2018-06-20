@@ -7,17 +7,18 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const {PORT, DATABASE_URL} = require('./config');
-
+console.log(DATABASE_URL);
 const familyMemberRouter = require('./familyMemberRouter');
 const app = express();
 
 //serve public assets
-app.use(express.static('public'));
+
 
 //morgan middleware
 app.use(morgan('common'));
 app.use(express.json());
 app.use('/api/family-members', familyMemberRouter)
+app.use(express.static('public'));
 
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });

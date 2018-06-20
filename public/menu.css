@@ -134,7 +134,7 @@ nav a:focus {
   .logo {
     display: inline-flex;
     justify-content: flex-start;
-    font-size: 40px;
+    font-size: 30px;
     flex: 0 0 200px;
     padding-left: 20px;
   }
