@@ -94,12 +94,14 @@ function insertPersonInfo() {
   let html2 = `
   <div class="fam-member-info">
   <h4>Morticia Addams</h4>
-  <p><span class="content-field">Relation</span>: mother</p>
-  <p><span class="content-field">Age</span>: immortal</p>
-  <p><span class="content-field">Birthday</span>: 01/01/1300</p>
-  <p><span class="content-field">Significant Other</span>: Gomes Addams</p>
-  <p><span class="content-field">Anniversary</span>: 02/14/1666</p>
-  <p><span class="content-field">Notes</span>: needs vitamin D</p>
+  <div class="text-info">
+  <p class="content-field"><span class="bold">Relation</span><span class="smaller">:   mother</span></p>
+  <p class="content-field"><span class="bold">Age</span><span class="smaller">:   immortal</span></p>
+  <p class="content-field"><span class="bold">Birthday</span><span class="smaller">:   01/01/1300</span></p>
+  <p class="content-field"><span class="bold">Significant Other</span><span class="smaller">:   Gomes Addams</span></p>
+  <p class="content-field"><span class="bold">Anniversary</span><span class="smaller">:   02/14/1666</span></p>
+  <p class="content-field"><span class="bold">Notes</span><span class="smaller">:   needs vitamin D</span></p>
+  </div>
   </div>
   `;
   $(".person-info-div").append(html2);
