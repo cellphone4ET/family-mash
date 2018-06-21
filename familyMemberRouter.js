@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
 
 const {FamilyMember} = require('./models');
-
+const jsonParser = bodyParser.json();
 
 router.get('/', (req, res) => {
   FamilyMember
@@ -28,8 +29,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// edit to insert photo URL of default icon (TBA) if no photo provided)
-router.post('/', (req, res) => {
+
+router.post('/', jsonParser, (req, res) => {
   const requiredFields = ['name', 'relation', 'birthday', 'photo_url'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -42,13 +43,13 @@ router.post('/', (req, res) => {
 
   FamilyMember
     .create({
-      name: req.body.title,
-      relation: req.body.content,
-      age: req.body.author,
+      name: req.body.name,
+      relation: req.body.relation,
       birthday: req.body.birthday,
       photo_url: req.body.photo_url
     })
-    .then(FamilyMember => res.status(201).json(familyMember.serialize()))
+    .then(console.log(FamilyMember))
+    .then(FamilyMember => res.status(201).json(FamilyMember.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: 'Something went wrong' });
