@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
   FamilyMember
     .find()
     .then(familyMembers => {
-      console.log(familyMembers);
       res.json(familyMembers.map(familyMember => familyMember.serialize()));
     })
     .catch(err => {
@@ -48,7 +47,6 @@ router.post('/', jsonParser, (req, res) => {
       birthday: req.body.birthday,
       photo_url: req.body.photo_url
     })
-    .then(console.log(FamilyMember))
     .then(FamilyMember => res.status(201).json(FamilyMember.serialize()))
     .catch(err => {
       console.error(err);

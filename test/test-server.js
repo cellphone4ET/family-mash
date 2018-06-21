@@ -5,7 +5,8 @@ const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
 const faker = require('faker');
 
-const expect = chai.expect;
+const expect = chai.expect
+const should = chai.should();
 
 const {FamilyMember} = require('../models');
 const {app, runServer, closeServer} = require('../server.js');
@@ -28,7 +29,6 @@ function seedFamilyMemberData() {
       photo_url: faker.image.avatar()
     });
   }
-
   return FamilyMember.insertMany(seedData);
 }
 
@@ -70,7 +70,7 @@ describe('family mash api', function() {
   });
 
   //GET endpoints
-  describe('GET route', function () {
+  describe('it should return all existing family members', function () {
     it('should have status of 200', function () {
       let res;
       return chai.request(app)
@@ -78,7 +78,38 @@ describe('family mash api', function() {
       .then(function (res) {
         expect(res).to.have.status(200);
         expect(res.body).to.have.lengthOf.at.least(1);
-      });
+        return FamilyMember.count();
+      })
+        res.body.should.have.lengthOf(count);
+      })
     });
-    });
+
+  it('should return posts with the right fields', function() {
+
+    let resFamilyMember;
+    return chai.request(app)
+      .get('/api/family-members')
+      .then(function (res) {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.body).is.a('array');
+        expect(res.body).to.have.lengthOf.at.least(1);
+
+        res.body.forEach(function (familyMember) {
+          expect(familyMember).is.a('object');
+          expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url');
+        });
+
+        resFamilyMember = res.body[0];
+        return FamilyMember.findById(resFamilyMember.id)
+      })
+      .then(familyMember => {
+        console.log(familyMember.name);
+        console.log(resFamilyMember.name);
+        resFamilyMember.name.should.equal(FamilyMember.name);
+        // expect(resFamilyMember.relation).to.equal(FamilyMember.relation);
+        // expect(resFamilyMember.birthday).to.equal(FamilyMember.birthday);
+      })
+  });
+
 });

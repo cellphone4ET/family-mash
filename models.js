@@ -28,7 +28,7 @@ familyMemberSchema.methods.serialize = function() {
     significant_other: this.significant_other,
     anniversary: this.anniversary,
     notes: this.notes,
-    photo_url: this.url
+    photo_url: this.photo_url
   }
 }
 
