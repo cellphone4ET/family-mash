@@ -84,32 +84,97 @@ describe('family mash api', function() {
       })
     });
 
-  it('should return posts with the right fields', function() {
+    it('should return posts with the right fields', function() {
 
-    let resFamilyMember;
-    return chai.request(app)
-      .get('/api/family-members')
-      .then(function (res) {
-        expect(res).to.have.status(200);
-        expect(res).to.be.json;
-        expect(res.body).is.a('array');
-        expect(res.body).to.have.lengthOf.at.least(1);
+      let resFamilyMember;
+      return chai.request(app)
+        .get('/api/family-members')
+        .then(function (res) {
+          expect(res).to.have.status(200);
+          expect(res).to.be.json;
+          expect(res.body).is.a('array');
+          expect(res.body).to.have.lengthOf.at.least(1);
 
-        res.body.forEach(function (familyMember) {
-          expect(familyMember).is.a('object');
-          expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url');
-        });
+          res.body.forEach(function (familyMember) {
+            expect(familyMember).is.a('object');
+            expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url');
+          });
 
-        resFamilyMember = res.body[0];
-        return FamilyMember.findById(resFamilyMember.id)
+          resFamilyMember = res.body[0];
+          return FamilyMember.findById(resFamilyMember.id)
+        })
+        .then(familyMember => {
+          resFamilyMember.name.should.equal(familyMember.name);
+          expect(resFamilyMember.relation).to.equal(familyMember.relation);
+          expect(resFamilyMember.notes).to.equal(familyMember.notes);
+        })
+    });
+
+  describe('POST endpoint', function() {
+    it('should add a new family member', function() {
+      const newFamilyMember = {
+        name: faker.name.firstName(),
+        relation: faker.name.prefix(),
+        birthday: faker.random.number(60),
+        significant_other: faker.name.firstName(),
+        anniversary: faker.date.past(30),
+        notes: faker.lorem.sentences(),
+        photo_url: faker.image.avatar()
+      };
+
+      return chai.request(app)
+        .post('/api/family-members')
+        .send(newFamilyMember)
+        .then(function (res) {
+          expect(res).to.have.status(201);
+          expect(res).to.be.json;
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.include.keys("id", "name", 'relation', 'birthday', 'photo_url');
+          expect(res.body.name).to.equal(newFamilyMember.name);
+          res.body.id.should.not.be.null;
+          res.body.relation.should.equal(newFamilyMember.relation);
+          expect(res.body.photo_url).to.equal(newFamilyMember.photo_url);
+          return FamilyMember.findById(res.body.id);
+        })
+        .then(function (FamilyMember) {
+          FamilyMember.name.should.equal(newFamilyMember.name);
+          FamilyMember.relation.should.equal(newFamilyMember.relation);
+          FamilyMember.photo_url.should.equal(newFamilyMember.photo_url);
+        })
+    })
+  })
+
+  describe('PUT endpoint', function () {
+    it('should update fields you send over', function() {
+
+      const updateData = {
+        name: 'Mary',
+        relation: 'mother',
+        significant_other: 'Joseph'
+      };
+
+      return FamilyMember
+        .findOne()
+        .then(familyMember => {
+          updateData.id = familyMember.id;
+
+          return chai.request(app)
+            .put(`/api/family-members/${familyMember.id}`)
+            .send(updateData);
       })
+
+      .then(res => {
+        res.should.have.status(204);
+        return FamilyMember.findById(updateData.id);
+      })
+
       .then(familyMember => {
-        console.log(familyMember.name);
-        console.log(resFamilyMember.name);
-        resFamilyMember.name.should.equal(FamilyMember.name);
-        // expect(resFamilyMember.relation).to.equal(FamilyMember.relation);
-        // expect(resFamilyMember.birthday).to.equal(FamilyMember.birthday);
+        familyMember.name.should.equal(updateData.name);
+        familyMember.relation.should.equal(updateData.relation);
+        familyMember.significant_other.should.equal(updateData.significant_other);
       })
-  });
+    })
+  })
+
 
 });
