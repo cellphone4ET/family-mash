@@ -58,7 +58,7 @@ describe('family mash api', function() {
     return closeServer();
   });
 
-//static endpoints
+  //static endpoints
   describe('index page', function () {
     it('should exist', function () {
       return chai.request(app)
@@ -175,6 +175,28 @@ describe('family mash api', function() {
       })
     })
   })
+
+  describe('DELETE endpoint', function () {
+
+    it('should delete a post by id', function () {
+      let familyMember;
+
+      return FamilyMember
+        .findOne()
+        .then(_familyMember => {
+          familyMember = _familyMember;
+          return chai.request(app).delete(`/api/family-members/${familyMember.id}`);
+        })
+        .then(res => {
+          res.should.have.status(204);
+          return FamilyMember.findById(familyMember.id);
+        })
+        .then(_familyMember => {
+          should.not.exist(_familyMember);
+        });
+
+    });
+  });
 
 
 });
