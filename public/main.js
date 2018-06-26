@@ -20,31 +20,12 @@ function chooseLogin() {
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
-     event.preventDefault();
-       const email = $('').val();
-       const password = $('').val();
-
-       $.ajax({
-           url: '/api/login',
-           method: 'POST',
-           data: {
-               email: email,
-               password: password,
-           },
-           success: (response) => {
-               sessionStorage.setItem('token', response.token);
-               location.href = '/protected.html';
-           },
-           error: () => {
-               renderError();
-           }
-       })
-
-
+    getFamilyMembers();
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
+    getFamilyMembers();
 }
 
 function showMain(event) {
