@@ -196,6 +196,10 @@ p.content-field {
   font-size: 15px;
 }
 
+.upper-case::first-letter {
+    text-transform: uppercase;
+}
+
   @media only screen and (min-width: 800px) {
 
     .page {

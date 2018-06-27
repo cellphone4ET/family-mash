@@ -133,25 +133,19 @@ function insertPersonInfo(familyMember) {
 }
 
 function insertPhotos(familyMembers) {
-
   let familyMember = familyMembers.map(function(familyMember) {
-  console.log(familyMember);
-
     let html = `
     <div class="row">
     <div class="col-4">
     <div class="card">
-    <img alt="family-member" class="card-image" src="morticia.jpg" />
+    <img alt="family-member" class="card-image" src="${familyMember.photo_url}" />
     <div class="card-content">
     <h3><a href="#family-member-info" class="person-info">${familyMember.name}</a></h3>
-    <p>${familyMember.relation}</p>
+    <p class="upper-case">${familyMember.relation}</p>
     </div>
     </div>
     </div>`;
-
     $("#family-members-page").append(html);
-
-
   })
 }
 
