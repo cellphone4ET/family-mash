@@ -20,6 +20,13 @@ app.use(express.json());
 app.use('/api/family-members', familyMemberRouter)
 app.use(express.static('public'));
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  next();
+});
+
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });
 });

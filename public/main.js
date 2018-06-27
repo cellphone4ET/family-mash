@@ -1,3 +1,7 @@
+var state = {
+  familyMembers: []
+};
+
 function chooseSignUp() {
   $("#sign-up-button").on("click", function(event) {
     $(".landing-page").hide();
@@ -18,7 +22,6 @@ function chooseLogin() {
 
 function submitLogin() {
   $("#login-form").on("submit", showMain);
-
 }
 
 function submitSignUp() {
@@ -30,7 +33,7 @@ function showMain(event) {
     $(".site-nav").show();
     $("#family-members-page").show();
     $(".signup-login-page").hide();
-    insertPhotos();
+    getFamilyMembers();
     document.body.style.backgroundColor = "white";
 }
 
@@ -84,9 +87,31 @@ function moreInfoLink() {
   });
 }
 
-// FOR DISPLAY ONLY: this will need to be reformatted to account for data
+function getFamilyMembers(id) {
+  $.ajax({
+    url: `/api/family-members`,
+    data: {},
+    dataType: "json",
+    type: 'GET',
+    success: function(data) {
+        let familyMembers = data;
+        if (familyMembers.length === 0) {
+          alert("Looks like you haven't added any family members yet!");
+        } else {
+          insertPhotos(familyMembers);
+          console.log('success!');
+        }
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  if (id) {
+    data['id'] = id;
+  }
+}
 
-function insertPersonInfo() {
+function insertPersonInfo(familyMember) {
 
   let html1 = `<img alt="family-member" class="card-image-active" src="morticia.jpg" />`
   $(".person-photo").append(html1);
@@ -107,41 +132,27 @@ function insertPersonInfo() {
   $(".person-info-div").append(html2);
 }
 
-// FOR DISPLAY ONLY: this will need to be reformatted to account for data
-function insertPhotos() {
-  let html = `
-  <div class="row">
-  <div class="col-4">
-  <div class="card">
-  <img alt="family-member" class="card-image" src="morticia.jpg" />
-  <div class="card-content">
-  <h3><a href="#family-member-info" class="person-info">Morticia Addams</a></h3>
-  <p>Mother</p>
-  </div>
-  </div>
-  </div>
-  <div class="col-4">
-  <div class="card">
-  <img class="card-image" src="gomez.jpg" />
-  <div class="card-content">
-  <h3>Gomez Addams</h3>
-  <p>Father</p>
-  </div>
-  </div>
-  </div>
-  <div class="col-4">
-  <div class="card">
-  <img class="card-image" src="uncle-fester.jpg" />
-  <div class="card-content">
-  <h3>Uncle Fester</h3>
-  <p>Uncle</p>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="row">`;
+function insertPhotos(familyMembers) {
 
-  $("#family-members-page").html(html);
+  let familyMember = familyMembers.map(function(familyMember) {
+  console.log(familyMember);
+
+    let html = `
+    <div class="row">
+    <div class="col-4">
+    <div class="card">
+    <img alt="family-member" class="card-image" src="morticia.jpg" />
+    <div class="card-content">
+    <h3><a href="#family-member-info" class="person-info">${familyMember.name}</a></h3>
+    <p>${familyMember.relation}</p>
+    </div>
+    </div>
+    </div>`;
+
+    $("#family-members-page").append(html);
+
+
+  })
 }
 
 $(".menu-toggle").click(function() {
