@@ -88,10 +88,10 @@ function clearPersonInfo() {
   console.log('clearPersonInfo ran');
 }
 
+// POST + PUT
 function submitPerson() {
   $(".create-person-page").submit("#submit-person", function(event) {
     event.preventDefault();
-    console.log('submitPerson ran');
 
       let name = $('#person-name').val();
       let relation = $('#person-relation').val();
@@ -119,22 +119,26 @@ function submitPerson() {
         data: familyMemberData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: showMain(),
-        error: console.log('error')
+        success: showMain,
+        error: function(error) {
+          console.log(error);
+        }
       };
 
-    // let editingId = state.activeFamilyMember.id
-    //
-    // if(state.activeFamilyMember && editingId )  { // EDITING
-    //   settings.type= "PUT",
-    //   settings.url = `/api/family-members/${editingId}`,
-    //   settings.data.id = editingId
-    // }
+    let editingId = state.activeFamilyMember.id
+    console.log(editingId);
+
+    if(state.activeFamilyMember && editingId )  { // EDITING
+      settings.type= "PUT",
+      settings.url = `/api/family-members/${editingId}`,
+      settings.data.id = editingId
+    }
+    settings.data = JSON.stringify(settings.data);
+    console.log(settings);
 
       $.ajax(settings);
 
-      $(".create-person-form").hide();
-      showMain();
+      $(".create-person-form").hide()
   });
 }
 
@@ -148,6 +152,7 @@ function moreInfoLink() {
   });
 }
 
+// DELETE
 function clickDeleteFamMember() {
   $(".person-info-div").on("click", ".delete-family-member", function() {
     console.log('clickDeleteFamMember ran');
@@ -189,8 +194,8 @@ function clickEditFamMember() {
   })
 }
 
+// GET
 function getFamilyMembers(id) {
-  console.log('getFamilyMembers ran')
   $.ajax({
     url: `/api/family-members`,
     dataType: "json",
@@ -211,7 +216,9 @@ function getFamilyMembers(id) {
 }
 
 function insertPersonInfo(familyMember) {
-  console.log('insertPersonInfo');
+
+  let formattedBirthday = moment(state.activeFamilyMember.birthday).format("MMMM Do, YYYY");
+  let formattedAnniversary = moment(state.activeFamilyMember.anniversary).format("MMMM Do, YYYY");
 
   let html1 = `<img alt="family-member" class="card-image-active" src="${state.activeFamilyMember.photo_url}" />`
   $(".person-photo").html(html1);
@@ -221,9 +228,9 @@ function insertPersonInfo(familyMember) {
   <h4>${state.activeFamilyMember.name}</h4>
   <div class="text-info">
   <p class="content-field"><span class="bold">Relation</span><span class="smaller">:   ${state.activeFamilyMember.relation}</span></p>
-  <p class="content-field"><span class="bold">Birthday</span><span class="smaller">:   ${state.activeFamilyMember.birthday}</span></p>
+  <p class="content-field"><span class="bold">Birthday</span><span class="smaller">:   ${formattedBirthday} </span></p>
   <p class="content-field"><span class="bold">Significant Other</span><span class="smaller">:   ${state.activeFamilyMember.significant_other}</span></p>
-  <p class="content-field"><span class="bold">Anniversary</span><span class="smaller">:   ${state.activeFamilyMember.anniversary}</span></p>
+  <p class="content-field"><span class="bold">Anniversary</span><span class="smaller">:   ${formattedAnniversary}</span></p>
   <p class="content-field"><span class="bold">Notes</span><span class="smaller">:   ${state.activeFamilyMember.notes}</span></p>
   </div>
   </div>
@@ -236,7 +243,6 @@ function insertPersonInfo(familyMember) {
 }
 
 function insertPhotos(familyMembers) {
-    console.log(state.familyMembers.length);
     let html = familyMembers.map(function(familyMember, index) {
       return `
       <div class="row">
