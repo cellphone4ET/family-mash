@@ -18,6 +18,10 @@ const familyMemberSchema = mongoose.Schema({
 //virtual property for Age--moments.js
 //edit main.js to insert photo URL of default icon (TBA) if no photo provided)
 
+// familyMemberSchema.virtual('age').get(function) {
+//   let age = moment(this.birthday).get
+// }
+
 familyMemberSchema.methods.serialize = function() {
   return {
     id: this._id,

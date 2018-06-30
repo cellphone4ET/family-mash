@@ -5,7 +5,6 @@ var state = {
 
 function chooseSignUp() {
   $("#sign-up-button").on("click", function(event) {
-    console.log('chooseSignUp ran');
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#sign-up-form").show();
@@ -15,7 +14,6 @@ function chooseSignUp() {
 
 function chooseLogin() {
   $("#login-button").on("click", function(event) {
-    console.log('chooseLogin ran');
     $(".landing-page").hide();
     $(".signup-login-page").show();
     $("#login-form").show();
@@ -54,7 +52,6 @@ function createPerson() {
     $('#person-notes').val("");
     $('#person-photo-url').val("");
     $(".create-person-form").show();
-    console.log('createPerson ran');
   });
 }
 
@@ -76,8 +73,6 @@ function returnToMainScreen() {
     clearPersonInfo();
     $(".row").show();
     insertPhotos();
-    console.log('returnToMainScreen ran');
-
   });
 }
 
@@ -101,6 +96,7 @@ function submitPerson() {
       let anniversary = $('#person-anniversary').val();
       let notes = $('#person-relation').val();
       let photo_url = $('#person-photo-url').val();
+
 
       let familyMemberData = {
     		name: name,
@@ -126,7 +122,6 @@ function submitPerson() {
       };
 
     let editingId = state.activeFamilyMember.id
-    console.log(editingId);
 
     if(state.activeFamilyMember && editingId )  { // EDITING
       settings.type= "PUT",
@@ -134,7 +129,6 @@ function submitPerson() {
       settings.data.id = editingId
     }
     settings.data = JSON.stringify(settings.data);
-    console.log(settings);
 
       $.ajax(settings);
 
@@ -145,7 +139,6 @@ function submitPerson() {
 function moreInfoLink() {
   $("#family-members-page").on("click", ".card", function(event) {
     $(".row").hide();
-    console.log('moreInfoLink ran');
     let index = $(event.currentTarget).attr('data-index');
     state.activeFamilyMember = state.familyMembers[index];
     insertPersonInfo(state.activeFamilyMember);
@@ -179,14 +172,17 @@ function clickDeleteFamMember() {
 
 function clickEditFamMember() {
   $(".person-info-div").on("click", ".edit-family-member", function() {
-    console.log('clickEditFamMember ran');
     clearPersonInfo();
+
+    let birthday = moment(state.activeFamilyMember.birthday).format("YYYY-MM-DD");
+    let anniversary = moment(state.activeFamilyMember.anniversary).format("YYYY-MM-DD");
+
     $(".create-person-form").show();
     $('#person-name').val(state.activeFamilyMember.name);
     $('#person-relation').val(state.activeFamilyMember.relation);
-    $('#person-birthday').val(state.activeFamilyMember.birthday);
+    $('#person-birthday').val(birthday);
     $('#person-significant-other').val(state.activeFamilyMember.significant_other);
-    $('#person-anniversary').val(state.activeFamilyMember.anniversary);
+    $('#person-anniversary').val(anniversary);
     $('#person-notes').val(state.activeFamilyMember.notes);
     $('#person-photo-url').val(state.activeFamilyMember.photo_url);
 
@@ -206,7 +202,6 @@ function getFamilyMembers(id) {
           alert("Looks like you haven't added any family members yet!");
         } else {
           insertPhotos(state.familyMembers);
-          console.log(state.familyMembers);
         }
       },
       error: function(error) {
