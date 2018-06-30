@@ -95,13 +95,13 @@
         <form class="add-person-form">
           <legend id="create-fam-legend"> Create A Family Member </legend>
           <fieldset>
-            <label for="name">Name:<br><input class="person-input" type="text" name="name" /></label>
-            <label>Relation:<br><input class="person-input" type="text" name="relation" /></label>
-            <label>Birthday:<br><input class="person-input" type="date" name="birthday" /></label>
-            <label>Significant Other:<br><input class="person-input" type="text" name="" /></label>
-            <label>Anniversary:<br><input class="person-input" type="text" name="anniversary" /></label>
-            <label>Notes:<br><input class="person-input" type="text" name="notes" /></label>
-            <label>Photo URL:<br><input class="person-input" type="text" name="photo-URL" /></label>
+            <label for="name">Name:<br><input id="person-name" class="person-input" type="text" name="name"/></label>
+            <label>Relation:<br><input id="person-relation" class="person-input" type="text" name="relation"/></label>
+            <label>Birthday:<br><input id="person-birthday" class="person-input" type="date" name="birthday"/></label>
+            <label>Significant Other:<br><input id="person-significant-other" class="person-input" type="text" name="significant-other" /></label>
+            <label>Anniversary:<br><input id="person-anniversary" class="person-input" type="text" name="anniversary" /></label>
+            <label>Notes:<br><input class="person-input" id="person-notes" type="text" name="notes" /></label>
+            <label>Photo URL:<br><input id="person-photo-url" class="person-input" type="text" name="photo-URL" /></label>
             <input type="submit" value="Submit" id="submit-person">
           </fieldset>
         </form>

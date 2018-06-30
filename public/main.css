@@ -145,7 +145,6 @@ label {
   margin-bottom: 15px;
 }
 
-
 .info-bloc {
   text-align: center;
 }
@@ -171,6 +170,12 @@ label {
 
 .card-image-active {
   width: 97%;
+}
+
+.edit, .delete {
+  width: 25px;
+  float: right;
+  margin: 5px;
 }
 
 h4 {
@@ -214,7 +219,6 @@ p.content-field {
     .person-info-div {
       display: inline-block;
       position: relative;
-      bottom: 175px;
     }
 
 }
