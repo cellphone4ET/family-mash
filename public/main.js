@@ -29,6 +29,46 @@ function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
 }
 
+// function handleAuth(route, username, password) {
+//
+// 	let userData = {
+//     firstname: firstname,
+//     lastname: lastname,
+//     email: email,
+// 		password: password
+// 	};
+//
+// 	//api/auth/login
+//
+// 	$.ajax({
+// 		url: `/api/${route}`,
+// 		type: "POST",
+// 		data: JSON.stringify(userData),
+// 		contentType: "application/json; charset=utf-8",
+// 		dataType: "json",
+// 		success: function(data){
+// 			state.loggedIn = true;
+// 			//state.token is now whatever token was sent to the user
+// 			//in order to authenticate them from page to page.
+// 			state.token = data.authToken;
+// 			handleHeaderLinks();
+// 			showDestinationGoals();
+// 			hideAllErrorMessages();
+// 			$('#username-js-login, #password-js-login, #username-js-signup, #password-js-signup').val("");
+// 		},
+// 		error: function(errorData){
+// 			console.log("we couldn't authenticate");
+// 			if (errorData.responseJSON === undefined) {
+// 				handleLoginErrors(errorData.status, username, password);
+// 				return;
+// 			}
+// 			else {
+// 				let errorMessage = errorData.responseJSON.message;
+// 				handleSignupErrors(errorMessage);
+// 			}
+// 		},
+// 	});
+// }
 function showMain() {
   event.preventDefault();
     $(".site-nav").show();
