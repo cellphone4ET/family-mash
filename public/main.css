@@ -225,5 +225,8 @@ p.content-field {
       display: inline-block;
       position: relative;
     }
+    .steps {
+      width: 100px;
+    }
 
 }

@@ -22,14 +22,20 @@ function chooseLogin() {
 }
 
 function submitLogin() {
-  $("#login-form").on("submit", showMain);
+  $("#login-form").on("submit", showMain) {
+    // event.preventDefault();
+    // let email = $('#login-email-input').val();
+    // let password = $('#login-password-input').val();
+    // handleAuth(family-members, )
+
+  });
 }
 
 function submitSignUp() {
   $("#sign-up-form").on("submit", showMain);
 }
 
-// function handleAuth(route, username, password) {
+// function handleAuth(route, firstname, lastname, password) {
 //
 // 	let userData = {
 //     firstname: firstname,
@@ -37,9 +43,9 @@ function submitSignUp() {
 //     email: email,
 // 		password: password
 // 	};
-//
-// 	//api/auth/login
-//
+
+	//api/auth/login
+
 // 	$.ajax({
 // 		url: `/api/${route}`,
 // 		type: "POST",
@@ -51,33 +57,21 @@ function submitSignUp() {
 // 			//state.token is now whatever token was sent to the user
 // 			//in order to authenticate them from page to page.
 // 			state.token = data.authToken;
-// 			handleHeaderLinks();
-// 			showDestinationGoals();
-// 			hideAllErrorMessages();
-// 			$('#username-js-login, #password-js-login, #username-js-signup, #password-js-signup').val("");
-// 		},
-// 		error: function(errorData){
+// 			showMain();,
+// 		error: function(error) {
 // 			console.log("we couldn't authenticate");
-// 			if (errorData.responseJSON === undefined) {
-// 				handleLoginErrors(errorData.status, username, password);
-// 				return;
-// 			}
-// 			else {
-// 				let errorMessage = errorData.responseJSON.message;
-// 				handleSignupErrors(errorMessage);
-// 			}
-// 		},
+// 		}
 // 	});
 // }
-function showMain() {
-  event.preventDefault();
-    $(".site-nav").show();
-    $("#family-members-page").show();
-    $(".signup-login-page").hide();
-    document.body.style.backgroundColor = "white";
-    getFamilyMembers();
-
-}
+// function showMain() {
+//   event.preventDefault();
+//     $(".site-nav").show();
+//     $("#family-members-page").show();
+//     $(".signup-login-page").hide();
+//     document.body.style.backgroundColor = "white";
+//     getFamilyMembers();
+//
+// }
 
 function createPerson() {
   $(".site-nav").on("click", "#createperson", function(event) {
