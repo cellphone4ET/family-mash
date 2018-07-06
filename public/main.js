@@ -1,6 +1,6 @@
 var state = {
   loggedIn: false,
-  token:"",
+  token:localStorage.getItem('token'),
   familyMembers: [],
   activeFamilyMember: ""
 };
@@ -23,14 +23,29 @@ function chooseLogin() {
   });
 }
 
+function clickReturnArrow() {
+  $('#sign-up-form').on('click', ".back-arrow", function(event) {
+    $(".landing-page").show();
+    $(".signup-login-page").hide();
+    $("#login-form").hide();
+    $("#sign-up-form").hide();
+  });
+  $('#login-form').on('click', ".back-arrow", function(event) {
+    $(".landing-page").show();
+    $(".signup-login-page").hide();
+    $("#login-form").hide();
+    $("#sign-up-form").hide();
+  });
+}
+
 function submitLogin() {
   $("#login-form").on("submit", function(event) {
     event.preventDefault();
-    let email = $('#sign-up-email-input').val();
-    $('#sign-up-email-input').val("");
-    let password = $('#sign-up-password-input').val();
-    $('#sign-up-password-input').val("");
-    let route = 'auth';
+    let email = $('#login-email-input').val();
+    $('#login-email-input').val("");
+    let password = $('#login-password-input').val();
+    $('#login-password-input').val("");
+    let route = 'auth/login';
     handleAuth(route, email, password);
   })
 
@@ -48,25 +63,19 @@ function submitSignUp() {
     let password = $('#sign-up-password-input').val();
     $('#sign-up-password-input').val("");
     let route = 'users'
-    handleAuth(route, firstName, lastName, email, password);
+    handleAuth(route, email, password, firstName, lastName);
   })
 }
 
-function handleAuth(route, firstName, lastName, email, password) {
+function handleAuth(route, email, password, firstName, lastName) {
 
-  if ( email && password && firstName && lastName ) {
-    var userData = {
-      email: email,
-      password: password,
-      firstName: firstName,
-      lastName: lastName
-    }
-  } else {
-    var userData = {
-      email: email,
-      password: password
-    }
+  var userData = {
+    email: email,
+    password: password,
+    firstName: firstName,
+    lastName: lastName
   }
+
 
   console.log(userData);
   let settings = {
@@ -77,11 +86,13 @@ function handleAuth(route, firstName, lastName, email, password) {
     dataType: 'json',
     success: function(data) {
       state.loggedIn = true;
+      localStorage.setItem('token', data.authToken);
       state.token = data.authToken;
       showMain();
     },
     error: function(error) {
       console.log('error with authenticating the account');
+      console.log(error);
     }
   }
 
@@ -89,10 +100,10 @@ function handleAuth(route, firstName, lastName, email, password) {
 }
 
 function showMain() {
-  event.preventDefault();
     $(".site-nav").show();
     $("#family-members-page").show();
     $(".signup-login-page").hide();
+    $(".landing-page").hide();
     document.body.style.backgroundColor = "white";
     getFamilyMembers();
 
@@ -122,7 +133,9 @@ function signOut() {
     $(".row").hide();
     $(".create-person-form").hide();
     document.body.style.backgroundColor = "#dcd0c0";
-    console.log('ran');
+    state.token = "";
+    localStorage.setItem('token', "");
+
   });
 }
 
@@ -328,6 +341,12 @@ $(".menu-toggle").click(function() {
 });
 
 $(document).ready(function() {
+
+  if (state.token) {
+    showMain();
+  }
+
+  clickReturnArrow();
   clickEditFamMember();
   clickDeleteFamMember();
   returnToMainScreen();

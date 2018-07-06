@@ -58,29 +58,34 @@
       </div>
     </div>
 
+
     <div class="signup-login-page page" hidden>
       <div id="logo"><h1>family. mash</h1></div>
       <form id="login-form" hidden>
         <fieldset>
           <legend>
-            <input id="login-email-input" class="sign-up-input" type="text" required="required" value="wednesday@afamily.com" aria-label="email">
-            <input id="login-password-input" class="sign-up-input" type="text" required="required" value="password" aria-label="password">
+            <label for="email">Email<br><input id="login-email-input" class="sign-up-input" type="email" name="email" required="required"></label>
+            <label for="password">Password<br><input id="login-password-input" class="sign-up-input" type="text" name="password" required="required"></label>
             <input id="submit-login2" type="submit" value="Login" aria-label="submit-login">
           </legend>
         </fieldset>
+        <a href="#back-arrow" class="back-arrow"><img src="back-arrow.jpg" alt="back-arrow" class="back"></a>
       </form>
       <form id="sign-up-form" hidden>
         <fieldset>
           <legend>
-            <input id="sign-up-first-name" class="sign-up-input" type="text" required="required" value="Wednesday" aria-label="first-name">
-            <input id="sign-up-last-name" class="sign-up-input" type="text" required="required" value="Addams" aria-label="first-name">
-            <input id="sign-up-email-input" class="sign-up-input" type="text" required="required"  value="boo@addamsfam.com" aria-label="email">
-            <input id="sign-up-password-input" class="sign-up-input" type="text" required="required"  value="password" aria-label="password">
+            <label for="first-name">First Name<br><input id="sign-up-first-name" class="sign-up-input" type="text" required="required" name="first-name"></label>
+            <label for="last-name">Last Name<br><input id="sign-up-last-name" class="sign-up-input" type="text" required="required" name="first-name"></label>
+            <label for="email">Email<br><input id="sign-up-email-input" class="sign-up-input" type="email" required="required"  name="email"></label>
+            <label for="password">Password<br><input id="sign-up-password-input" class="sign-up-input" type="text" required="required"  name="password"></label>
             <input id="submit-new-user" type="submit" value="Sign Up" aria-label="submit-sign-up">
           </legend>
         </fieldset>
+        <a href="#back-arrow" class="back-arrow"><img src="back-arrow.jpg" alt="back-arrow" class="back"></a>
       </form>
     </div>
+
+
 
 
     <div id="family-members-page" hidden></div>
@@ -97,13 +102,13 @@
         <form class="add-person-form">
           <legend id="create-fam-legend"> Create A Family Member </legend>
           <fieldset>
-            <label for="name">Name:<br><input id="person-name" class="person-input" type="text" name="name"/></label>
-            <label>Relation:<br><input id="person-relation" class="person-input" type="text" name="relation"/></label>
-            <label>Birthday:<br><input id="person-birthday" class="person-input" type="date" name="birthday"/></label>
-            <label>Significant Other:<br><input id="person-significant-other" class="person-input" type="text" name="significant-other" /></label>
-            <label>Anniversary:<br><input id="person-anniversary" class="person-input" type="date" name="anniversary" /></label>
-            <label>Notes:<br><input class="person-input" id="person-notes" type="text" name="notes" /></label>
-            <label>Photo URL:<br><input id="person-photo-url" class="person-input" type="text" name="photo-URL" /></label>
+            <label for="name">Name<br><input id="person-name" class="person-input" type="text" name="name"/></label>
+            <label for="relation">Relation<br><input id="person-relation" class="person-input" type="text" name="relation"/></label>
+            <label for="birthday">Birthday<br><input id="person-birthday" class="person-input" type="date" name="birthday"/></label>
+            <label for="significant-other">Significant Other<br><input id="person-significant-other" class="person-input" type="text" name="significant-other" /></label>
+            <label for="anniversary">Anniversary<br><input id="person-anniversary" class="person-input" type="date" name="anniversary" /></label>
+            <label for="notes">Notes<br><input class="person-input" id="person-notes" type="text" name="notes" /></label>
+            <label for ="photo-URL">Photo URL<br><input id="person-photo-url" class="person-input" type="text" name="photo-URL" /></label>
             <input type="submit" value="Submit" id="submit-person">
           </fieldset>
         </form>

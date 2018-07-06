@@ -151,7 +151,7 @@ label {
 
 .person-info-div {
   text-align: center;
-  padding: 30px;
+  padding: 0 30px;
 }
 
 .fam-member-info{
@@ -207,7 +207,12 @@ p.content-field {
 }
 
 .upper-case::first-letter {
-    text-transform: uppercase;
+  text-transform: uppercase;
+}
+
+.back {
+  height: 20px;
+  float: left;
 }
 
   @media only screen and (min-width: 800px) {
@@ -219,6 +224,7 @@ p.content-field {
     .person-photo {
       padding-right: 0px;
       display: inline-block;
+      vertical-align: top;
     }
 
     .person-info-div {
