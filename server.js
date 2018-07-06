@@ -9,9 +9,9 @@ const passport = require('passport');
 mongoose.Promise = global.Promise;
 
 const {PORT, DATABASE_URL} = require('./config');
-const familyMemberRouter = require('./familyMemberRouter');
 const app = express();
 
+const familyMemberRouter = require('./familyMemberRouter');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
@@ -37,15 +37,10 @@ passport.use(jwtStrategy);
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
+app.use('/api/family-members', familyMemberRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
-// A protected endpoint which needs a valid JWT to access it
-app.get('/api/protected', jwtAuth, (req, res) => {
-  return res.json({
-    data: 'rosebud'
-  });
-});
 
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });

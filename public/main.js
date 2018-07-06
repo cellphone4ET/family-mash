@@ -1,4 +1,6 @@
 var state = {
+  loggedIn: false,
+  token:"",
   familyMembers: [],
   activeFamilyMember: ""
 };
@@ -22,56 +24,79 @@ function chooseLogin() {
 }
 
 function submitLogin() {
-  $("#login-form").on("submit", showMain) {
-    // event.preventDefault();
-    // let email = $('#login-email-input').val();
-    // let password = $('#login-password-input').val();
-    // handleAuth(family-members, )
+  $("#login-form").on("submit", function(event) {
+    event.preventDefault();
+    let email = $('#sign-up-email-input').val();
+    $('#sign-up-email-input').val("");
+    let password = $('#sign-up-password-input').val();
+    $('#sign-up-password-input').val("");
+    let route = 'auth';
+    handleAuth(route, email, password);
+  })
 
-  });
 }
 
 function submitSignUp() {
-  $("#sign-up-form").on("submit", showMain);
+  $("#sign-up-form").on("submit", function(event) {
+    event.preventDefault();
+    let firstName = $('#sign-up-first-name').val();
+    $('#sign-up-first-name').val("");
+    let lastName = $('#sign-up-last-name').val();
+    $('#sign-up-last-name').val("");
+    let email = $('#sign-up-email-input').val();
+    $('#sign-up-email-input').val("");
+    let password = $('#sign-up-password-input').val();
+    $('#sign-up-password-input').val("");
+    let route = 'users'
+    handleAuth(route, firstName, lastName, email, password);
+  })
 }
 
-// function handleAuth(route, firstname, lastname, password) {
-//
-// 	let userData = {
-//     firstname: firstname,
-//     lastname: lastname,
-//     email: email,
-// 		password: password
-// 	};
+function handleAuth(route, firstName, lastName, email, password) {
 
-	//api/auth/login
+  if ( email && password && firstName && lastName ) {
+    var userData = {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName: lastName
+    }
+  } else {
+    var userData = {
+      email: email,
+      password: password
+    }
+  }
 
-// 	$.ajax({
-// 		url: `/api/${route}`,
-// 		type: "POST",
-// 		data: JSON.stringify(userData),
-// 		contentType: "application/json; charset=utf-8",
-// 		dataType: "json",
-// 		success: function(data){
-// 			state.loggedIn = true;
-// 			//state.token is now whatever token was sent to the user
-// 			//in order to authenticate them from page to page.
-// 			state.token = data.authToken;
-// 			showMain();,
-// 		error: function(error) {
-// 			console.log("we couldn't authenticate");
-// 		}
-// 	});
-// }
-// function showMain() {
-//   event.preventDefault();
-//     $(".site-nav").show();
-//     $("#family-members-page").show();
-//     $(".signup-login-page").hide();
-//     document.body.style.backgroundColor = "white";
-//     getFamilyMembers();
-//
-// }
+  console.log(userData);
+  let settings = {
+    url: `/api/${route}`,
+    type: "POST",
+    data: JSON.stringify(userData),
+    contentType: "application/json; charset=utf-8",
+    dataType: 'json',
+    success: function(data) {
+      state.loggedIn = true;
+      state.token = data.authToken;
+      showMain();
+    },
+    error: function(error) {
+      console.log('error with authenticating the account');
+    }
+  }
+
+  $.ajax(settings);
+}
+
+function showMain() {
+  event.preventDefault();
+    $(".site-nav").show();
+    $("#family-members-page").show();
+    $(".signup-login-page").hide();
+    document.body.style.backgroundColor = "white";
+    getFamilyMembers();
+
+}
 
 function createPerson() {
   $(".site-nav").on("click", "#createperson", function(event) {
@@ -149,6 +174,9 @@ function submitPerson() {
         data: familyMemberData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
+        headers: {
+    			"Authorization": `Bearer ${state.token}`
+    		},
         success: showMain,
         error: function(error) {
           console.log(error);
@@ -192,6 +220,9 @@ function clickDeleteFamMember() {
           data: JSON.stringify({id: id}),
           contentType: "application/json; charset=utf-8",
           dataType: "json",
+          headers: {
+      			"Authorization": `Bearer ${state.token}`
+      		},
           success: function(data) {
             clearPersonInfo();
             showMain();
@@ -230,6 +261,9 @@ function getFamilyMembers(id) {
     url: `/api/family-members`,
     dataType: "json",
     type: 'GET',
+    headers: {
+			"Authorization": `Bearer ${state.token}`
+		},
     success: function(data) {
         state.familyMembers = data;
         if (state.familyMembers.length === 0) {
