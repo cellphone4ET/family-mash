@@ -76,8 +76,6 @@ function handleAuth(route, email, password, firstName, lastName) {
     lastName: lastName
   }
 
-
-  console.log(userData);
   let settings = {
     url: `/api/${route}`,
     type: "POST",
@@ -152,7 +150,6 @@ function clearPersonInfo() {
   $(".person-info-div").empty();
   $(".person-photo").empty();
   $(".person-name").empty();
-  console.log('clearPersonInfo ran');
 }
 
 // POST + PUT
@@ -162,7 +159,6 @@ function submitPerson() {
 
       let name = $('#person-name').val();
       let relation = $('#person-relation').val();
-      let age = $('#person-age').val();
       let birthday = $('#person-birthday').val();
       let significant_other = $('#person-significant-other').val();
       let anniversary = $('#person-anniversary').val();
@@ -173,7 +169,6 @@ function submitPerson() {
       let familyMemberData = {
     		name: name,
     		relation: relation,
-    		// age: age,
         birthday: birthday,
         significant_other: significant_other,
         anniversary: anniversary,
