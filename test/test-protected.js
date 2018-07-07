@@ -24,7 +24,7 @@ describe('Protected endpoint', function() {
   });
 
   after(function() {
-    return closeServer(TEST_DATABASE_URL);
+    return closeServer();
   });
 
   beforeEach(function() {
@@ -42,21 +42,12 @@ describe('Protected endpoint', function() {
     return User.remove({});
   });
 
-  describe('/api/protected', function() {
+  describe('/api/family-members', function() {
     it('Should reject requests with no credentials', function() {
-      console.log(User);
       return chai
         .request(app)
-        .get('/api/protected')
-        .then(() =>
-          expect.fail(null, null, 'Request should not succeed')
-        )
-        .catch(err => {
-          if (err instanceof chai.AssertionError) {
-            throw err;
-          }
-
-          const res = err.response;
+        .get('/api/family-members')
+        .then( function(res) {
           expect(res).to.have.status(401);
         });
     });
@@ -77,17 +68,9 @@ describe('Protected endpoint', function() {
 
       return chai
         .request(app)
-        .get('/api/protected')
+        .get('/api/family-members')
         .set('Authorization', `Bearer ${token}`)
-        .then(() =>
-          expect.fail(null, null, 'Request should not succeed')
-        )
-        .catch(err => {
-          if (err instanceof chai.AssertionError) {
-            throw err;
-          }
-
-          const res = err.response;
+        .then( function(res) {
           expect(res).to.have.status(401);
         });
     });
@@ -110,17 +93,9 @@ describe('Protected endpoint', function() {
 
       return chai
         .request(app)
-        .get('/api/protected')
+        .get('/api/family-members')
         .set('authorization', `Bearer ${token}`)
-        .then(() =>
-          expect.fail(null, null, 'Request should not succeed')
-        )
-        .catch(err => {
-          if (err instanceof chai.AssertionError) {
-            throw err;
-          }
-
-          const res = err.response;
+        .then( function(res) {
           expect(res).to.have.status(401);
         });
     });
@@ -143,12 +118,13 @@ describe('Protected endpoint', function() {
 
       return chai
         .request(app)
-        .get('/api/protected')
+        .get('/api/family-members')
         .set('authorization', `Bearer ${token}`)
         .then(res => {
+          console.log(res.body);
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
-          expect(res.body.data).to.equal('rosebud');
+          // expect(res.body.data).to.equal([]);
         });
     });
   });

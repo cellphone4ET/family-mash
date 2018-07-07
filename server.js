@@ -32,14 +32,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-passport.use(localStrategy);
+app.use(passport.initialize());
+passport.use('local', localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 app.use('/api/family-members', familyMemberRouter);
-
-const jwtAuth = passport.authenticate('jwt', { session: false });
 
 
 app.use('*', function (req, res) {
