@@ -129,20 +129,22 @@ label {
   height: 100%;
 }
 
+.icon {
+  height: 50px;
+}
+
 .all-steps {
   margin: auto;
 }
 
 .steps {
   display: block;
-  width: 150px;
-  height: 100px;
-  border: 1px solid black;
-  color: blue;
+  width: 75%;
+  font-size: 13px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .info-bloc {

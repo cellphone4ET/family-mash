@@ -273,12 +273,14 @@ function getFamilyMembers(id) {
 			"Authorization": `Bearer ${state.token}`
 		},
     success: function(data) {
+        console.log(data)
         state.familyMembers = data;
         if (state.familyMembers.length === 0) {
           alert("Looks like you haven't added any family members yet!");
         } else {
           insertPhotos(state.familyMembers);
         }
+
       },
       error: function(error) {
         console.log(error);
