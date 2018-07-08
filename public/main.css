@@ -299,7 +299,7 @@ p.content-field {
       display: block;
       font-size: 1.4em;
       margin-bottom: 110px;
-      margin-top: 75px;
+      margin-top: 95px;
       margin-left: auto;
       margin-right: auto;
       width: 60%;
@@ -337,7 +337,7 @@ p.content-field {
 
     .text {
       color: black;
-      font-size: 14px;
+      font-size: 13px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -360,7 +360,8 @@ p.content-field {
     .hr2 {
       display: block;
       width: 40%;
-      margin-bottom: 40px;
+      margin-top: 20px;
+      margin-bottom: 80px;
     }
 
     .hr3 {
@@ -374,6 +375,16 @@ p.content-field {
       width: 100px;
       border-radius: 3px;
     }
+}
 
+@media only screen and (min-width: 700px) {
+  .text {
+    font-size: 11px;
+  }
+}
 
+@media only screen and (min-width: 1000px) {
+  .text {
+    font-size: 15px;
+  }
 }
