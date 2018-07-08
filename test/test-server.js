@@ -10,7 +10,7 @@ const should = chai.should();
 
 const {FamilyMember} = require('../models');
 const {app, runServer, closeServer} = require('../server.js');
-const {TEST_DATABASE_URL} = require('../config');
+const {TEST_DATABASE_URL, JWT_SECRET} = require('../config');
 
 chai.use(chaiHttp);
 
@@ -46,9 +46,18 @@ describe('family mash api', function() {
   before(function() {
     return runServer(TEST_DATABASE_URL);
   });
+
   beforeEach(function() {
-    return seedFamilyMemberData();
-  });
+			return chai.request(app)
+			.post('/api/users')
+			.send({username:"test", password:"test123"})
+			.then(function(res) {
+				test_token = res.body.authToken;
+				userId = res.body.id;
+			}).then(function(){
+				return seedGoalData()
+			});
+	});
 
   afterEach(function() {
     return tearDownDb();
@@ -75,6 +84,11 @@ describe('family mash api', function() {
       let res;
       return chai.request(app)
       .get('/api/family-members')
+      .set('Authorization', `Bearer ${test_token}`)
+			.then(function(_res) {
+				res=_res;
+				return Goal.count();
+			})
       .then(function (res) {
         expect(res).to.have.status(200);
         expect(res.body).to.have.lengthOf.at.least(1);

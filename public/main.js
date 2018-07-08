@@ -162,7 +162,7 @@ function submitPerson() {
       let birthday = $('#person-birthday').val();
       let significant_other = $('#person-significant-other').val();
       let anniversary = $('#person-anniversary').val();
-      let notes = $('#person-relation').val();
+      let notes = $('#person-notes').val();
       let photo_url = $('#person-photo-url').val();
 
 
@@ -289,9 +289,22 @@ function getFamilyMembers(id) {
 }
 
 function insertPersonInfo(familyMember) {
-
   let formattedBirthday = moment(state.activeFamilyMember.birthday).format("MMMM Do, YYYY");
   let formattedAnniversary = moment(state.activeFamilyMember.anniversary).format("MMMM Do, YYYY");
+
+
+  let significantOtherHTML = state.activeFamilyMember.significant_other ?
+    `<p class="content-field"><span class="bold">Significant Other</span><span class="smaller">:   ${state.activeFamilyMember.significant_other}</span></p>` :
+    "";
+
+  let anniversaryHTML = state.activeFamilyMember.anniversary ?
+    `<p class="content-field"><span class="bold">Anniversary</span><span class="smaller">:   ${formattedAnniversary}</span></p>` :
+    "";
+
+  let notesHTML = state.activeFamilyMember.notes ?
+    `<p class="content-field"><span class="bold">Notes</span><span class="smaller">:   ${state.activeFamilyMember.notes}</span></p>` :
+    "";
+
 
   let html1 = `<img alt="family-member" class="card-image-active" src="${state.activeFamilyMember.photo_url}" />`
   $(".person-photo").html(html1);
@@ -302,9 +315,9 @@ function insertPersonInfo(familyMember) {
   <div class="text-info">
   <p class="content-field"><span class="bold">Relation</span><span class="smaller">:   ${state.activeFamilyMember.relation}</span></p>
   <p class="content-field"><span class="bold">Birthday</span><span class="smaller">:   ${formattedBirthday} </span></p>
-  <p class="content-field"><span class="bold">Significant Other</span><span class="smaller">:   ${state.activeFamilyMember.significant_other}</span></p>
-  <p class="content-field"><span class="bold">Anniversary</span><span class="smaller">:   ${formattedAnniversary}</span></p>
-  <p class="content-field"><span class="bold">Notes</span><span class="smaller">:   ${state.activeFamilyMember.notes}</span></p>
+  ${significantOtherHTML}
+  ${anniversaryHTML}
+  ${notesHTML}
   </div>
   </div>
 
