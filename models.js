@@ -14,7 +14,7 @@ const familyMemberSchema = mongoose.Schema({
     photo_url: {type: String, required: true}
   },
     {
-    toObject: { virtuals: true },
+    toObject: {virtuals: true},
     toJSON: {virtuals: true }
   }
 )

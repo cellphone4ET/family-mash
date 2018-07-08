@@ -97,7 +97,8 @@ function handleAuth(route, email, password, firstName, lastName) {
   $.ajax(settings);
 }
 
-function showMain() {
+function showMain(data) {
+    console.log(data);
     $(".site-nav").show();
     $("#family-members-page").show();
     $(".signup-login-page").hide();
@@ -175,6 +176,8 @@ function submitPerson() {
         notes: notes,
         photo_url: photo_url
     	};
+
+      console.log(familyMemberData,  'post console log');
 
       let settings = {
         url: `/api/family-members`,

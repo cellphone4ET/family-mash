@@ -48,6 +48,9 @@ router.post('/', jwtAuth, jsonParser, (req, res) => {
       name: req.body.name,
       relation: req.body.relation,
       birthday: req.body.birthday,
+      significant_other: req.body.significant_other,
+      anniversary: req.body.anniversary,
+      notes: req.body.notes,
       photo_url: req.body.photo_url
     })
     .then(FamilyMember => res.status(201).json(FamilyMember.serialize()))
