@@ -176,6 +176,8 @@ function submitPerson() {
         photo_url: photo_url
     	};
 
+      
+
       let settings = {
         url: `/api/family-members`,
         type: "POST",
