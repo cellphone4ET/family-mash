@@ -87,9 +87,6 @@ describe('family mash api', function() {
       .set('Authorization', `Bearer ${test_token}`)
 			.then(function(_res) {
 				res=_res;
-				return Goal.count();
-			})
-      .then(function (res) {
         expect(res).to.have.status(200);
         expect(res.body).to.have.lengthOf.at.least(1);
         return FamilyMember.count();
@@ -103,6 +100,7 @@ describe('family mash api', function() {
       let resFamilyMember;
       return chai.request(app)
         .get('/api/family-members')
+        .set('Authorization', `Bearer ${test_token}`)
         .then(function (res) {
           expect(res).to.have.status(200);
           expect(res).to.be.json;
@@ -111,7 +109,7 @@ describe('family mash api', function() {
 
           res.body.forEach(function (familyMember) {
             expect(familyMember).is.a('object');
-            expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url');
+            expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'age', 'significant_other', 'anniversary', 'notes', 'photo_url');
           });
 
           resFamilyMember = res.body[0];

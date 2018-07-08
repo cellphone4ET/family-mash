@@ -12,22 +12,28 @@ const familyMemberSchema = mongoose.Schema({
     anniversary: {type: Date, required: false},
     notes: {type: String, required: false},
     photo_url: {type: String, required: true}
+  },
+    {
+    toObject: {virtuals: true},
+    toJSON: {virtuals: true }
   }
 )
 
-//virtual property for Age--moments.js
-//edit main.js to insert photo URL of default icon (TBA) if no photo provided)
-
-// familyMemberSchema.virtual('age').get(function) {
-//   let age = moment(this.birthday).get
-// }
+// virtual property for age that will be updated as each year passes
+// as per inputted birthdate
+familyMemberSchema.virtual('age').get(function() {
+     let ageDifMs = Date.now() - this.birthday.getTime();
+     let ageDate = new Date(ageDifMs);
+     let age = Math.abs(ageDate.getUTCFullYear() - 1970);
+     return age;
+});
 
 familyMemberSchema.methods.serialize = function() {
   return {
     id: this._id,
     name: this.name,
     relation: this.relation,
-    // age: this._age,
+    age: this.age,
     birthday: this.birthday,
     significant_other: this.significant_other,
     anniversary: this.anniversary,

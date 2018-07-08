@@ -48,6 +48,9 @@ router.post('/', jwtAuth, jsonParser, (req, res) => {
       name: req.body.name,
       relation: req.body.relation,
       birthday: req.body.birthday,
+      significant_other: req.body.significant_other,
+      anniversary: req.body.anniversary,
+      notes: req.body.notes,
       photo_url: req.body.photo_url
     })
     .then(FamilyMember => res.status(201).json(FamilyMember.serialize()))
@@ -80,7 +83,7 @@ router.put('/:id', jwtAuth, (req, res) => {
   }
 
   const updated = {};
-  const updateableFields = ['name', 'relation', 'age', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url'];
+  const updateableFields = ['name', 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];

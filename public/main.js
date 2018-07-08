@@ -97,7 +97,8 @@ function handleAuth(route, email, password, firstName, lastName) {
   $.ajax(settings);
 }
 
-function showMain() {
+function showMain(data) {
+    console.log(data);
     $(".site-nav").show();
     $("#family-members-page").show();
     $(".signup-login-page").hide();
@@ -176,8 +177,6 @@ function submitPerson() {
         photo_url: photo_url
     	};
 
-      
-
       let settings = {
         url: `/api/family-members`,
         type: "POST",
@@ -193,6 +192,8 @@ function submitPerson() {
         }
       };
 
+    // use of editing ID used to denote which fam member is to be edited
+    // and to set the type to PUT as opposed to POST
     let editingId = state.activeFamilyMember.id
 
     if(state.activeFamilyMember && editingId )  { // EDITING
@@ -211,8 +212,11 @@ function submitPerson() {
 function moreInfoLink() {
   $("#family-members-page").on("click", ".card", function(event) {
     $(".row").hide();
+    // assignation of data attribute to designate which fam  member is
+    // the current active one amongst all fam members
     let index = $(event.currentTarget).attr('data-index');
     state.activeFamilyMember = state.familyMembers[index];
+
     insertPersonInfo(state.activeFamilyMember);
   });
 }
@@ -220,7 +224,6 @@ function moreInfoLink() {
 // DELETE
 function clickDeleteFamMember() {
   $(".person-info-div").on("click", ".delete-family-member", function() {
-    console.log('clickDeleteFamMember ran');
     let result = confirm(`Are you sure you want to delete ${state.activeFamilyMember.name}?`);
     let id = state.activeFamilyMember.id;
       if (result) {
@@ -249,6 +252,8 @@ function clickEditFamMember() {
   $(".person-info-div").on("click", ".edit-family-member", function() {
     clearPersonInfo();
 
+    // reformatting of birthday/anniversary dates from the readable format to a
+    // format accepted by the browser
     let birthday = moment(state.activeFamilyMember.birthday).format("YYYY-MM-DD");
     let anniversary = moment(state.activeFamilyMember.anniversary).format("YYYY-MM-DD");
 
@@ -291,10 +296,12 @@ function getFamilyMembers(id) {
 }
 
 function insertPersonInfo(familyMember) {
+  // necessary date reformatting to a readable form for birthday/anniversaries
   let formattedBirthday = moment(state.activeFamilyMember.birthday).format("MMMM Do, YYYY");
   let formattedAnniversary = moment(state.activeFamilyMember.anniversary).format("MMMM Do, YYYY");
 
-
+  // significant other, anniversary and notes are optional for each family member; the following code checks to see if
+  // this information has been provided, and if not, the corresponding display HTML + 'undefined' will not be rendered
   let significantOtherHTML = state.activeFamilyMember.significant_other ?
     `<p class="content-field"><span class="bold">Significant Other</span><span class="smaller">:   ${state.activeFamilyMember.significant_other}</span></p>` :
     "";
@@ -311,12 +318,15 @@ function insertPersonInfo(familyMember) {
   let html1 = `<img alt="family-member" class="card-image-active" src="${state.activeFamilyMember.photo_url}" />`
   $(".person-photo").html(html1);
 
+  // age is a virtual preoperty automatically calculated and updated each year based on
+  // the user's birthday
   let html2 = `
   <div class="fam-member-info">
   <h4>${state.activeFamilyMember.name}</h4>
   <div class="text-info">
   <p class="content-field"><span class="bold">Relation</span><span class="smaller">:   ${state.activeFamilyMember.relation}</span></p>
   <p class="content-field"><span class="bold">Birthday</span><span class="smaller">:   ${formattedBirthday} </span></p>
+  <p class="content-field"><span class="bold">Age</span><span class="smaller">: ${state.activeFamilyMember.age}</span></p>
   ${significantOtherHTML}
   ${anniversaryHTML}
   ${notesHTML}
@@ -354,6 +364,8 @@ $(".menu-toggle").click(function() {
 
 $(document).ready(function() {
 
+  // check to see if auth token is provided in header; if so then main landing
+  //page is rendered
   if (state.token) {
     showMain();
   }
