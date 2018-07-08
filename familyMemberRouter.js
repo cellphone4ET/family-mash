@@ -80,7 +80,7 @@ router.put('/:id', jwtAuth, (req, res) => {
   }
 
   const updated = {};
-  const updateableFields = ['name', 'relation', 'age', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url'];
+  const updateableFields = ['name', 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
