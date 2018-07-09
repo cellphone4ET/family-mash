@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const expect = chai.expect;
 const should = chai.should();
 const { User } = require("../users");
-const { FamilyMember } = require("../models");
+const { FamilyMember } = require("../familyMembers");
 const { app, runServer, closeServer } = require("../server.js");
 const { TEST_DATABASE_URL, JWT_SECRET } = require("../config");
 
