@@ -49,7 +49,7 @@ describe('Auth endpoints', function () {
         .request(app)
         .post('/api/auth/login')
         .then( function(res) {
-          expect(res).to.have.status(401);
+          expect(res).to.have.status(400);
         });
     });
     it('Should reject requests with incorrect usernames', function () {
@@ -86,7 +86,8 @@ describe('Auth endpoints', function () {
           expect(payload.user).to.deep.equal({
             email,
             firstName,
-            lastName
+            lastName,
+            id: payload.user.id
           });
         });
     });
