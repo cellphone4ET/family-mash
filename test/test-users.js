@@ -282,7 +282,8 @@ describe('/api/user', function() {
             expect(res.body).to.have.keys(
               'email',
               'firstName',
-              'lastName'
+              'lastName',
+              'id'
             );
             expect(res.body.email).to.equal(email);
             expect(res.body.firstName).to.equal(firstName);
@@ -317,7 +318,8 @@ describe('/api/user', function() {
             expect(res.body).to.have.keys(
               'email',
               'firstName',
-              'lastName'
+              'lastName',
+              'id'
             );
             expect(res.body.email).to.equal(email);
             expect(res.body.firstName).to.equal(firstName);

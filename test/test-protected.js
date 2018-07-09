@@ -123,7 +123,7 @@ describe('Protected endpoint', function() {
         .then(res => {
           console.log(res.body);
           expect(res).to.have.status(200);
-          expect(res.body).to.be.an('object');
+          expect(res.body).to.be.an('array');
           // expect(res.body.data).to.equal([]);
         });
     });

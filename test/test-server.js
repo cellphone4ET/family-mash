@@ -11,6 +11,9 @@ const should = chai.should();
 const {FamilyMember} = require('../models');
 const {app, runServer, closeServer} = require('../server.js');
 const {TEST_DATABASE_URL, JWT_SECRET} = require('../config');
+let test_token
+let userId
+
 
 chai.use(chaiHttp);
 
@@ -55,7 +58,7 @@ describe('family mash api', function() {
 				test_token = res.body.authToken;
 				userId = res.body.id;
 			}).then(function(){
-				return seedGoalData()
+				return seedFamilyMemberData()
 			});
 	});
 
@@ -109,7 +112,7 @@ describe('family mash api', function() {
 
           res.body.forEach(function (familyMember) {
             expect(familyMember).is.a('object');
-            expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'age', 'significant_other', 'anniversary', 'notes', 'photo_url');
+            expect(familyMember).to.include.keys("id", "name", 'relation', 'birthday', 'significant_other', 'anniversary', 'notes', 'photo_url');
           });
 
           resFamilyMember = res.body[0];

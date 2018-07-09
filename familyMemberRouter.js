@@ -10,7 +10,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 router.get('/', jwtAuth, (req, res) => {
   FamilyMember
-    .find()
+    .find({user: req.user.id})
     .then(familyMembers => {
       res.json(familyMembers.map(familyMember => familyMember.serialize()));
     })
@@ -51,7 +51,8 @@ router.post('/', jwtAuth, jsonParser, (req, res) => {
       significant_other: req.body.significant_other,
       anniversary: req.body.anniversary,
       notes: req.body.notes,
-      photo_url: req.body.photo_url
+      photo_url: req.body.photo_url,
+      user: req.user.id
     })
     .then(FamilyMember => res.status(201).json(FamilyMember.serialize()))
     .catch(err => {
