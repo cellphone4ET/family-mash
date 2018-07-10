@@ -19,6 +19,14 @@ button,
   width: 75px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+#submit-new-user:hover {
+  cursor: pointer;
+}
+
 .landing-page-buttons {
   height: 30px;
   margin: 10px;
@@ -38,6 +46,10 @@ header {
 #login {
   font-style: italic;
   font-size: 15px;
+}
+
+#submit-login2:hover {
+  cursor: pointer;
 }
 
 .italic {
