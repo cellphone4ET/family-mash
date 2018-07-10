@@ -312,7 +312,7 @@ function insertPersonInfo(familyMember) {
     "";
   // family member photo is an optional input; if none provided the following code provides a generic user avatar
   let photoHTML = state.activeFamilyMember.photo_url ? `<img alt="family-member" class="card-image" src="${state.activeFamilyMember.photo_url}" />` :
-  `<img alt="family-member" class="card-image" src="user.png">`;
+  `<img alt="family-member" class="card-image avatar" src="user.png">`;
 
   $(".person-photo").html(photoHTML);
 
@@ -367,7 +367,7 @@ $(".menu-toggle").click(function() {
 $(document).ready(function() {
 
   // check to see if auth token is provided in header; if so then main landing
-  // page is rendered
+  //page is rendered
   if (state.token) {
     showMain();
   }

@@ -101,7 +101,12 @@ h1 {
 }
 
 .card-image {
+  object-fit: cover;
   width: 100%;
+}
+
+.avatar {
+  border: 1px solid #e5e5e5;
 }
 
 .card-content {
