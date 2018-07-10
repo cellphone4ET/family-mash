@@ -211,6 +211,8 @@ function submitPerson() {
 function moreInfoLink() {
   $("#family-members-page").on("click", ".card", function(event) {
     $(".row").hide();
+    // assignation of data attribute to designate which fam  member is
+    // the current active one amongst all fam members
     let index = $(event.currentTarget).attr('data-index');
     state.activeFamilyMember = state.familyMembers[index];
     insertPersonInfo(state.activeFamilyMember);
@@ -291,10 +293,12 @@ function getFamilyMembers(id) {
 }
 
 function insertPersonInfo(familyMember) {
+  // necessary date reformatting to a readable form for birthday/anniversaries
   let formattedBirthday = moment(state.activeFamilyMember.birthday).format("MMMM Do, YYYY");
   let formattedAnniversary = moment(state.activeFamilyMember.anniversary).format("MMMM Do, YYYY");
 
-
+  // significant other, anniversary and notes are optional for each family member; the following code checks to see if
+  // this information has been provided, and if not, the corresponding display HTML + 'undefined' will not be rendered
   let significantOtherHTML = state.activeFamilyMember.significant_other ?
     `<p class="content-field"><span class="bold">Significant Other</span><span class="smaller">:   ${state.activeFamilyMember.significant_other}</span></p>` :
     "";
@@ -306,18 +310,21 @@ function insertPersonInfo(familyMember) {
   let notesHTML = state.activeFamilyMember.notes ?
     `<p class="content-field"><span class="bold">Notes</span><span class="smaller">:   ${state.activeFamilyMember.notes}</span></p>` :
     "";
-
+  // family member photo is an optional input; if none provided the following code provides a generic user avatar
   let photoHTML = state.activeFamilyMember.photo_url ? `<img alt="family-member" class="card-image" src="${state.activeFamilyMember.photo_url}" />` :
   `<img alt="family-member" class="card-image" src="user.png">`;
 
   $(".person-photo").html(photoHTML);
 
+  // age is a virtual preoperty automatically calculated and updated each year based on
+  // the user's birthday
   let html2 = `
   <div class="fam-member-info">
   <h4>${state.activeFamilyMember.name}</h4>
   <div class="text-info">
   <p class="content-field"><span class="bold">Relation</span><span class="smaller">:   ${state.activeFamilyMember.relation}</span></p>
   <p class="content-field"><span class="bold">Birthday</span><span class="smaller">:   ${formattedBirthday} </span></p>
+   <p class="content-field"><span class="bold">Age</span><span class="smaller">: ${state.activeFamilyMember.age}</span></p>
   ${significantOtherHTML}
   ${anniversaryHTML}
   ${notesHTML}
@@ -359,6 +366,8 @@ $(".menu-toggle").click(function() {
 
 $(document).ready(function() {
 
+  // check to see if auth token is provided in header; if so then main landing
+  // page is rendered
   if (state.token) {
     showMain();
   }
