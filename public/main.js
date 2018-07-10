@@ -111,8 +111,6 @@ function signupErrors(errorMessage) {
 }
 
 function loginErrors(errorStatus) {
-  console.log(errorStatus)
-
 	if(errorStatus === 400) {
 		$('#empty-fields').show();
 	}
@@ -137,6 +135,20 @@ function showMain() {
     hideAllErrorMessages();
     getFamilyMembers();
 
+}
+
+function addFamilyMember() {
+  $("#add-family-member-button").on("click", function(event) {
+    $(".create-person-form").show();
+    $('#no-family-members').hide();
+    $('#person-name').val("");
+    $('#person-relation').val("");
+    $('#person-birthday').val("");
+    $('#person-significant-other').val("");
+    $('#person-anniversary').val("");
+    $('#person-notes').val("");
+    $('#person-photo-url').val("");
+  })
 }
 
 function createPerson() {
@@ -312,7 +324,8 @@ function getFamilyMembers(id) {
         console.log(data)
         state.familyMembers = data;
         if (state.familyMembers.length === 0) {
-          alert("Looks like you haven't added any family members yet!");
+          $('#no-family-members').show();
+
         } else {
           insertPhotos(state.familyMembers);
         }
@@ -404,6 +417,7 @@ $(document).ready(function() {
     showMain();
   }
 
+  addFamilyMember();
   clickReturnArrow();
   clickEditFamMember();
   clickDeleteFamMember();
