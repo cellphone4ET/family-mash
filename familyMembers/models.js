@@ -11,7 +11,7 @@ const familyMemberSchema = mongoose.Schema({
     significant_other: {type: String, required: false},
     anniversary: {type: Date, required: false},
     notes: {type: String, required: false},
-    photo_url: {type: String, required: true},
+    photo_url: {type: String, required: false},
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
   },
     {
