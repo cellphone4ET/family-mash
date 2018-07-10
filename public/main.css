@@ -103,6 +103,7 @@ h1 {
 .card-image {
   object-fit: cover;
   width: 100%;
+  height: 275px;
 }
 
 .avatar {
@@ -266,7 +267,12 @@ p.content-field {
   display: none;
 }
 
-
+.error-div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  font-size: 15px;
+}
 
   @media only screen and (min-width: 800px) {
 
@@ -354,7 +360,7 @@ p.content-field {
 
     .text {
       color: black;
-      font-size: 13px;
+      font-size: 12px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -397,6 +403,12 @@ p.content-field {
 @media only screen and (min-width: 700px) {
   .text {
     font-size: 11px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .text {
+    font-size: 9px;
   }
 }
 

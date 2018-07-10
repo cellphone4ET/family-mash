@@ -2,7 +2,7 @@ var state = {
   loggedIn: false,
   token:localStorage.getItem('token'),
   familyMembers: [],
-  activeFamilyMember: ""
+  activeFamilyMember: "",
 };
 
 function chooseSignUp() {
@@ -89,12 +89,43 @@ function handleAuth(route, email, password, firstName, lastName) {
       showMain();
     },
     error: function(error) {
-      console.log('error with authenticating the account');
-      console.log(error);
+      if (error.responseJSON === undefined) {
+        return loginErrors(error.status);
+      } else {
+        let errorMessage = error.responseJSON.message;
+        signupErrors(errorMessage);
+      }
     }
   }
 
   $.ajax(settings);
+}
+
+function signupErrors(errorMessage) {
+	if(errorMessage === "Username already taken") {
+		$('#email-taken').show();
+	}
+	if(errorMessage === "Must be at least 10 characters long") {
+		$('#password-length').show();
+	}
+}
+
+function loginErrors(errorStatus) {
+  console.log(errorStatus)
+
+	if(errorStatus === 400) {
+		$('#empty-fields').show();
+	}
+	else if(errorStatus === 401) {
+		$('#no-match').show();
+  }
+}
+
+function hideAllErrorMessages() {
+	$('#email-taken').hide();
+  $('#password-length').hide();
+  $('#empty-fields').hide();
+  $('#no-match').hide();
 }
 
 function showMain() {
@@ -103,6 +134,7 @@ function showMain() {
     $(".signup-login-page").hide();
     $(".landing-page").hide();
     document.body.style.backgroundColor = "white";
+    hideAllErrorMessages();
     getFamilyMembers();
 
 }
@@ -367,7 +399,7 @@ $(".menu-toggle").click(function() {
 $(document).ready(function() {
 
   // check to see if auth token is provided in header; if so then main landing
-  //page is rendered
+  // page is rendered
   if (state.token) {
     showMain();
   }
