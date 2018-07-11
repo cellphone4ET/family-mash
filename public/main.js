@@ -375,10 +375,8 @@ function insertPersonInfo(familyMember) {
   ${notesHTML}
   </div>
   </div>
-
   <a href="#delete-family-member" class="delete-family-member"><img src="delete.jpg" alt="trash-can" class="delete"></a>
   <a href="#edit-family-member" class="edit-family-member"><img src="edit.jpg" alt="edit-pencil" class="edit"></a>
-
   `;
   $(".person-info-div").html(html2);
 }
