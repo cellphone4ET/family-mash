@@ -392,18 +392,6 @@ p.content-field {
       opacity: 1;
     }
 
-    .text {
-      color: black;
-      font-size: 12px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
     #logo {
       font-size: 2.7em;
     }
@@ -436,25 +424,50 @@ p.content-field {
     #no-family-members {
       width: 50%;
     }
+
+    .text {
+      color: black;
+      font-size: 12px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 75%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: .5em
+    }
+}
+
+@media only screen and (min-width: 640px) {
+  .text {
+    font-size: .1em;
+  }
 }
 
 @media only screen and (min-width: 700px) {
   .text {
-    font-size: 11px;
+    font-size: .3em;
   }
-}
 
-@media only screen and (min-width: 900px) {
-  .text {
-    font-size: 9px;
-  }
   #no-family-members {
     width: 30%;
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 900px) {
   .text {
-    font-size: 15px;
+    font-size: .8em;
   }
+}
+
+@media only screen and (min-width: 1100px) {
+  .text {
+    font-size: 1em;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .text {
+      font-size: 1.2em;
+    }
 }
