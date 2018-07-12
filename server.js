@@ -8,7 +8,7 @@ const passport = require("passport");
 // const sgMail = require('@sendgrid/mail');
 
 mongoose.Promise = global.Promise;
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const { PORT, DATABASE_URL } = require("./config");
 const app = express();
