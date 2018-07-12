@@ -5,8 +5,10 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const sgMail = require('@sendgrid/mail');
 
 mongoose.Promise = global.Promise;
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const { PORT, DATABASE_URL } = require("./config");
 const app = express();
@@ -39,9 +41,29 @@ app.use("/api/users/", usersRouter);
 app.use("/api/auth/", authRouter);
 app.use("/api/family-members", familyMembersRouter);
 
+
+app.get("/api/mail", (req, res) => {
+  familyMember.find()
+
+
+
+  const msg = {
+    to: 'ericacjohnson@gmail.com',
+    from: 'reminders@familymash.com',
+    subject: 'REMINDERS R COOL',
+    html: '<strong>BIRTHDAYS YAY</strong>',
+  };
+  sgMail.send(msg);
+
+  res.send('hi');
+});
+
 app.use("*", function(req, res) {
   res.status(404).json({ message: "Not Found" });
 });
+
+
+
 
 // start server
 let server;
@@ -56,14 +78,14 @@ function runServer(DATABASE_URL, port = PORT) {
         }
 
         server = app
-          .listen(port, () => {
-            console.log(`Your app is listening on port ${port}`);
-            resolve();
-          })
-          .on("error", err => {
-            mongoose.disconnect();
-            reject(err);
-          });
+        .listen(port, () => {
+          console.log(`Your app is listening on port ${port}`);
+          resolve();
+        })
+        .on("error", err => {
+          mongoose.disconnect();
+          reject(err);
+        });
       }
     );
   });

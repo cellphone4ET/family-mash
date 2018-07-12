@@ -4,9 +4,17 @@ Gone are the days of forgetting the annivesaries and birthdays of your family me
 
 #### Motivation
 
-This app was inspired by the younger-generation's mass-exodus from Facebook and all the birthdays that have since gone by without well-wishes being received due to former Facebook users no longer being notified of their friend's and family's upcoming birthdays.
+This app was inspired by the younger-generation's mass-exodus from Facebook and all the unacknowledged birthdays that go by due to former Facebook users no longer being notified of their friend's and family's upcoming birthdays.
 
 But wait- there's more! As an added bonus, anniversary reminders have also been added for those user's family members who are either married or in a long term-relationship that merits a celebratory phone call once a year.
+
+#### Live Demo
+
+##### [Click here](https://boiling-fjord-22651.herokuapp.com/) to view Family.mash in action.
+
+Please use account demo@demo.com and password demodemodemo to access the demo content.
+
+** in order to demo the email notifications feature of Family.mash, a unique account must be created with a user who has a birthday of the current date.
 
 ## Screen Views
 
@@ -28,22 +36,22 @@ But wait- there's more! As an added bonus, anniversary reminders have also been 
 
 ## Technologies
 
-* **Front-end**
+- **Front-end**
 
-  * HTML
-  * CSS
-  * JavaScript + jQuery + Ajax
+  - HTML
+  - CSS
+  - JavaScript + jQuery + Ajax
 
-* **Back-end**
+- **Back-end**
 
-  * Node.js
-  * MongoDB + Mongoose
-  * Express
+  - Node.js
+  - MongoDB + Mongoose
+  - Express
 
-* **Testing**
+- **Testing**
 
-  * Mocha
+  - Mocha
 
-  * Chai
+  - Chai
 
     
