@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>family.mash</title>
   <link href="reset.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
   <link href="float-grid.css" rel="stylesheet" type="text/css">
   <link href="main.css" rel="stylesheet" type="text/css">
   <link href="links.css" rel="stylesheet" type="text/css">
@@ -17,21 +17,16 @@
 
 <body>
 
-  <nav class="site-nav" hidden>
-    <h1 class="logo">family. mash</h1>
-    <div class="menu-toggle">
-      <div class="hamburger">
-
+  <div class="topnav" id="myTopnav">
+    <div class="nav-items-container">
+      <h1 class="main-logo">family. mash</h1>
+      <a href="#news" id="mainpage">Home</a>
+      <a href="#contact" id="createperson">Add a Family Member</a>
+      <a href="#about" id="sign-out">Sign Out</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i></a>
       </div>
-    </div>
-
-  <ul class="open desktop">
-    <li><a href="#mainpage" id="mainpage">Home</a></li>
-    <li><a href="#createperson" id="createperson">Add a Family Member</a></li>
-    <li><a href="#sign-out" id="sign-out">Sign Out</a></li>
-
-  </ul>
-</nav>
+  </div>
 
 
 

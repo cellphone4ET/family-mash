@@ -402,10 +402,14 @@ function insertPhotos(familyMembers) {
     $("#family-members-page").html(html);
 }
 
-$(".menu-toggle").click(function() {
-  $("ul").toggleClass("opening");
-  $(this).toggleClass("open");
-});
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
 $(document).ready(function() {
 
