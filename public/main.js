@@ -155,6 +155,7 @@ function createPerson() {
   $(".topnav").on("click", "#createperson", function(event) {
     clearPersonInfo();
     $(".row").hide();
+    $(".topnav").removeClass("responsive");
     state.activeFamilyMember = "";
     $('#person-name').val("");
     $('#person-relation').val("");
@@ -174,6 +175,7 @@ function signOut() {
     $(".landing-page").show();
     $(".row").hide();
     $(".create-person-form").hide();
+    $(".topnav").removeClass("responsive");
     document.body.style.backgroundColor = "#dcd0c0";
     state.token = "";
     localStorage.setItem('token', "");
@@ -185,6 +187,7 @@ function returnToMainScreen() {
   $(".topnav").on("click", "#mainpage", function(event) {
     $(".create-person-form").hide();
     clearPersonInfo();
+    $(".topnav").removeClass("responsive");
     $(".row").show();
     insertPhotos();
   });
@@ -401,15 +404,6 @@ function insertPhotos(familyMembers) {
       </div>`;
       });
     $("#family-members-page").html(html);
-}
-
-function closeNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "responsive" && x.className === "topnav") {
-      $( ".topnav" ).removeClass( "responsive" )
-  } else {
-      x.className = "topnav";
-  }
 }
 
 function openNav() {
