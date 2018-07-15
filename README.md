@@ -12,7 +12,7 @@ But wait- there's more! As an added bonus, anniversary reminders have also been 
 
 ##### [Click here](https://boiling-fjord-22651.herokuapp.com/) to view Family.mash in action.
 
-Please use account demo@demo.com and password demodemodemo to access the demo content.
+Please use account boo@addamsfam.com and password 012345678910 to access the demo content.
 
 ** in order to demo the email notifications feature of Family.mash, a unique account must be created with a user who has a birthday of the current date.
 
@@ -53,5 +53,3 @@ Please use account demo@demo.com and password demodemodemo to access the demo co
   - Mocha
 
   - Chai
-
-    

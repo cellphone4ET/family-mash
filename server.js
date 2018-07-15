@@ -5,10 +5,10 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport");
-// const sgMail = require('@sendgrid/mail');
+const sgMail = require('@sendgrid/mail');
 
 mongoose.Promise = global.Promise;
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const { PORT, DATABASE_URL } = require("./config");
 const app = express();
@@ -42,25 +42,49 @@ app.use("/api/auth/", authRouter);
 app.use("/api/family-members", familyMembersRouter);
 
 
-// app.get("/api/mail", (req, res) => {
-//   familyMember.find()
-//
-//
-//
-//   const msg = {
-//     to: 'ericacjohnson@gmail.com',
-//     from: 'reminders@familymash.com',
-//     subject: 'REMINDERS R COOL',
-//     html: '<strong>BIRTHDAYS YAY</strong>',
-//   };
-//   sgMail.send(msg);
-//
-//   res.send('hi');
-// });
-//
-// app.use("*", function(req, res) {
-//   res.status(404).json({ message: "Not Found" });
-// });
+
+
+//router for sending automated emails
+app.get("/api/mail", (req, res) => {
+
+  // var startOfToday = new Date();
+  //   start.setHours(0,0,0,0);
+  //
+  // var endOfToday = new Date();
+  //   end.setHours(23,59,59,999);
+  //
+  // FamilyMember.find({
+  //     "birthday": {
+  //       "$gte": startOfToday,
+  //       "$lt": endOfToday
+  //     }
+  // }).then(familyMembers =>{
+  //
+  //   res.json(familyMembers)
+
+
+    const msg = {
+      to: 'ericacjohnson@gmail.com',
+      from: 'reminders@familymash.com',
+      subject: 'REMINDERS R COOL',
+      html: '<strong>BIRTHDAYS YAY</strong>',
+    };
+
+    sgMail.send(msg);
+
+    res.send('hi');
+
+  }).catch(err=> console.log(err))
+
+
+
+
+
+
+
+app.use("*", function(req, res) {
+  res.status(404).json({ message: "Not Found" });
+});
 
 
 
