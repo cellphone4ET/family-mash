@@ -188,6 +188,7 @@ function returnToMainScreen() {
     $(".row").show();
     insertPhotos();
   });
+
 }
 
 function clearPersonInfo() {
@@ -356,8 +357,8 @@ function insertPersonInfo(familyMember) {
     `<p class="content-field"><span class="bold">Notes</span><span class="smaller">:   ${state.activeFamilyMember.notes}</span></p>` :
     "";
   // family member photo is an optional input; if none provided the following code provides a generic user avatar
-  let photoHTML = state.activeFamilyMember.photo_url ? `<img alt="family-member" class="card-image" src="${state.activeFamilyMember.photo_url}" />` :
-  `<img alt="family-member" class="card-image avatar" src="user.png">`;
+  let photoHTML = state.activeFamilyMember.photo_url ? `<img alt="family-member" class="card-image-active" src="${state.activeFamilyMember.photo_url}" />` :
+  `<img alt="family-member" class="card-image-active avatar" src="user.png">`;
 
   $(".person-photo").html(photoHTML);
 
