@@ -153,6 +153,7 @@ function addFamilyMember() {
 
 function createPerson() {
   $(".topnav").on("click", "#createperson", function(event) {
+    $("#no-family-members").hide();
     clearPersonInfo();
     $(".row").hide();
     $(".topnav").removeClass("responsive");

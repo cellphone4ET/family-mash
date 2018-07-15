@@ -74,7 +74,7 @@ header {
   margin-bottom: 30px;
 }
 
-#logo {
+.logo {
   font-family: "Arvo", serif;
   font-size: 2em;
   letter-spacing: -4px;
