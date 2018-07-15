@@ -1,12 +1,12 @@
 # Family.mash
 
-Gone are the days of forgetting the annivesaries and birthdays of your family members. Users of Family.mash enter their loved one's basic information and the app will send users timely email reminders to send them best wishes.
+Gone are the days of forgetting the anniversaries and birthdays of your family members! With Family.mash users of enter their loved one's basic information and on the big day the app will send them an email reminder to send their best wishes.
 
 #### Motivation
 
 This app was inspired by the younger-generation's mass-exodus from Facebook and all the unacknowledged birthdays that go by due to former Facebook users no longer being notified of their friend's and family's upcoming birthdays.
 
-But wait- there's more! As an added bonus, anniversary reminders have also been added for those user's family members who are either married or in a long term-relationship that merits a celebratory phone call once a year.
+But wait- there's more! As an added bonus, anniversary reminders have also been added for those users family members who are either married or in a long term-relationship (both of which merit a celebratory phone call, obviously).
 
 #### Live Demo
 
@@ -47,9 +47,15 @@ Please use account boo@addamsfam.com and password 012345678910 to access the dem
   - Node.js
   - MongoDB + Mongoose
   - Express
+  - Passport.js
+  - Sendgrid
 
 - **Testing**
 
   - Mocha
-
   - Chai
+
+- **PaaS**
+
+  - Travis CI
+  - Heroku

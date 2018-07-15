@@ -44,39 +44,49 @@ app.use("/api/family-members", familyMembersRouter);
 
 
 
-//router for sending automated emails
+// //router for sending automated emails
+// app.get("/api/mail", (req, res) => {
+//
+//   // var startOfToday = new Date();
+//   //   start.setHours(0,0,0,0);
+//   //
+//   // var endOfToday = new Date();
+//   //   end.setHours(23,59,59,999);
+//   //
+//   // FamilyMember.find({
+//   //     "birthday": {
+//   //       "$gte": startOfToday,
+//   //       "$lt": endOfToday
+//   //     }
+//   // }).then(familyMembers =>{
+//   //
+//   //   res.json(familyMembers)
+//
+//
+//     const msg = {
+//       to: 'ericacjohnson@gmail.com',
+//       from: 'reminders@familymash.com',
+//       subject: 'REMINDERS R COOL',
+//       html: '<strong>BIRTHDAYS YAY</strong>',
+//     };
+//
+//     sgMail.send(msg);
+//
+//     res.send('hi');
+//
+//   }).catch(err=> console.log(err))
+
 app.get("/api/mail", (req, res) => {
+  const msg = {
+    to: 'ericacjohnson@gmail.com',
+    from: 'reminders@familymash.com',
+    subject: 'REMINDERS R COOL',
+    html: '<strong>BIRTHDAYS YAY</strong>',
+  };
+  sgMail.send(msg);
 
-  // var startOfToday = new Date();
-  //   start.setHours(0,0,0,0);
-  //
-  // var endOfToday = new Date();
-  //   end.setHours(23,59,59,999);
-  //
-  // FamilyMember.find({
-  //     "birthday": {
-  //       "$gte": startOfToday,
-  //       "$lt": endOfToday
-  //     }
-  // }).then(familyMembers =>{
-  //
-  //   res.json(familyMembers)
-
-
-    const msg = {
-      to: 'ericacjohnson@gmail.com',
-      from: 'reminders@familymash.com',
-      subject: 'REMINDERS R COOL',
-      html: '<strong>BIRTHDAYS YAY</strong>',
-    };
-
-    sgMail.send(msg);
-
-    res.send('hi');
-
-  }).catch(err=> console.log(err))
-
-
+  res.send('hi');
+});
 
 
 
