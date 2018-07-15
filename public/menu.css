@@ -69,8 +69,7 @@
   .topnav.responsive .icon1 {
     position: absolute;
     right: 15px;
-    top: 25px;
-    z-index: 2;
+    top: 15px;
   }
 
   .topnav.responsive a {
@@ -106,6 +105,6 @@
   .icon1 {
     position: absolute;
     right: 15px;
-    top: 25px;
+    top: 15px;
   }
 }
