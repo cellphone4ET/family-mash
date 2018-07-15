@@ -127,7 +127,7 @@ function hideAllErrorMessages() {
 }
 
 function showMain() {
-    $(".site-nav").show();
+    $(".topnav").show();
     $("#family-members-page").show();
     $(".signup-login-page").hide();
     $(".landing-page").hide();
@@ -152,7 +152,7 @@ function addFamilyMember() {
 }
 
 function createPerson() {
-  $(".site-nav").on("click", "#createperson", function(event) {
+  $(".topnav").on("click", "#createperson", function(event) {
     clearPersonInfo();
     $(".row").hide();
     state.activeFamilyMember = "";
@@ -168,8 +168,8 @@ function createPerson() {
 }
 
 function signOut() {
-  $(".site-nav").on("click", "#sign-out", function(event) {
-    $(".site-nav").hide();
+  $(".topnav").on("click", "#sign-out", function(event) {
+    $(".topnav").hide();
     clearPersonInfo();
     $(".landing-page").show();
     $(".row").hide();
@@ -182,7 +182,7 @@ function signOut() {
 }
 
 function returnToMainScreen() {
-  $(".site-nav").on("click", "#mainpage", function(event) {
+  $(".topnav").on("click", "#mainpage", function(event) {
     $(".create-person-form").hide();
     clearPersonInfo();
     $(".row").show();
@@ -402,7 +402,16 @@ function insertPhotos(familyMembers) {
     $("#family-members-page").html(html);
 }
 
-function myFunction() {
+function closeNav() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "responsive" && x.className === "topnav") {
+      $( ".topnav" ).removeClass( "responsive" )
+  } else {
+      x.className = "topnav";
+  }
+}
+
+function openNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
         x.className += " responsive";

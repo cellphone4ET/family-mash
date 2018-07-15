@@ -17,15 +17,13 @@
 
 <body>
 
-  <div class="topnav" id="myTopnav">
-    <div class="nav-items-container">
-      <h1 class="main-logo">family. mash</h1>
-      <a href="#news" id="mainpage">Home</a>
-      <a href="#contact" id="createperson">Add a Family Member</a>
-      <a href="#about" id="sign-out">Sign Out</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i></a>
-      </div>
+  <div class="topnav" id="myTopnav" hidden>
+      <p class="main-logo">family. mash</p>
+      <a href="#sign-out" class="menuitem" id="sign-out" onclick="closeNav">SIGN OUT</a>
+      <a href="#createperson" class="menuitem" id="createperson" onclick="closeNav">ADD FAMILY MEMBER</a>
+      <a href="#mainpage" class="menuitem" id="mainpage" onclick="closeNav">HOME</a>
+      <a href="javascript:void(0);" class="icon1" onclick="openNav()">☰</a>
+
   </div>
 
 
