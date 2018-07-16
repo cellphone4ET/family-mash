@@ -91,8 +91,7 @@ app.get("/api/mail", (req, res) => {
 
                 `
         };
-        sgMail.send(msg);
-        // res.send('hi');
+        // sgMail.send(msg); UNCOMMENT WHEN GETTING THE RIGHT STUFF ON POSTMAN
       });
     })
     .catch(err => console.log(err));
