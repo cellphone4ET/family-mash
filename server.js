@@ -6,14 +6,16 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const sgMail = require('@sendgrid/mail');
+const moment = require('moment');
 
 mongoose.Promise = global.Promise;
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+moment().format();
 
 const { PORT, DATABASE_URL } = require("./config");
 const app = express();
 
-const { router: familyMembersRouter } = require("./familyMembers");
+const { router: familyMembersRouter, FamilyMember : FamilyMember } = require("./familyMembers");
 const { router: usersRouter } = require("./users");
 const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
 
@@ -42,23 +44,20 @@ app.use("/api/auth/", authRouter);
 app.use("/api/family-members", familyMembersRouter);
 
 
-
-
 //router for sending automated emails
 app.get("/api/mail", (req, res) => {
+  var beginning = new Date().setHours(0,0,0,0);
+  var end = new Date().setHours(23,59,59,999);
 
-  var startOfToday = new Date();
-    start.setHours(0,0,0,0);
-  var endOfToday = new Date();
-    end.setHours(23,59,59,999);
+  var startOfToday = moment(beginning).format();
+  var endOfToday = moment(end).format();
 
   FamilyMember.find({
       "birthday": {
-      "$gte": startOfToday,
-      "$lt": endOfToday
+        "$gte": startOfToday,
+        "$lt": endOfToday
       }
     }).then(familyMembers => {
-
       res.json(familyMembers)
         familyMembers.forEach(member => {
           const msg = {
@@ -67,18 +66,11 @@ app.get("/api/mail", (req, res) => {
             subject: 'REMINDERS R COOL',
             html: '<strong>BIRTHDAYS YAY</strong>',
           };
-          sgMail.send(msg);
-          res.send('hi');
+          // sgMail.send(msg);
+          // res.send('hi');
         })
-      .catch(err=> console.log(err))
-
-    })
-  })
-
-
-
-app.use("*", function(req, res) {
-  res.status(404).json({ message: "Not Found" });
+    }).catch(err =>
+      console.log(err))
 });
 
 
