@@ -85,7 +85,11 @@ app.get("/api/mail", (req, res) => {
           to: member.user.email,
           from: "reminders@familymash.com",
           subject: "REMINDERS R COOL",
-          html: "<strong>BIRTHDAYS YAY</strong>"
+          html: `
+                  <style>.email{color:gray}</style>
+                  <strong class="email">BIRTHDAYS YAY</strong>
+
+                `
         };
         sgMail.send(msg);
         // res.send('hi');
