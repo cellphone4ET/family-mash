@@ -14,7 +14,7 @@ But wait- there's more! As an added bonus, anniversary reminders have also been 
 
 Please use account boo@addamsfam.com and password 012345678910 to access the demo content.
 
-** in order to demo the email notifications feature of Family.mash, a unique account must be created with a user who has a birthday of the current date.
+*** due to the nature of this application a unique account with a valid email address must be created along with a family member with a birthday of the current date for month and day in order to test the email reminders functionality
 
 ## Screen Views
 
@@ -53,6 +53,7 @@ Please use account boo@addamsfam.com and password 012345678910 to access the dem
   - Express
   - Passport.js
   - Sendgrid
+  - Moment.js
 
 - **Testing**
 
