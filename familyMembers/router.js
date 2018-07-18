@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const moment = require("moment");
 
 const { FamilyMember } = require("./models");
 const { jwtStrategy } = require("../auth");
@@ -43,8 +44,10 @@ router.post("/", jwtAuth, jsonParser, (req, res) => {
     name: req.body.name,
     relation: req.body.relation,
     birthday: req.body.birthday,
+    simpleBirthdayDate: moment(req.body.birthday).format("MM-DD"),
     significant_other: req.body.significant_other,
     anniversary: req.body.anniversary,
+    simpleAnniversary: moment(req.body.anniversary).format("MM-DD"),
     notes: req.body.notes,
     photo_url: req.body.photo_url,
     user: req.user.id
@@ -79,8 +82,10 @@ router.put("/:id", jwtAuth, (req, res) => {
     "name",
     "relation",
     "birthday",
+    "simpleBirthdayDate",
     "significant_other",
     "anniversary",
+    "simpleAnniversary",
     "notes",
     "photo_url"
   ];

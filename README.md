@@ -18,6 +18,10 @@ Please use account boo@addamsfam.com and password 012345678910 to access the dem
 
 ## Screen Views
 
+#### Email Reminder
+
+![family-mash-email-reminder](https://user-images.githubusercontent.com/30470040/42912355-d34fb398-8aa3-11e8-8986-9ebc6e6329f1.png)
+
 #### Landing Page
 
 ![family-mash-landing-page](https://user-images.githubusercontent.com/30470040/42547257-fd72e070-8475-11e8-980c-42f4351d501c.png)

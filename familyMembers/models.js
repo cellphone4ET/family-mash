@@ -1,15 +1,19 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const moment = require("moment");
 
 mongoose.Promise = global.Promise;
+moment().format();
 
 const familyMemberSchema = mongoose.Schema({
     name: {type: String, required: true},
     relation: {type: String, required: true},
     birthday: {type: Date, required: true},
+    simpleBirthdayDate: {type: String, required: true},
     significant_other: {type: String, required: false},
-    anniversary: {type: Date, required: false},
+    anniversary: {type: String, required: false},
+    simpleAnniversary: {type: String, required: true},
     notes: {type: String, required: false},
     photo_url: {type: String, required: false},
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
@@ -23,10 +27,10 @@ const familyMemberSchema = mongoose.Schema({
 // virtual property for age that will be updated as each year passes
 // as per inputted birthdate
 familyMemberSchema.virtual('age').get(function() {
-     let ageDifMs = Date.now() - this.birthday.getTime();
-     let ageDate = new Date(ageDifMs);
-     let age = Math.abs(ageDate.getUTCFullYear() - 1970);
-     return age;
+   let ageDifMs = Date.now() - this.birthday.getTime();
+   let ageDate = new Date(ageDifMs);
+   let age = Math.abs(ageDate.getUTCFullYear() - 1970);
+   return age;
 });
 
 familyMemberSchema.methods.serialize = function() {
@@ -36,8 +40,10 @@ familyMemberSchema.methods.serialize = function() {
     relation: this.relation,
     age: this.age,
     birthday: this.birthday,
+    simpleBirthdayDate: this.simpleBirthdayDate,
     significant_other: this.significant_other,
     anniversary: this.anniversary,
+    simpleAnniversary: this.simpleAnniversary,
     notes: this.notes,
     photo_url: this.photo_url
   }
