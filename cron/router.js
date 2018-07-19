@@ -1,6 +1,7 @@
 // make this into router
 
-app.get("/api/cron/all", (req, res) => {
+// to call from postman /api/cron/all
+app.get("/all", (req, res) => {
   var current_date = moment(new Date()).format("MM-DD");
 
   FamilyMember.find({ simpleBirthdayDate: current_date })

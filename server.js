@@ -46,6 +46,7 @@ app.use("/api/users/", usersRouter);
 app.use("/api/auth/", authRouter);
 app.use("/api/family-members", familyMembersRouter);
 
+app.use("/api/cron/", cronRouter);
 // start server
 let server;
 
