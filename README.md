@@ -12,7 +12,7 @@ But wait- there's more! As an added bonus, anniversary reminders have also been 
 
 ##### [Click here](https://boiling-fjord-22651.herokuapp.com/) to view Family.mash in action.
 
-Please use account boo@addamsfam.com and password 012345678910 to access the demo content.
+Please use account wednesday@addamsfamily.com and password 012345678910 to access the demo content.
 
 *** due to the nature of this application a unique account with a valid email address must be created along with a family member with a birthday of the current date for month and day in order to test the email reminders functionality
 
