@@ -1,8 +1,19 @@
-// make this into router
+"use strict";
 
-// to call from postman /api/cron/all
-app.get("/all", (req, res) => {
+const express = require("express");
+const router = express.Router();
+const sgMail = require("@sendgrid/mail");
+const moment = require("moment");
+
+const {FamilyMember: FamilyMember} = require('../familyMembers/models');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+moment().format();
+
+router.get("/", (req, res) => {
+
   var current_date = moment(new Date()).format("MM-DD");
+  console.log('HELLO WORLD')
 
   FamilyMember.find({ simpleBirthdayDate: current_date })
     .populate("user")
@@ -47,7 +58,7 @@ function generateEmail(member, type) {
           type === "birthday"
             ? generateBirthdayMessage(member)
             : generateAnniversaryMessage(member)
-        },
+        }
         Love, <br><br>
         The Family.Mash Team
       </p>
@@ -73,36 +84,4 @@ function generateBirthdayMessage(member) {
   } and give them your best wishes.<br><br>`;
 }
 
-//
-// //router for sending automated birthday emails
-// app.get("/api/mail-birthday", (req, res) => {
-//   var current_date = moment(new Date()).format("MM-DD");
-//
-//   FamilyMember.find({ simpleBirthdayDate: current_date })
-//     .populate("user")
-//     .then(familyMembers => {
-//       res.json(familyMembers);
-//       familyMembers.forEach(member => {
-//         generateBirthdayEmail(member.user.email, "birthday");
-//         sgMail.send(msg);
-//       });
-//     })
-//     .catch(err => console.log(err));
-// });
-//
-// //router for sending automated anniversary emails
-// app.get("/api/mail-anniversary", (req, res) => {
-//   var current_date = moment(new Date()).format("MM-DD");
-//   console.log(current_date);
-//   FamilyMember.find({ simpleAnniversary: current_date })
-//     .populate("user")
-//     .then(familyMembers => {
-//       res.json(familyMembers);
-//       familyMembers.forEach(member => {
-//         generateEmail(member.user.email, "anniversary");
-//         sgMail.send(msg);
-//       });
-//     })
-//     .catch(err => console.log(err));
-// });
-//
+module.exports = {router};

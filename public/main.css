@@ -48,6 +48,10 @@ header {
   font-size: 15px;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 #submit-login2:hover {
   cursor: pointer;
 }
@@ -244,11 +248,19 @@ p.content-field {
   text-transform: uppercase;
 }
 
+hr {
+  color: #f4f4f4;
+}
+
 .hr1 {
   display: none;
 }
 
 .hr2 {
+  display: none;
+}
+
+.hr4 {
   display: none;
 }
 
@@ -347,6 +359,10 @@ p.content-field {
 
     }
 
+    h1 {
+      font-size: 2.6em;
+    }
+
     #flex-container2 {
       display: flex;
       flex-direction: row;
@@ -404,6 +420,7 @@ p.content-field {
 
     .hr1 {
       display: block;
+      color: #f4f4f4;
       width: 85%;
       margin-bottom: 40px;
     }
@@ -417,6 +434,13 @@ p.content-field {
 
     .hr3 {
       display: none;
+    }
+
+    .hr4 {
+      display: block;
+      width: 60%;
+      margin-bottom: 50px;
+      margin-top: 50px;
     }
 
     .landing-page-buttons {

@@ -21,6 +21,7 @@ const {
 } = require("./familyMembers");
 const { router: usersRouter } = require("./users");
 const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
+const { router: cronRouter } = require("./cron");
 
 // logging
 app.use(morgan("common"));
@@ -45,8 +46,9 @@ passport.use(jwtStrategy);
 app.use("/api/users/", usersRouter);
 app.use("/api/auth/", authRouter);
 app.use("/api/family-members", familyMembersRouter);
-
 app.use("/api/cron/", cronRouter);
+
+
 // start server
 let server;
 
