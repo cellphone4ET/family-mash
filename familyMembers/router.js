@@ -82,10 +82,8 @@ router.put("/:id", jwtAuth, (req, res) => {
     "name",
     "relation",
     "birthday",
-    "simpleBirthdayDate",
     "significant_other",
     "anniversary",
-    "simpleAnniversary",
     "notes",
     "photo_url"
   ];
@@ -94,6 +92,14 @@ router.put("/:id", jwtAuth, (req, res) => {
       updated[field] = req.body[field];
     }
   });
+
+  if (req.body.anniversary) {
+    updated.simpleAnniversary = moment(req.body.anniversary).format("MM-DD");
+  }
+
+  if (req.body.birthday) {
+    updated.simpleBirthdayDate = moment(req.body.birthday).format("MM-DD");
+  }
 
   FamilyMember.findByIdAndUpdate(
     req.params.id,

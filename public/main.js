@@ -83,12 +83,17 @@ function handleAuth(route, email, password, firstName, lastName) {
     contentType: "application/json; charset=utf-8",
     dataType: 'json',
     success: function(data) {
-      state.loggedIn = true;
-      localStorage.setItem('token', data.authToken);
-      state.token = data.authToken;
-      showMain();
+      if (data.authToken) {
+        state.loggedIn = true;
+        localStorage.setItem('token', data.authToken);
+        state.token = data.authToken;
+        showMain();
+      } else {
+        handleAuth('auth/login', email, password)
+      }
     },
     error: function(error) {
+      console.log(error)
       if (error.responseJSON === undefined) {
         return loginErrors(error.status);
       } else {
