@@ -177,6 +177,7 @@ function signOut() {
     $(".row").hide();
     $(".create-person-form").hide();
     $(".topnav").removeClass("responsive");
+    $('#no-family-members').hide();
     document.body.style.backgroundColor = "#dcd0c0";
     state.token = "";
     localStorage.setItem('token', "");
