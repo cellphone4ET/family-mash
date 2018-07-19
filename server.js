@@ -107,7 +107,7 @@ app.get("/api/mail-birthday", (req, res) => {
             <div class="banner"> <h1 class=logo>family.mash<h1></div>
 
             <p class="email">Hey ${member.user.firstName},<br><br>
-            It's ${member.name}'s anniversary today! Make sure to call ${member.name} and let them know how much you care.<br><br>
+            It's ${member.name}'s anniversary with ${member.significant_other} today! Make sure to call ${member.name} and let them know how much you care.<br><br>
             Love, <br><br> The Family.Mash Team</p>
             </html>
 

@@ -9,11 +9,11 @@ moment().format();
 const familyMemberSchema = mongoose.Schema({
     name: {type: String, required: true},
     relation: {type: String, required: true},
-    birthday: {type: Date, required: true},
+    birthday: {type: String, required: true},
     simpleBirthdayDate: {type: String, required: true},
     significant_other: {type: String, required: false},
     anniversary: {type: String, required: false},
-    simpleAnniversary: {type: String, required: true},
+    simpleAnniversary: {type: String, required: false},
     notes: {type: String, required: false},
     photo_url: {type: String, required: false},
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
@@ -27,7 +27,9 @@ const familyMemberSchema = mongoose.Schema({
 // virtual property for age that will be updated as each year passes
 // as per inputted birthdate
 familyMemberSchema.virtual('age').get(function() {
-   let ageDifMs = Date.now() - this.birthday.getTime();
+
+   let birthday = moment(this.birthday);
+   let ageDifMs = Date.now() - birthday;
    let ageDate = new Date(ageDifMs);
    let age = Math.abs(ageDate.getUTCFullYear() - 1970);
    return age;
