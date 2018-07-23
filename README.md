@@ -1,6 +1,6 @@
 # Family.mash
 
-Gone are the days of forgetting the anniversaries and birthdays of your family members! With Family.mash users of enter their loved one's basic information and on the big day the app will send them an email reminder to send their best wishes.
+Gone are the days of forgetting the anniversaries and birthdays of your family members! With Family.mash users enter their loved one's basic information and on the big day the app will send them an email reminder to send their best wishes.
 
 #### Motivation
 
@@ -15,6 +15,35 @@ But wait-- there's more! As an added bonus, anniversary reminders have also been
 Please use account wednesday@addamsfamily.com and password 012345678910 to access the demo content.
 
 *** due to the nature of this application a unique account with a valid email address must be created along with a family member with a birthday of the current date for month and day in order to test the email reminders functionality
+
+
+## Technologies
+
+- **Front-end**
+
+  - HTML
+  - CSS
+  - JavaScript + jQuery + Ajax
+
+- **Back-end**
+
+  - Node.js
+  - MongoDB + Mongoose
+  - Express
+  - Passport.js
+  - Sendgrid
+  - Moment.js
+  - EasyCron
+
+- **Testing**
+
+  - Mocha
+  - Chai
+
+- **PaaS**
+
+  - Travis CI
+  - Heroku
 
 ## Screen Views
 
@@ -37,30 +66,3 @@ Please use account wednesday@addamsfamily.com and password 012345678910 to acces
 #### Add a Family Member
 
 ![family-mash-add-family-member](https://user-images.githubusercontent.com/30470040/42547186-b837ed34-8475-11e8-9962-c13d95f2cb56.jpg)
-
-## Technologies
-
-- **Front-end**
-
-  - HTML
-  - CSS
-  - JavaScript + jQuery + Ajax
-
-- **Back-end**
-
-  - Node.js
-  - MongoDB + Mongoose
-  - Express
-  - Passport.js
-  - Sendgrid
-  - Moment.js
-
-- **Testing**
-
-  - Mocha
-  - Chai
-
-- **PaaS**
-
-  - Travis CI
-  - Heroku
