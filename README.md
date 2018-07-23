@@ -10,7 +10,7 @@ But wait- there's more! As an added bonus, anniversary reminders have also been 
 
 #### Live Demo
 
-##### [Click here](https://boiling-fjord-22651.herokuapp.com/) to view Family.mash in action.
+##### [Click here](https://family-mash.herokuapp.com/) to view Family.mash in action.
 
 Please use account wednesday@addamsfamily.com and password 012345678910 to access the demo content.
 

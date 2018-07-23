@@ -13,7 +13,7 @@ moment().format();
 router.get("/", (req, res) => {
 
   var current_date = moment(new Date()).format("MM-DD");
-  console.log('HELLO WORLD')
+  console.log('sending email')
 
   FamilyMember.find({ simpleBirthdayDate: current_date })
     .populate("user")
