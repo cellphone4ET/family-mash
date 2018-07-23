@@ -14,7 +14,7 @@ But wait-- there's more! As an added bonus, anniversary reminders have also been
 
 Please use account wednesday@addamsfamily.com and password 012345678910 to access the demo content.
 
-*** due to the nature of this application a unique account with a valid email address must be created along with a family member with a birthday of the current date for month and day in order to test the email reminders functionality
+*** due to the nature of this application, a unique account with a valid email address must be created along with a family member with a birthday for the following day in order to test the email reminders functionality. Emails are sent out every morning at 12:01AM.
 
 
 ## Technologies
