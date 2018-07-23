@@ -6,7 +6,7 @@ Gone are the days of forgetting the anniversaries and birthdays of your family m
 
 This app was inspired by the younger-generation's mass-exodus from Facebook and all the unacknowledged birthdays that go by due to former Facebook users no longer being notified of their friend's and family's upcoming birthdays.
 
-But wait- there's more! As an added bonus, anniversary reminders have also been added for those users family members who are either married or in a long term-relationship (both of which merit a celebratory phone call, obviously).
+But wait-- there's more! As an added bonus, anniversary reminders have also been added for those users family members who are either married or in a long term-relationship (both of which merit a celebratory phone call, obviously).
 
 #### Live Demo
 
