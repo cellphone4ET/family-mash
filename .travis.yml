@@ -1,9 +1,9 @@
 language: node_js
 node_js: node
-deploy: boiling-fjord-22651
+deploy: family-mash
   provider: heroku
   api_key:
     secure: naiD8x1MMkJXn6wUWvy5sElW2oHohAjd7QUomaHF65FgnAlBWO34Ch1UE5WHFj5JXe5MwD2doF+sLu+9xQRbZqSO3VIk4xDd7QKrCIXguK1JeyOidnJ354f+5FaArBSuDYDAv8/F6NEiAiKFwK3E+Gdw86TF0rl7pbZAd/MzNA74me4DU60/1yJ17BrUKYDqkZdKzKv/Y0bfCc65WbjSRid1yfIOpVgp6/b1JISME4OldC9YjLb2u1iTFs2i1j9zb6s15xk//kZnSF5g88kELlaFkKjmEFuftBIXzS+cntY3je45SsJGgHdhd1GJBwPMS/Pe46BeAfkiJhSAguLB2b87WWEH/YOxOdCnkNh5orDVUQReH/wFj+fq4KiurQ/RDH5GpHgb6c2y/SJDFfADxaaROPXyo+lVXHyQlrAfogvfmn17VzE6TvWcVdxOjVr0r3lFamBX06LocXz8Se9s/gRWAm/KqKNmQ315MCrDFy65Sov/+bVl90jMWrzo3sKeOIkw8j+Uf2F/tIhjhF+eNEudSyqcmsH2XvPchRvjK0nD4hWxTwrVxZ1jBDdnSf9bIDMIZByp/OPZvpEBp0YlaKp0Zeb06kPz7TpsALBqtkD1KHMKEfLSJqQScOttTK+FRwDlsEBGc3yAisUJLwZ7Oy9LFusCYXdT8LQr9IooM8A=
-  app: benvolio
+  app: family-mash
   on:
-    repo: cellphone4ET/benvolio
+    repo: cellphone4ET/family-mash
