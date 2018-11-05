@@ -39,6 +39,9 @@ header {
   display: none;
 }
 
+#landingglogo {
+  font-size: 2.7em;
+}
 #start-page-div {
   text-align: center;
 }
@@ -46,10 +49,6 @@ header {
 #login {
   font-style: italic;
   font-size: 15px;
-}
-
-h1 {
-  font-size: 2em;
 }
 
 #submit-login2:hover {
@@ -80,7 +79,7 @@ h1 {
 
 .logo {
   font-family: "Arvo", serif;
-  font-size: 2em;
+  font-size: 1.8em;
   letter-spacing: -4px;
 }
 
@@ -320,7 +319,17 @@ hr {
   margin-bottom: 0px;
 }
 
-  @media only screen and (min-width: 800px) {
+@media only screen and (max-width: 400px) {
+  #landingglogo {
+    font-size: 1.8em;
+  }
+  .landing-page-buttons {
+    margin-bottom: 10px;
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
 
     .card-image {
       object-fit: cover;
@@ -346,6 +355,7 @@ hr {
     .steps {
       border: none;
     }
+
     #flex-container {
       display: flex;
       flex-direction: row;
@@ -356,11 +366,6 @@ hr {
 
     .flex-item {
       width: 100px;
-
-    }
-
-    h1 {
-      font-size: 2.6em;
     }
 
     #flex-container2 {
