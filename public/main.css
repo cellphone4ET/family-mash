@@ -28,8 +28,11 @@ button:hover {
 }
 
 .landing-page-buttons {
-  height: 30px;
-  margin: 10px;
+  height: 40px;
+}
+
+#sign-up-button {
+  margin-top: 40px;
 }
 
 .landing-page-buttons :hover {
@@ -322,6 +325,7 @@ hr {
 @media only screen and (max-width: 400px) {
   #landingglogo {
     font-size: 1.8em;
+    font-weight: bold;
   }
   .landing-page-buttons {
     margin-bottom: 10px;
