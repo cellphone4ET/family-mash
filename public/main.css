@@ -1,13 +1,32 @@
+
+
 body {
   box-sizing: border-box;
   font-family: "Arvo", serif;
   font-family: "Lato", sans-serif;
-  background-color: #dcd0c0;
+  /* background-color: #dcd0c0; */
   margin-top: 100px;
+
+  background-image: -ms-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+
+  background-image: -moz-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+
+  background-image: -o-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #DCD0C0), color-stop(50, #F4F4F4), color-stop(100, #C0B283));
+
+  background-image: -webkit-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+
+  background-image: linear-gradient(to bottom, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+
+
+
+
 }
 
 fieldset {
   border: 0px;
+  margin-bottom: 100px;
 }
 
 button,
@@ -16,7 +35,9 @@ button,
   background-color: #C0B283;
   border-radius: 3px;
   height: 30px;
-  width: 75px;
+  width: 100%;
+  box-shadow: 5px 5px 2.5px grey;
+  margin-top: 20px;
 }
 
 button:hover {
@@ -325,14 +346,20 @@ hr {
 footer {
   height: 40px;
   width: 100%;
-  background-color: #C0B283;
+  background-color: #DCD0C0;
   font-size: 1em;
   margin-top: 150px;
+  border-top: 1px solid grey;
 }
 
 .footer-text {
   margin-left: 10px;
-  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+fieldset {
+  border: 0px;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 400px) {
@@ -345,7 +372,7 @@ footer {
     width: 75%;
   }
   .page {
-    padding: 20px 15px 25px 15px;
+    padding: 20px 15px 50px 15px;
   }
   .steps {
     width: 80%;
@@ -353,10 +380,13 @@ footer {
   footer {
     height: 30px;
     width: 100%;
-    background-color: #C0B283;
     font-size: .8em;
     font-weight: bold;
     margin-top: 75px;
+  }
+  .page {
+
+    margin-bottom: 50px;
   }
 }
 

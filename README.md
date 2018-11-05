@@ -1,4 +1,4 @@
-# Family.mash
+# Family.mash [![Build Status](https://travis-ci.org/cellphone4ET/family-mash.svg?branch=master)](https://travis-ci.org/cellphone4ET/family-mash)
 
 Gone are the days of forgetting the anniversaries and birthdays of your family members! With Family.mash users enter their loved one's basic information and on the big day the app will send them an email reminder to send their best wishes.
 
