@@ -322,6 +322,19 @@ hr {
   margin-bottom: 0px;
 }
 
+footer {
+  height: 50px;
+  width: 100%;
+  background-color: #C0B283;
+  font-size: 1.3em;
+  margin-top: 150px;
+}
+
+.footer-text {
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
 @media only screen and (max-width: 400px) {
   #landingglogo {
     font-size: 1.8em;
@@ -334,9 +347,16 @@ hr {
   .page {
     padding: 20px 15px 25px 15px;
   }
-
   .steps {
     width: 80%;
+  }
+  footer {
+    height: 40px;
+    width: 100%;
+    background-color: #C0B283;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 75px;
   }
 }
 
