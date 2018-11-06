@@ -36,8 +36,8 @@ button:hover {
 
 .hr00 {
   display: block;
-  width: 40%;
-  margin-top: 20px;
+  width: 60%;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 
@@ -195,7 +195,7 @@ label {
 }
 
 .steps {
-  width: 60%;
+  width: 70%;
   font-size: 13px;
   margin-left: auto;
   margin-right: auto;
@@ -271,6 +271,7 @@ p.content-field {
 hr {
   color: #f4f4f4;
 }
+
 
 .hr1 {
   display: none;
@@ -358,6 +359,11 @@ fieldset {
   margin-bottom: 50px;
 }
 
+.demo-text {
+  margin: 0px 0px 0px 0px;
+  font-size: 13px;
+}
+
 @media only screen and (max-width: 400px) {
   #landingglogo {
     font-size: 1.8em;
@@ -411,6 +417,9 @@ fieldset {
 }
 
 @media only screen and (min-width: 800px) {
+  .hr00 {
+    margin-top: 20px;
+  }
 
     .card-image {
       object-fit: cover;
@@ -498,6 +507,7 @@ fieldset {
 
     .flex-item2:hover .overlay {
       opacity: 1;
+      cursor: crosshair;
     }
 
     #logo {
@@ -513,9 +523,9 @@ fieldset {
 
     .hr2 {
       display: block;
-      width: 40%;
+      width: 60%;
       margin-top: 20px;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
     }
 
     .hr3 {
