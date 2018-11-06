@@ -62,9 +62,8 @@ function submitSignUp() {
     $('#sign-up-email-input').val("");
     let password = $('#sign-up-password-input').val();
     $('#sign-up-password-input').val("");
-    let route = 'users';
-    handleAuth(route, email, password, firstName, lastName)
-    document.body.style.backgroundImage = 'none !important';
+    let route = 'users'
+    handleAuth(route, email, password, firstName, lastName);
   })
 }
 
@@ -136,7 +135,7 @@ function showMain() {
     $("#family-members-page").show();
     $(".signup-login-page").hide();
     $(".landing-page").hide();
-    document.body.style.backgroundImage = 'none !important';
+    document.body.style.backgroundColor = "white";
     hideAllErrorMessages();
     getFamilyMembers();
 
@@ -183,6 +182,7 @@ function signOut() {
     $(".create-person-form").hide();
     $(".topnav").removeClass("responsive");
     $('#no-family-members').hide();
+    document.body.style.backgroundColor = "#dcd0c0";
     state.token = "";
     localStorage.setItem('token', "");
 
@@ -243,7 +243,6 @@ function submitPerson() {
     		},
         success: showMain,
         error: function(error) {
-
         }
       };
 
@@ -333,6 +332,7 @@ function getFamilyMembers(id) {
         state.familyMembers = data;
         if (state.familyMembers.length === 0) {
           $('#no-family-members').show();
+
         } else {
           insertPhotos(state.familyMembers);
         }
