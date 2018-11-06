@@ -7,17 +7,17 @@ body {
   background-color: white;
   margin-top: 100px;
 
-  background-image: -ms-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+  background-image: -ms-linear-gradient(top, #C0B283 0%, #F4F4F4 50%, #DCD0C0 100%);
 
-  background-image: -moz-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+  background-image: -moz-linear-gradient(top, #C0B283 0%, #F4F4F4 50%, #DCD0C0 100%);
 
-  background-image: -o-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+  background-image: -o-linear-gradient(top, #C0B283 0%, #F4F4F4 50%, #DCD0C0 100%);
 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #DCD0C0), color-stop(50, #F4F4F4), color-stop(100, #C0B283));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #C0B283), color-stop(50, #F4F4F4), color-stop(100, #DCD0C0));
 
-  background-image: -webkit-linear-gradient(top, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+  background-image: -webkit-linear-gradient(top, #C0B283 0%, #F4F4F4 50%, #DCD0C0 100%);
 
-  background-image: linear-gradient(to bottom, #DCD0C0 0%, #F4F4F4 50%, #C0B283 100%);
+  background-image: linear-gradient(to bottom, #C0B283 0%, #F4F4F4 50%, #DCD0C0 100%);
 
 
 
@@ -347,7 +347,7 @@ footer {
   bottom: 0;
   height: 40px;
   width: 100%;
-  background-color: #DCD0C0;
+  background-color: #C0B283;
   font-size: 1em;
   margin-top: 150px;
   border-top: 1px solid grey;
