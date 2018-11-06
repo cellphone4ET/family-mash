@@ -62,8 +62,9 @@ function submitSignUp() {
     $('#sign-up-email-input').val("");
     let password = $('#sign-up-password-input').val();
     $('#sign-up-password-input').val("");
-    let route = 'users'
-    handleAuth(route, email, password, firstName, lastName);
+    let route = 'users';
+    handleAuth(route, email, password, firstName, lastName)
+    document.body.style.backgroundImage = 'none !important';
   })
 }
 
@@ -93,7 +94,6 @@ function handleAuth(route, email, password, firstName, lastName) {
       }
     },
     error: function(error) {
-      console.log(error)
       if (error.responseJSON === undefined) {
         return loginErrors(error.status);
       } else {
@@ -136,7 +136,7 @@ function showMain() {
     $("#family-members-page").show();
     $(".signup-login-page").hide();
     $(".landing-page").hide();
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundImage = 'none !important';
     hideAllErrorMessages();
     getFamilyMembers();
 
@@ -183,7 +183,6 @@ function signOut() {
     $(".create-person-form").hide();
     $(".topnav").removeClass("responsive");
     $('#no-family-members').hide();
-    document.body.style.backgroundColor = "#dcd0c0";
     state.token = "";
     localStorage.setItem('token', "");
 
@@ -244,7 +243,7 @@ function submitPerson() {
     		},
         success: showMain,
         error: function(error) {
-          console.log(error);
+
         }
       };
 
@@ -277,7 +276,6 @@ function moreInfoLink() {
 // DELETE
 function clickDeleteFamMember() {
   $(".person-info-div").on("click", ".delete-family-member", function() {
-    console.log('clickDeleteFamMember ran');
     let result = confirm(`Are you sure you want to delete ${state.activeFamilyMember.name}?`);
     let id = state.activeFamilyMember.id;
       if (result) {
@@ -332,18 +330,15 @@ function getFamilyMembers(id) {
 			"Authorization": `Bearer ${state.token}`
 		},
     success: function(data) {
-        console.log(data)
         state.familyMembers = data;
         if (state.familyMembers.length === 0) {
           $('#no-family-members').show();
-
         } else {
           insertPhotos(state.familyMembers);
         }
 
       },
       error: function(error) {
-        console.log(error);
       }
     });
 }
