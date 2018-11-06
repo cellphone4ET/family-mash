@@ -55,7 +55,7 @@
         <div class="demo-text-div">
           <p class="demo-text">Want to see how family.mash works?</p>
           <p class="demo-text">Try a free demo by clicking</p>
-          <a href="#demo" id='demo'>here.</a>
+          <a href="#demo" id='demo' onclick="on()">here.</a>
         </div>
 
         <hr class="hr2">
@@ -130,10 +130,16 @@
     </div>
 
 
-      <div id="alert-div" hidden>
-        <span id="hide-alert-span"><a href="#alert-x" id="alert-x">X</a></span>
-        <p class="alert-text">In order to test out the email reminder functionality of this app users must create an account with a valid email that they have access to. From there they can then create family member's with a birthday or anniversary for the following day. Reminders are sent out every night at midnight. </p>
+    <div id="overlay11" onclick="off()">
+      <div class="alert-text-div">
+        <p class="alert-text-p">X</p>
+        <p class="alert-text-p">In order to test out the email reminder functionality of this app users must create an account with a valid email that they have access to.</p>
+        <p class="alert-text-p">From there they can then create family members with a birthday or anniversary of the following day.</p>
+        <p class="alert-text-p">Reminders are sent out every night at midnight.</p>
       </div>
+    </div>
+
+
 
     <div class="create-person-page">
       <div class="create-person-form" hidden>

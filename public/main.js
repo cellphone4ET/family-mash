@@ -72,7 +72,6 @@ function submitDemoLogin() {
     let password = '012345678910';
     let route = 'auth/login';
     handleAuth(route, email, password);
-    $("#alert-div").show();
   })
 }
 
@@ -147,14 +146,6 @@ function showMain() {
     document.body.style.backgroundColor = "white";
     hideAllErrorMessages();
     getFamilyMembers();
-    //TO BE DELETED
-    $("#alert-div").show();
-}
-
-function closeDemoAlert() {
-  $('#alert-div').on('click', function(event) {
-    $('#alert-div').hide();
-  })
 }
 
 function addFamilyMember() {
@@ -434,6 +425,14 @@ function openNav() {
     }
 }
 
+//on off for demo-user overlay
+function on() {
+    document.getElementById("overlay11").style.display = "block";
+}
+function off() {
+    document.getElementById("overlay11").style.display = "none";
+}
+
 $(document).ready(function() {
 
   // check to see if auth token is provided in header; if so then main landing
@@ -442,7 +441,8 @@ $(document).ready(function() {
     showMain();
   }
 
-  closeDemoAlert();
+  on();
+  off();
   addFamilyMember();
   clickReturnArrow();
   clickEditFamMember();
