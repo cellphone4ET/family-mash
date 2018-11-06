@@ -48,7 +48,6 @@ function submitLogin() {
     let route = 'auth/login';
     handleAuth(route, email, password);
   })
-
 }
 
 function submitSignUp() {
@@ -64,6 +63,15 @@ function submitSignUp() {
     $('#sign-up-password-input').val("");
     let route = 'users'
     handleAuth(route, email, password, firstName, lastName);
+  })
+}
+
+function submitDemoLogin() {
+  $("#demo").on("click", function(event) {
+    let email = 'wednesday@addamsfamily.com';
+    let password = '012345678910';
+    let route = 'auth/login';
+    handleAuth(route, email, password);
   })
 }
 
@@ -438,4 +446,5 @@ $(document).ready(function() {
   chooseLogin();
   submitLogin();
   submitSignUp();
+  submitDemoLogin();
 });

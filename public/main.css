@@ -27,6 +27,18 @@ button:hover {
   cursor: pointer;
 }
 
+
+#demo:hover{
+  text-decoration: underline;
+}
+
+.hr00 {
+  display: block;
+  width: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 #submit-new-user:hover {
   cursor: pointer;
 }
