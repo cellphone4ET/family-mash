@@ -72,6 +72,7 @@ function submitDemoLogin() {
     let password = '012345678910';
     let route = 'auth/login';
     handleAuth(route, email, password);
+    $("#alert-div").show();
   })
 }
 
@@ -146,7 +147,14 @@ function showMain() {
     document.body.style.backgroundColor = "white";
     hideAllErrorMessages();
     getFamilyMembers();
+    //TO BE DELETED
+    $("#alert-div").show();
+}
 
+function closeDemoAlert() {
+  $('#alert-div').on('click', function(event) {
+    $('#alert-div').hide();
+  })
 }
 
 function addFamilyMember() {
@@ -193,6 +201,7 @@ function signOut() {
     document.body.style.backgroundColor = "#dcd0c0";
     state.token = "";
     localStorage.setItem('token', "");
+    $("#alert-div").hide();
 
   });
 }
@@ -433,6 +442,7 @@ $(document).ready(function() {
     showMain();
   }
 
+  closeDemoAlert();
   addFamilyMember();
   clickReturnArrow();
   clickEditFamMember();
