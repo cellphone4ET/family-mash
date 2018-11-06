@@ -334,7 +334,9 @@ footer {
   font-size: 1em;
   margin-top: 150px;
   border-top: 1px solid grey;
-  padding-left: 10px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-bottom: 10px;
 }
 
 fieldset {
