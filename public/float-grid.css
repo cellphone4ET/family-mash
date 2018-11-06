@@ -11,8 +11,9 @@
 
 .row::before,
 .row::after {
-  /* display: table; */
+  /* display: inline-block; */
   content: '';
+  overflow: auto;
 }
 
 .row::after {

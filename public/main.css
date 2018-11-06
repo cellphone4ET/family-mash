@@ -1,4 +1,6 @@
-
+main {
+  overflow: auto;
+}
 
 body {
   box-sizing: border-box;
