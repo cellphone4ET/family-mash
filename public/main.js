@@ -204,7 +204,16 @@ function returnToMainScreen() {
     $(".create-person-form").hide();
     clearPersonInfo();
     $(".topnav").removeClass("responsive");
-    $(".row").show();
+  
+
+    if (state.familyMembers.length === 0) {
+      $('#no-family-members').show();
+
+    } else {
+      insertPhotos(state.familyMembers);
+      $(".row").show();
+    }
+
   });
 
 
