@@ -183,41 +183,36 @@ function createPerson() {
 
 function signOut() {
   $(".topnav").on("click", "#sign-out", function(event) {
-    $(".topnav").hide();
-    clearPersonInfo();
-    $(".landing-page").show();
-    $(".row").empty();
-    $(".row").hide();
-    $(".create-person-form").hide();
-    $(".topnav").removeClass("responsive");
-    $('#no-family-members').hide();
-    document.body.style.backgroundColor = "#dcd0c0";
-    state.token = "";
-    localStorage.setItem('token', "");
-    $("#alert-div").hide();
+    let result = confirm(`Are you sure you want to signout?`);
+      if (result) {
+        $(".topnav").hide();
+        clearPersonInfo();
+        $(".landing-page").show();
+        $(".row").empty();
+        $(".row").hide();
+        $(".create-person-form").hide();
+        $(".topnav").removeClass("responsive");
+        $('#no-family-members').hide();
+        document.body.style.backgroundColor = "#dcd0c0";
+        state.token = "";
+        localStorage.setItem('token', "");
+        $("#alert-div").hide();
+      }
   });
 }
-
 
 function returnToMainScreen() {
   $(".topnav").on("click", "#mainpage", function(event) {
     $(".create-person-form").hide();
     clearPersonInfo();
     $(".topnav").removeClass("responsive");
-  
-
     if (state.familyMembers.length === 0) {
       $('#no-family-members').show();
-
     } else {
       insertPhotos(state.familyMembers);
       $(".row").show();
     }
-
   });
-
-
-
 }
 
 function clearPersonInfo() {
