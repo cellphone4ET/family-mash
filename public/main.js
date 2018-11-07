@@ -68,6 +68,7 @@ function submitSignUp() {
 
 function submitDemoLogin() {
   $("#demo").on("click", function(event) {
+    console.log('submitdemo ran');
     let email = 'wednesday@addamsfamily.com';
     let password = '012345678910';
     let route = 'auth/login';
@@ -185,6 +186,7 @@ function signOut() {
     $(".topnav").hide();
     clearPersonInfo();
     $(".landing-page").show();
+    $(".row").empty();
     $(".row").hide();
     $(".create-person-form").hide();
     $(".topnav").removeClass("responsive");
@@ -193,9 +195,9 @@ function signOut() {
     state.token = "";
     localStorage.setItem('token', "");
     $("#alert-div").hide();
-
   });
 }
+
 
 function returnToMainScreen() {
   $(".topnav").on("click", "#mainpage", function(event) {
@@ -203,8 +205,9 @@ function returnToMainScreen() {
     clearPersonInfo();
     $(".topnav").removeClass("responsive");
     $(".row").show();
-    insertPhotos();
   });
+
+
 
 }
 
