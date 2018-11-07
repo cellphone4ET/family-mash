@@ -34,12 +34,12 @@ body {
     -ms-transform: translate(-50%,-50%);
 }
 
-
-fieldset {
+.sign-up-login-fieldset {
+  display: inline-block;
   border: 0px;
   margin-bottom: 100px;
+  margin-top: 50px;
 }
-
 
 button,
 #submit-login2,
@@ -318,8 +318,9 @@ hr {
 }
 
 .back {
-  height: 20px;
-  float: left;
+  display: block;
+  height: 30px;
+
 }
 
 #flex-container2 {
